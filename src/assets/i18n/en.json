@@ -1,0 +1,34 @@
+{
+    "Home":"Home",
+    "Shop":"Shop",
+    "ContactUs":"Contact US",
+    "CallUs" :"Call US",
+    "Login":"Log In",
+    "LogUp":"Log Up",
+    "address":"Address",
+    "mainAdress":"Sub Address",
+    "OurBrands":"Our Brands",
+    "ShopByPrice":"Shop By Price",
+    "ShopByBrands" :"Shop By Brand",
+    "ShopByType":"Shop By Type",
+    "Search":"Search",
+    "Reset":"Reset",
+    "Cart":"Buy",
+    "View":"View",
+    "BestSell":"Best Selling Products",
+    "random":"Random",
+    "PriceAsec":"Price : from low to high",
+    "PriceDsec":"Price : from high to low"
+
+
+
+
+
+
+
+
+
+
+
+
+}

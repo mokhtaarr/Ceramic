@@ -1,0 +1,58 @@
+<div class="card shadow-sm mb-4" *ngIf="product">
+   
+  <div class="image position-relative" style="cursor: pointer;">
+    <div class="d-flex align-items-center justify-content-center">
+      <img src="{{product.taxItemCode}}" class="img-fluid bg-info" alt="{{product.itemDescA}}">
+    </div>
+    <div class="d-flex align-items-center justify-content-center hover-overlay">
+      <button class="btn btn-primary me-2">{{'Cart'|translate}}</button>
+      <button  class="btn btn-primary" style="margin-right:5px">{{'View'|translate}}</button>
+    </div>
+</div>
+    <div class="card-body d-flex flex-column">
+      <a href="" class="text-decoration-none">
+        <div *ngIf="currentCulture == 'ar'">
+          <h6 class="text-uppercase">{{product.itemDescA}}</h6>
+        </div>
+        <div *ngIf="currentCulture == 'en'">
+          <h6 class="text-uppercase">{{product.itemDescE}}</h6>
+        </div>
+      </a>
+      <span  class="mb-2" style="color: red;">{{product.firstPrice}}ج.م</span>
+    </div>
+  </div>
+
+  <!-- <div class="card shadow-sm mb-4">
+   
+    <div class="image position-relative" style="cursor: pointer;">
+      <img src="../../../assets/images/prd2.jpg" class="img-fluid bg-info">
+      <div class="d-flex align-items-center justify-content-center hover-overlay">
+          <button class="btn btn-primary me-2">{{'Cart'|translate}}</button>
+          <button  class="btn btn-primary" style="margin-right:5px">{{'View'|translate}}</button>
+        </div>
+  </div>
+      <div class="card-body d-flex flex-column">
+        <a href="" class="text-decoration-none">
+          <h6 class="text-uppercase">25*70-A سيراميك اينوفا حوائط 7648</h6>
+        </a>
+        <span  class="mb-2" style="color: red;">ج.م180</span>
+      </div>
+    </div>
+    <div class="card shadow-sm mb-4">
+      <div class="image position-relative" style="cursor: pointer;">
+        <img src="../../../assets/images/prd3.jpg" class="img-fluid bg-info">
+        <div class="d-flex align-items-center justify-content-center hover-overlay">
+          <button class="btn btn-primary me-2">{{'Cart'|translate}}</button>
+          <button  class="btn btn-primary" style="margin-right:5px">{{'View'|translate}}</button>
+        </div>
+     </div>
+        <div class="card-body d-flex flex-column">
+          <a href="" class="text-decoration-none">
+            <h6 class="text-uppercase">25*70-A سيراميك اينوفا حوائط 7648</h6>
+          </a>
+          <span  class="mb-2" style="color: red;">ج.م180</span>
+        </div>
+    </div>
+   
+
+       -->

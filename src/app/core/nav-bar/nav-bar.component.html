@@ -1,0 +1,80 @@
+ <div class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-black " style="height:40px ;">
+        <div class="container-fluid">
+            <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
+            (click)="translate.use('en')">
+                English
+              </span>
+              <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
+              (click)="translate.use('ar')">
+                عربى
+              </span>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                
+              </li>
+            </ul>
+            <a class="navbar-brand" href="#" style="color: white;font-size: small;"> <i class="fa fa-phone"
+                aria-hidden="true">19966</i> {{'CallUs' | translate}}</a>
+           
+            <!-- <div *ngIf="currentCulture=='ar'">
+              <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
+                (click)="translate.use('en')">
+                English
+              </span>
+            </div>
+            <div *ngIf="currentCulture=='en'">
+              <span class="navbar-text" style="color: white;font-size: small;cursor: pointer;"
+                (click)="translate.use('ar')">
+                عربي
+              </span>
+            </div> -->
+          </div>
+        </div>
+      </nav>
+      
+    <header class="navbar navbar-expand-lg bg-light d-flex flex-row align-items-center justify-content-between p-3 px-4 mb-3
+    bg-white border-bottom  shadow-sm">  
+    <div class="col-md-3 text-end">
+        <a  routerLink="/account/login" type="button" class="btn btn-outline-primary me-2">{{'Login' | translate}}</a>
+        <a routerLink="/account/register" type="button" class="btn btn-primary" style="margin-right: 5px;color: white;">{{'LogUp' | translate}}</a>
+        <a class="position-relative" style="margin-left: 5px;">
+            <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
+            <div class="cart-no">5</div>
+        </a>
+      </div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 my-2 text-uppercase fs-4">
+        <a class="p-2" routerLinkActive="active" routerLink="/Contact">{{'ContactUs' | translate}}</a>
+        <a class="p-2" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">{{'Shop' | translate}}</a>
+        <a class="p-2"  routerLinkActive="active" routerLink="/home">{{'Home'| translate}}</a>
+    </ul>
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="/assets/images/logo.png" alt="logo" class="logo" style="max-height: 70px;" routerLink="/">
+    </a>
+     
+    </header>
+  </div> 
+
+  
+<!-- <header>
+    <nav class="navbar navbar-expand-lg bg-light d-flex flex-row align-items-center justify-content-between p-3 px-4 mb-3
+    bg-white border-bottom fixed-top shadow-sm">
+        <div class="container-fluid">
+            <img src="/assets/images/logo.png" alt="logo" class="logo" style="max-height: 70px;" routerLink="/">
+            <nav class="my-2 text-uppercase fs-4">
+                <a class="p-2" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">الصفحه الرئيسيه</a>
+                <a class="p-2" routerLinkActive="active" routerLink="/shop">عروض و خصومات</a>
+                <a class="p-2" routerLinkActive="active" routerLink="/Contact">تواصل معانا</a>
+            </nav>
+            <div class="d-flex align-items-center">
+                <a class="position-relative">
+                    <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
+                    <div class="cart-no">5</div>
+                </a>
+                <a href=""  class="btn btn-outline-primary me-2">Login</a>
+                <a href="" class="btn btn-primary" style="color: white;">Sign Up</a>
+            </div>
+        </div>
+      </nav>
+</header> -->

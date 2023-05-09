@@ -1,0 +1,144 @@
+
+<h4 class="text-warning ms-3 text-center mt-4">{{'OurBrands'|translate}}</h4>
+
+<carousel [isAnimated]="true"
+          [itemsPerSlide]="itemsPerSlide"
+          [singleSlideOffset]="singleSlideOffset"
+          [startFromIndex]="6"
+          [interval]="4000">
+
+  <slide *ngFor="let slide of slides; let index=index" class="m-2">
+    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+    <div class="carousel-caption">
+      <h1></h1>
+    </div>
+  </slide>
+</carousel>
+
+<h4 class="text-warning ms-3 text-center  mt-4">{{'BestSell'|translate}}</h4>
+
+<div>
+  <carousel [isAnimated]="true"
+          [itemsPerSlide]="itemsPerSlide"
+          [singleSlideOffset]="singleSlideOffset"
+          [startFromIndex]="6"
+          [interval]="0"
+         >
+         
+  <slide *ngFor="let slide of slidesProduct; let index=index" class="m-5">
+    <div class="card" style="width: 18rem;">
+      <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+      <div class="card-body">
+        <p class="card-text">{{slide.desc}}</p>
+        <span  class="mb-5" style="color: red;">ج.م180</span>
+        <br>
+        <a href="#" class="btn btn-primary m-1">{{'Cart'|translate}}</a>
+        <a href="#" class="btn btn-primary m-1">{{'View'|translate}}</a>
+      </div>
+    </div>
+  </slide>
+</carousel>
+</div> 
+
+<!-- 
+<body>
+
+    <div id="carouselExampleControls" class="carousel slide mt-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand1.jpg"  alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand2.jpg"  alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand3.jpg"  alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand4.jpg"  alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand5.jpg"  alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand6.jpg" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="assets/images/brand7.jpg"  alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: red;"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: red;"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+</body> -->
