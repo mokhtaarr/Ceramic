@@ -1,15 +1,15 @@
 <body dir="{{textDir}}">
     <ngx-spinner type="timer">
-        <h3>Loading....</h3>
+        <h3>{{'Loading'|translate}}</h3>
     </ngx-spinner>
-    
+
     <div>
         <app-nav-bar></app-nav-bar>
-     <!-- <app-section-header></app-section-header> -->
-    <div class="container">
-    <!-- <app-shop></app-shop> -->
-    <router-outlet></router-outlet>
-    </div>
+        <!-- <app-section-header></app-section-header> -->
+        <div class="container">
+            <!-- <app-shop></app-shop> -->
+            <router-outlet></router-outlet>
+        </div>
     </div>
 
 </body>

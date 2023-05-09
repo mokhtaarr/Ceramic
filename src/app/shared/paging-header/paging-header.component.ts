@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-paging-header',
@@ -9,4 +10,5 @@ export class PagingHeaderComponent {
   @Input() pageNumber ?: number;
   @Input() pageSize ?:number;
   @Input() TotalCount?:number
+  constructor(public translate:TranslateService){}
 }

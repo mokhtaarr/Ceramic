@@ -5,6 +5,9 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PagingHeaderComponent } from './paging-header/paging-header.component';
 import { PagerComponent } from './pager/pager.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { httpTranslateLoader } from '../app.module';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,6 +18,14 @@ import { PagerComponent } from './pager/pager.component';
   imports: [
     CommonModule,
     SharedRoutingModule,
+    TranslateModule.forRoot({
+      defaultLanguage:'ar',
+      loader:{
+        provide:TranslateLoader,
+        useFactory : httpTranslateLoader,
+        deps:[HttpClient]
+      }
+    }),
     PaginationModule.forRoot(),
     CarouselModule.forRoot()
   ],

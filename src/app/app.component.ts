@@ -12,7 +12,7 @@ import { Pagination } from './shared/models/pagination';
 export class AppComponent implements OnInit{
   title = 'Store Appliction';
   currentCulture!:string;
-  textDir!: string;
+  textDir: string="rtl";
   products:any[]=[]; 
 
   constructor(private http:HttpClient,private translate: TranslateService){
@@ -20,10 +20,10 @@ export class AppComponent implements OnInit{
     {   
       if(translate.currentLang == 'ar')
       {
-        this.textDir = 'ltr';
+        this.textDir = 'rtl';
         console.log("Arabic Direction")
       }else{
-        this.textDir = 'rtl';
+        this.textDir = 'ltr';
         console.log("English Direction")
       }
     });

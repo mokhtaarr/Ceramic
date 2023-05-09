@@ -15,8 +15,7 @@
 
 <app-product-carousel></app-product-carousel>
 <div class="container mt-4">
-
-
+  <app-product-carousel-with-card></app-product-carousel-with-card>
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
       <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
@@ -72,18 +71,21 @@
   <div>
     <section class="col-lg-12 col-md-12  col-sm-12">
       <div class="row mb-4">
-       <app-paging-header 
-       [TotalCount]="TotalCount"
-       [pageNumber]="shopParams.pageNumber"
-       [pageSize]="shopParams.pageSize"
-       >
-
-       </app-paging-header>
-        <div class="d-flex" style="margin-top:30px;">
-          <button class="btn btn-outline-success">{{'Reset'|translate}}</button>
-          <button class="btn btn-outline-primary mx-2">{{'Search'|translate}}</button>
-          <input type="text" placeholder="..." class="form-control me-2" style="width:100%;">
+        <div class="d-flex mt-2 justify-content-center">
+          <input type="text" placeholder="{{'PlaceHolderSearch'|translate}}" (keyup.enter)="onSrarch()"
+            class="form-control me-2" style="width:50%;border-radius: 50px;color:white;
+           background-color:#ffa500e0;" #search>
+          <button class="btn btn-outline-warning mx-2" style="color: black;" (click)="OnReset()"> <i class="fa fa-repeat"
+              aria-hidden="true"></i>
+            {{'Reset'|translate}}</button>
+          <button class="btn btn-primary mx-2" (click)="onSrarch()"> <i class="fa fa-search"
+              aria-hidden="true"></i>
+            {{'Search'|translate}}</button>
         </div>
+        <app-paging-header [TotalCount]="TotalCount" [pageNumber]="shopParams.pageNumber"
+          [pageSize]="shopParams.pageSize">
+
+        </app-paging-header>
       </div>
 
       <div class="row mb-2">
@@ -93,18 +95,15 @@
       </div>
 
       <div class="d-flex justify-content-center" *ngIf="TotalCount > 0">
-        <app-pager
-          [TotalCount]="TotalCount"
-          [pageSize]="shopParams.pageSize"
-          (pageChanged)="onPageChanged($event)"
-        ></app-pager>
+        <app-pager [TotalCount]="TotalCount" [pageSize]="shopParams.pageSize"
+          (pageChanged)="onPageChanged($event)"></app-pager>
 
       </div>
     </section>
 
-    <section class="col-lg-3  col-sm-12">
-      <!-- shop price -->
-      <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByPrice'|translate}}</h5>
+    <!-- <section class="col-lg-3  col-sm-12"> -->
+    <!-- shop price -->
+    <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByPrice'|translate}}</h5>
       <div *ngIf="currentCulture == 'ar'">
         <select class="form-select mb-4" (change)="onSortSelected($event)">
           <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
@@ -122,8 +121,8 @@
 
 
 
-      <!-- shop Brand -->
-      <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
+    <!-- shop Brand -->
+    <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
 
       <div *ngIf="currentCulture == 'ar'">
         <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
@@ -138,8 +137,8 @@
         </select>
       </div> -->
 
-      <!-- shop Type -->
-      <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
+    <!-- shop Type -->
+    <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
       <div *ngIf="currentCulture == 'ar'">
         <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
           <option class="text-center" *ngFor="let type of types"
@@ -154,10 +153,10 @@
         </select>
       </div> -->
 
-      <!-- other way to view brands and types -->
-      <!-- old style with menu in right side for brand and type -->
+    <!-- other way to view brands and types -->
+    <!-- old style with menu in right side for brand and type -->
 
-      <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
+    <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
       <div *ngIf="currentCulture == 'ar'">
         <ul class="list-group my-3">
           <li class="list-group-item text-center" style="cursor:pointer;" *ngFor="let brand of brands"
@@ -177,7 +176,7 @@
         </ul>
       </div> -->
 
-      <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
+    <!-- <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
       <div *ngIf="currentCulture == 'ar'">
         <ul class="list-group my-3">
           <li class="list-group-item text-center" style="cursor:pointer;" *ngFor="let type of types"
@@ -196,7 +195,7 @@
           </li>
         </ul>
       </div> -->
-    </section>
+    <!-- </section> -->
   </div>
 </div>
 

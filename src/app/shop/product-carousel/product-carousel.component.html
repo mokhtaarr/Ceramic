@@ -25,8 +25,8 @@
           [interval]="0"
          >
          
-  <slide *ngFor="let slide of slidesProduct; let index=index" class="m-5">
-    <div class="card" style="width: 18rem;">
+  <slide *ngFor="let slide of slidesProduct; let index=index" class="m-2">
+    <!-- <div class="card" style="width: 18rem;">
       <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
       <div class="card-body">
         <p class="card-text">{{slide.desc}}</p>
@@ -35,7 +35,26 @@
         <a href="#" class="btn btn-primary m-1">{{'Cart'|translate}}</a>
         <a href="#" class="btn btn-primary m-1">{{'View'|translate}}</a>
       </div>
-    </div>
+    </div> -->
+    <!-- <figure class="snip1171 orange">
+      <img [src]="slide.image" alt="sample52"/>
+      <div class="price">$19.00</div>
+      <figcaption>
+        <h3>Wax Jacket</h3>
+        <p class="card-text">{{slide.desc}}</p>
+        <a href="#">Add to Cart</a>
+      </figcaption>
+    </figure> -->
+
+    <figure class="snip1171 blue hover">
+      <img [src]="slide.image" alt="sample52"/>
+      <div class="price">$19.00</div>
+      <figcaption>
+        <h3>Wax Jacket</h3>
+        <p class="card-text">{{slide.desc}}</p>
+        <a href="#">Add to Cart</a>
+      </figcaption>
+    </figure>
   </slide>
 </carousel>
 </div> 
