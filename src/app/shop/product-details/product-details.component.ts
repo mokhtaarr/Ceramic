@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ShopService } from '../shop.service';
+import { Product } from 'src/app/shared/models/product';
+import { ActivatedRoute } from '@angular/router';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
+  product?: Product
+  constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute,
+    private translate: TranslateService) { }
+  currentCulture: string='ar';
 
+  ngOnInit(): void {
+    this.LoadProduct();
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currentCulture = event.lang;
+    });
+  }
+
+  LoadProduct() {
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (id) this.shopService.getProduct(+id).subscribe({
+      next: product => this.product = product,
+      error: error => console.log(error)
+    })
+  }
 }

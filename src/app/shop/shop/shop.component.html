@@ -18,32 +18,42 @@
   <app-product-carousel-with-card></app-product-carousel-with-card>
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
-      <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
+      <h5 class="text-warning ms-3 text-center"><i style="font-size: 20px;"
+          class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span> {{'ShopByBrands' | translate}}
+      </h5>
 
       <div *ngIf="currentCulture == 'ar'">
-        <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
+        <select style="border-radius: 50px;background-color: orange;color: white;"class="form-select mb-4" #v
+          (change)="onBrandSelected(+v.value)">
           <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
             [value]="brand.brandId">{{brand.descA}}</option>
         </select>
       </div>
       <div *ngIf="currentCulture == 'en'">
-        <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
+        <select style="border-radius: 50px;background-color: orange;color: white;" class="form-select mb-4" #v
+          (change)="onBrandSelected(+v.value)">
           <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
             [value]="brand.brandId">{{brand.descE}}</option>
         </select>
       </div>
     </div>
     <div class="col">
-      <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
+      <h5 class="text-warning ms-3 text-center"><i style="font-size: 20px;"
+          class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span> {{'ShopByType'|translate}}
+      </h5>
       <div *ngIf="currentCulture == 'ar'">
-        <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
+        <select style="border-radius: 50px;background-color: orange;color: white;" class="form-select mb-4" #v
+          (change)="onTypeSelected(+v.value)">
           <option class="text-center" *ngFor="let type of types"
             [class.selected]="type.itemCategoryId==shopParams.typeId" [value]="type.itemCategoryId">
             {{type.itemCatDescA}}</option>
         </select>
       </div>
       <div *ngIf="currentCulture == 'en'">
-        <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
+        <select style="border-radius: 50px;background-color: orange;color: white;" class="form-select mb-4" #v
+          (change)="onTypeSelected(+v.value)">
           <option class="text-center" *ngFor="let type of types" [class.selected]="type.itemCategoryId"
             [value]="type.itemCategoryId">{{type.itemCatDescE}}</option>
         </select>
@@ -51,16 +61,21 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
       <!-- shop price -->
-      <h5 class="text-warning ms-3 text-center">{{'ShopByPrice'|translate}}</h5>
+      <h5 class="text-warning ms-3 text-center"><i style="font-size: 20px;"
+          class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span> {{'ShopByPrice'|translate}}
+      </h5>
       <div *ngIf="currentCulture == 'ar'">
-        <select class="form-select mb-4" (change)="onSortSelected($event)">
+        <select style="border-radius: 50px;background-color: orange;color: white;" class="form-select mb-4"
+          (change)="onSortSelected($event)">
           <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
             {{option.nameAr}}
           </option>
         </select>
       </div>
       <div *ngIf="currentCulture == 'en'">
-        <select class="form-select mb-4" (change)="onSortSelected($event)">
+        <select style="border-radius: 50px;background-color: orange;color: white;" class="form-select mb-4"
+          (change)="onSortSelected($event)">
           <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
             {{option.nameEn}}
           </option>
@@ -73,13 +88,12 @@
       <div class="row mb-4">
         <div class="d-flex mt-2 justify-content-center">
           <input type="text" placeholder="{{'PlaceHolderSearch'|translate}}" (keyup.enter)="onSrarch()"
-            class="form-control me-2" style="width:50%;border-radius: 50px;color:white;
-           background-color:#ffa500e0;" #search>
-          <button class="btn btn-outline-warning mx-2" style="color: black;" (click)="OnReset()"> <i class="fa fa-repeat"
-              aria-hidden="true"></i>
+            class="form-control me-2" style="width:50%;border-radius: 50px;
+            border: 2px solid orange;" #search>
+          <button class="btn btn-outline-warning mx-2" style="color: black;" (click)="OnReset()"> <i
+              class="fa fa-repeat" aria-hidden="true"></i>
             {{'Reset'|translate}}</button>
-          <button class="btn btn-primary mx-2" (click)="onSrarch()"> <i class="fa fa-search"
-              aria-hidden="true"></i>
+          <button class="btn btn-primary mx-2" (click)="onSrarch()"> <i class="fa fa-search" aria-hidden="true"></i>
             {{'Search'|translate}}</button>
         </div>
         <app-paging-header [TotalCount]="TotalCount" [pageNumber]="shopParams.pageNumber"

@@ -1,11 +1,8 @@
+<h4 class="text-warning ms-3  mt-4"><i class="fa fa-handshake-o" aria-hidden="true"></i>
+  {{'OurBrands'|translate}}</h4>
 
-<h4 class="text-warning ms-3 text-center mt-4">{{'OurBrands'|translate}}</h4>
-
-<carousel [isAnimated]="true"
-          [itemsPerSlide]="itemsPerSlide"
-          [singleSlideOffset]="singleSlideOffset"
-          [startFromIndex]="6"
-          [interval]="4000">
+<carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+  [startFromIndex]="6" [interval]="4000">
 
   <slide *ngFor="let slide of slides; let index=index" class="m-2">
     <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
@@ -15,18 +12,15 @@
   </slide>
 </carousel>
 
-<h4 class="text-warning ms-3 text-center  mt-4">{{'BestSell'|translate}}</h4>
+<h4 class="text-warning ms-3  mt-4"><i class="fa fa-line-chart" aria-hidden="true"></i>
+  {{'BestSell'|translate}}</h4>
 
 <div>
-  <carousel [isAnimated]="true"
-          [itemsPerSlide]="itemsPerSlide"
-          [singleSlideOffset]="singleSlideOffset"
-          [startFromIndex]="6"
-          [interval]="0"
-         >
-         
-  <slide *ngFor="let slide of slidesProduct; let index=index" class="m-2">
-    <!-- <div class="card" style="width: 18rem;">
+  <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+    [startFromIndex]="6" [interval]="0">
+
+    <slide *ngFor="let slide of slidesProduct; let index=index" class="m-2">
+      <!-- <div class="card" style="width: 18rem;">
       <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
       <div class="card-body">
         <p class="card-text">{{slide.desc}}</p>
@@ -36,7 +30,7 @@
         <a href="#" class="btn btn-primary m-1">{{'View'|translate}}</a>
       </div>
     </div> -->
-    <!-- <figure class="snip1171 orange">
+      <!-- <figure class="snip1171 orange">
       <img [src]="slide.image" alt="sample52"/>
       <div class="price">$19.00</div>
       <figcaption>
@@ -46,18 +40,18 @@
       </figcaption>
     </figure> -->
 
-    <figure class="snip1171 blue hover">
-      <img [src]="slide.image" alt="sample52"/>
-      <div class="price">$19.00</div>
-      <figcaption>
-        <h3>Wax Jacket</h3>
-        <p class="card-text">{{slide.desc}}</p>
-        <a href="#">Add to Cart</a>
-      </figcaption>
-    </figure>
-  </slide>
-</carousel>
-</div> 
+      <figure class="snip1171 blue hover">
+        <img [src]="slide.image" alt="sample52" />
+        <div class="price">$19.00</div>
+        <figcaption>
+          <h3>Wax Jacket</h3>
+          <p class="card-text">{{slide.desc}}</p>
+          <a href="#">Add to Cart</a>
+        </figcaption>
+      </figure>
+    </slide>
+  </carousel>
+</div>
 
 <!-- 
 <body>

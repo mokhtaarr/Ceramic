@@ -1,1 +1,27 @@
-<p>product-details works!</p>
+<div class="row mt-5 mb-5" style="background-color: #0d6efd;" *ngIf="product">
+    <div class="col-6">
+        <img src="{{product.taxItemCode}}" alt="{{product.itemDescE}}" class="w-100">
+    </div>
+    <div class="col-6 mt-5">
+        <h2 class="mt-2" style="color: white;" *ngIf="currentCulture == 'ar'">{{product.itemDescA}}</h2>
+        <h2 class="mt-2" style="color: white;" *ngIf="currentCulture == 'en'">{{product.itemDescE}}</h2>
+        <h2 class="text-center  mt-4" style="color: white;"> {{product.firstPrice}}
+            {{'EGP'|translate}}</h2>
+        <br>
+        <div class="d-flex justify-content-center p-0 mr-5">
+            <i class="fa fa-minus-circle  m-2" style="cursor: pointer; font-size: 2em;color: white;"></i>
+
+            <span class="font-weight-bold" style="font-size: 1.9em;color: white;font-weight: bold;">2</span>
+
+            <i class="fa fa-plus-circle m-2" style="cursor: pointer; font-size: 2em;color: white;"></i>
+        </div>
+
+        <div class="frame d-flex justify-content-center p-0 m-0 mt-5">
+            <button class="custom-btn btn-12"><span><i style="font-size: 25px;"
+                        class="fa fa-shopping-cart CartHover"></i></span><span
+                    style="font-size: 20px;">{{'AddToCart'|translate}}</span></button>
+        </div>
+
+
+    </div>
+</div>

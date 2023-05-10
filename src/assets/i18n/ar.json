@@ -12,7 +12,7 @@
     "ShopByType":"تسوق على حسب النوع",
     "Search":"ابحث",
     "Reset":"اعاده",
-    "Cart":"شراء",
+    "Cart":"شـراء",
     "View":"عرض",
     "BestSell":"المنتجات الاكثر بيع",
     "random":"عشوائى",
@@ -25,7 +25,11 @@
     "of":"من",
     "Result":"عدد إجمـالى النتـائج ",
     "thereare":"هنـاك",
-    "ResultsForThisFilter":"من هذا الفلتر"
+    "ResultsForThisFilter":"من هذا الفلتر",
+    "productName":"اسم المنتج :",
+    "Price":"سعـر المنتـج :",
+    "AddToCart":"اضـف الي العربـه"
+
 
 
 

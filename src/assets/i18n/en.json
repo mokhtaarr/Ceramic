@@ -15,7 +15,7 @@
     "Reset":"Reset",
     "Cart":"Buy",
     "View":"View",
-    "BestSell":"Best Selling Products",
+    "BestSell":"Products Best Selling",
     "random":"Random",
     "PriceAsec":"Price : from low to high",
     "PriceDsec":"Price : from high to low",
@@ -26,7 +26,11 @@
     "of":"Of",
     "Result":"Result",
     "thereare":"there are",
-    "ResultsForThisFilter":"Results for this filter"
+    "ResultsForThisFilter":"Results for this filter",
+    "productName":"product Name :",
+    "Price":"Price :",
+    "AddToCart":"Add To Cart"
+
 
 
 
