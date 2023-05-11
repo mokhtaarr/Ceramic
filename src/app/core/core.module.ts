@@ -9,10 +9,13 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import { TestErrorComponent } from './test-error/test-error.component';
+import { ServerErrorComponent } from './server-error/server-error.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [NavBarComponent, SectionHeaderComponent],
+  declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -25,8 +28,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         useFactory : httpTranslateLoader,
         deps:[HttpClient]
       }
-    })
-  ],
+    }),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
+ ],
   exports:[
     NavBarComponent,
     SectionHeaderComponent,

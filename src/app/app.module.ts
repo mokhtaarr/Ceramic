@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-
+    
     HomeModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',
@@ -33,6 +34,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     })
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
