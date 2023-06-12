@@ -12,8 +12,20 @@
         <img src="assets/images/hero4.jpg" alt="slide" style="display: block; width: 100%;">
     </slide>
 </carousel>
-<section class="featured">
-    <div class="d-flex justify-content-center pt-4">
-        <h1>Welcome to the Shop!</h1>
+<a routerLink="/branches" style="color: #43afaa; font-size: larger; text-decoration: none;"><i class="fa fa-code-fork" aria-hidden="true"></i>{{'OurBranches'|translate}}</a>
+
+
+<h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-handshake-o" aria-hidden="true"></i>
+  {{'OurBrands'|translate}}</h4>
+
+<carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+  [startFromIndex]="6" [interval]="4000">
+
+  <slide *ngFor="let slide of slides; let index=index" class="m-2">
+    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+    <div class="carousel-caption">
+      <h1></h1>
     </div>
-</section>
+  </slide>
+</carousel>
+

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { BasketService } from 'src/app/basket/basket.service';
 import { Product } from 'src/app/shared/models/product';
 
 @Component({
@@ -12,7 +13,7 @@ export class ProductItemComponent implements OnInit {
   currentCulture: string='ar';
   textDir:string = 'rtl'
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,private basketService:BasketService) {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
     {   
       if(translate.currentLang == 'ar')
@@ -31,5 +32,11 @@ export class ProductItemComponent implements OnInit {
       this.currentCulture = event.lang;
     });
   }
+
+  addItemToBasket() {
+    this.product&& this.basketService.addItemToBasket(this.product)
+    console.log('welcome')
+
+   }
 
 }

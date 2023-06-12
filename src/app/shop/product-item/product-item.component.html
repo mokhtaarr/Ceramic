@@ -33,19 +33,29 @@
     {{product.firstPrice}} {{'EGP'|translate}}
   </div>
   <figcaption>
-    <h3 style="cursor: pointer;"><i class="fa fa-shopping-cart CartHover"> {{'Cart'|translate}}</i></h3>
-    <div *ngIf="currentCulture == 'ar'">
+    <h3 style="cursor: pointer;"><i class="fa fa-shopping-cart CartHover" (click)="addItemToBasket()"> {{'Cart'|translate}}</i></h3>
+    <div *ngIf="currentCulture == 'ar'" class="text-center">
+      
       <h6 style="direction: rtl;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular', 
         'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
         {{product.itemDescA}}
       </h6>
+      <del style="color: red;margin-left: 18px;">{{product.totalCost}}</del>
+      <span style="color: red;margin-left: 18px;">خصم {{product.discount}}%</span>
+      <span>{{product.firstPrice}} {{'EGP'|translate}}</span>
     </div>
-    <div *ngIf="currentCulture == 'en'">
+    <div *ngIf="currentCulture == 'en'" class="text-center">
       <h6 style="direction: ltr;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular',
          'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
         {{product.itemDescE}}
       </h6>
+      <del style="color: red;margin-left: 18px;">{{product.totalCost}}</del>
+      
+      <span style="color: red;margin-left: 18px;">خصم {{product.discount}}%</span>
+      
+      <span>{{product.firstPrice}}</span>
     </div>
+   
     <a href="#" routerLink="/shop/{{product.itemCardId}}"><i class="fa fa-eye" aria-hidden="true"></i> {{'View'|translate}}</a>
   </figcaption>
 </figure>
@@ -99,3 +109,4 @@
    
 
        -->
+

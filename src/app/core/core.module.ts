@@ -13,9 +13,10 @@ import { TestErrorComponent } from './test-error/test-error.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent],
+  declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent, FooterComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -37,7 +38,8 @@ import { ToastrModule } from 'ngx-toastr';
   exports:[
     NavBarComponent,
     SectionHeaderComponent,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FooterComponent
   ]
 })
 export class CoreModule { }

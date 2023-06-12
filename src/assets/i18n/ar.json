@@ -14,13 +14,13 @@
     "Reset":"اعاده",
     "Cart":"شـراء",
     "View":"عرض",
-    "BestSell":"المنتجات الاكثر بيع",
+    "BestSell":"عروض",
     "random":"عشوائى",
     "PriceAsec":"السعر : من الادنى الى الاعلى",
     "PriceDsec":"السعر : من الاعلى الى الادنى",
     "Loading":"جار التحميل ...",
     "EGP":"ج.م",
-    "PlaceHolderSearch":"ادخل اسم المنتج الذى تبحث عنه....",
+    "PlaceHolderSearch":"ادخل اسم المنتج....",
     "showing":"عرض",
     "of":"من",
     "Result":"عدد إجمـالى النتـائج ",
@@ -28,7 +28,15 @@
     "ResultsForThisFilter":"من هذا الفلتر",
     "productName":"اسم المنتج :",
     "Price":"سعـر المنتـج :",
-    "AddToCart":"اضـف الي العربـه"
+    "AddToCart":"اضـف الي العربـه",
+    "OurBranches":"فروعنـا",
+    "Port Said Street Branch":"فرع شـارع بورسعـيد ",
+    "Second Branch":"الفرع الثـانى",
+    "third Branch":"الفرع الثالث",
+    "Address":"العنوان",
+    "phone number":"رقم الهاتف"
+
+
 
 
 

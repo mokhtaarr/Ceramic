@@ -3,7 +3,7 @@
     min-height: 25px;
     min-width: 25px;
     border-radius: 50%;
-    background: blue;
+    background: #43afaa;
     color: white;
     text-align: center;
     top: -12px;
@@ -14,7 +14,7 @@ a{
     text-decoration: none;
     color: #343a40;
     &.active{
-        color: orange;
+        color: #43afaa;
     }
 }
 

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BranchesComponent } from './branches/branches.component';
+import { BasketComponent } from './basket/basket.component';
 
 const routes: Routes = [
-  {path:'branches',component:BranchesComponent}
+  {path:'',component:BasketComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class BasketRoutingModule { }

@@ -8,12 +8,14 @@ import { PagerComponent } from './pager/pager.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { httpTranslateLoader } from '../app.module';
 import { HttpClient } from '@angular/common/http';
+import { OrderTotalsComponent } from './order-totals/order-totals.component';
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    OrderTotalsComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { HttpClient } from '@angular/common/http';
     CarouselModule,
     PaginationModule,
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    OrderTotalsComponent
   ]
 })
 export class SharedModule { }

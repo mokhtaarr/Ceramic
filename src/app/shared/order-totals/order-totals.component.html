@@ -1,0 +1,22 @@
+<div class="bg-light px-4 py-3 text-uppercase fw-bold">
+    ملخص الطلب
+</div>
+
+
+<div class="p-4">
+    <p class="fst-italic mb-4">سيتم احتساب تكاليف الشحن بناءً على الاختيارات التي يتم إجراؤها أثناء الخروج</p>
+    <ul class="list-unstyled mb-4" *ngIf="(basketService.basketTotalSource$ | async) as totals">
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">ترتيب المجموع الفرعي</strong>
+            <strong>{{totals.subtotal | currency}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">الشحن والمناولة</strong>
+            <strong>{{totals.shipping | currency}}</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">المجموع</strong>
+            <strong>{{totals.total | currency}}</strong>
+        </li>
+    </ul>
+</div>

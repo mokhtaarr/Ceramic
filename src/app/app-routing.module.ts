@@ -6,16 +6,20 @@ import { ProductDetailsComponent } from './shop/product-details/product-details.
 import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
+import { BranchesComponent } from './home/branches/branches.component';
 
 const routes: Routes = [
   {path:'',component:ShopComponent},
   {path:'home',component:HomeComponent},
+  {path:'branches',component:BranchesComponent},
   {path:'test-error',component:TestErrorComponent},
   {path:'not-found',component:NotFoundComponent},
   {path:'server-error',component:ServerErrorComponent},
   {path:'shop',loadChildren:()=>import('./shop/shop.module').then(m=>m.ShopModule)},
+  {path:'basket',loadChildren:()=>import('./basket/basket.module').then(m=>m.BasketModule)},
   // {path:'shop/:id',component:ProductDetailsComponent},
   {path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
+  {path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)},
 
 
   {path:'**',redirectTo:'',pathMatch:'full'}

@@ -4,4 +4,7 @@ export interface Product {
     itemDescE: string;
     firstPrice: number;
     taxItemCode:string;
+    discount:number;
+    totalCost:number;
+    qtyPartiation:number;
 }

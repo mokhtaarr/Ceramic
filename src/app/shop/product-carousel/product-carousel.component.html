@@ -1,18 +1,5 @@
-<h4 class="text-warning ms-3  mt-4"><i class="fa fa-handshake-o" aria-hidden="true"></i>
-  {{'OurBrands'|translate}}</h4>
 
-<carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
-  [startFromIndex]="6" [interval]="4000">
-
-  <slide *ngFor="let slide of slides; let index=index" class="m-2">
-    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
-    <div class="carousel-caption">
-      <h1></h1>
-    </div>
-  </slide>
-</carousel>
-
-<h4 class="text-warning ms-3  mt-4"><i class="fa fa-line-chart" aria-hidden="true"></i>
+<h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-line-chart" aria-hidden="true"></i>
   {{'BestSell'|translate}}</h4>
 
 <div>
@@ -20,27 +7,7 @@
     [startFromIndex]="6" [interval]="0">
 
     <slide *ngFor="let slide of slidesProduct; let index=index" class="m-2">
-      <!-- <div class="card" style="width: 18rem;">
-      <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
-      <div class="card-body">
-        <p class="card-text">{{slide.desc}}</p>
-        <span  class="mb-5" style="color: red;">ج.م180</span>
-        <br>
-        <a href="#" class="btn btn-primary m-1">{{'Cart'|translate}}</a>
-        <a href="#" class="btn btn-primary m-1">{{'View'|translate}}</a>
-      </div>
-    </div> -->
-      <!-- <figure class="snip1171 orange">
-      <img [src]="slide.image" alt="sample52"/>
-      <div class="price">$19.00</div>
-      <figcaption>
-        <h3>Wax Jacket</h3>
-        <p class="card-text">{{slide.desc}}</p>
-        <a href="#">Add to Cart</a>
-      </figcaption>
-    </figure> -->
-
-      <figure class="snip1171 blue hover">
+      <figure class="snip1171 orange">
         <img [src]="slide.image" alt="sample52" />
         <div class="price">$19.00</div>
         <figcaption>

@@ -25,6 +25,10 @@ export class ShopComponent implements OnInit {
     { nameAr: 'السعر: من الادنى الى الاعلى', nameEn: 'Price: Low to high', value: 'priceAsc' },
     { nameAr: 'السعر: من الاعلى الى الادنى', nameEn: 'Price: High to low', value: 'priceDesc' },
   ];
+
+  itemsPerSlide = 5;
+  singleSlideOffset = true
+  
   constructor(private shopService: ShopService, private translate: TranslateService) {
     this.currentCulture = 'ar'
   }
@@ -95,4 +99,14 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
+  slidesProduct = [
+    {image: 'assets/images/brandp1.jpg',title:'img1',desc:"20*80 سيراميك حوائط الملكه شاتو بلاك جراى"},
+    {image: 'assets/images/brandp1.jpg',title:'img1',desc:"60*60 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
+    {image: 'assets/images/brandp3.jpg',title:'img1',desc:"10*90 سيراميك ارضيات بروسلين شاتو اصفر جراى"},
+    {image: 'assets/images/brandp4.jpg',title:'img1',desc:"30*30 سيراميك ارضيات الجوهرة شاتو رمادي جراى"},
+    {image: 'assets/images/brandp5.jpg',title:'img1',desc:"20*20 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
+    {image: 'assets/images/brandp6.jpg',title:'img1',desc:"20*20 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
+    {image: 'assets/images/brandp7.jpg',title:'img1',desc:"10160 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
+
+  ]
 }
