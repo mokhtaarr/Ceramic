@@ -4,6 +4,7 @@ import * as cuid from 'cuid';
 export interface BasketItem{
     basketItemId:number;
     productName:string;
+    productNameEn?:string;
     price:number;
     quantity:number;
     pictureUrl:string;

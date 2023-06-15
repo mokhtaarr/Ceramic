@@ -1,24 +1,22 @@
 <carousel [isAnimated]="true">
-    <slide>
-        <img src="assets/images/hero1.jpg" alt="slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/images/hero2.jpg" alt="slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/images/hero3.jpg" alt="slide" style="display: block; width: 100%;">
-    </slide>
-    <slide>
-        <img src="assets/images/hero4.jpg" alt="slide" style="display: block; width: 100%;">
-    </slide>
+  <slide>
+    <img src="assets/images/hero1.jpg" alt="slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/images/hero2.jpg" alt="slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/images/hero3.jpg" alt="slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/images/hero4.jpg" alt="slide" style="display: block; width: 100%;cursor: pointer;">
+  </slide>
 </carousel>
-<a routerLink="/branches" style="color: #43afaa; font-size: larger; text-decoration: none;"><i class="fa fa-code-fork" aria-hidden="true"></i>{{'OurBranches'|translate}}</a>
 
+<a routerLink="/branches" style="color: #43afaa; font-size: larger; text-decoration: none;"><i class="fa fa-code-fork"
+    aria-hidden="true"></i>{{'OurBranches'|translate}}</a>
 
-<h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-handshake-o" aria-hidden="true"></i>
-  {{'OurBrands'|translate}}</h4>
-
-<carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+<!-- <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
   [startFromIndex]="6" [interval]="4000">
 
   <slide *ngFor="let slide of slides; let index=index" class="m-2">
@@ -27,5 +25,77 @@
       <h1></h1>
     </div>
   </slide>
-</carousel>
+</carousel> -->
 
+<section style="background-color: #f4f5f5; margin-top: 20px;">
+  <div class="container-fluid">
+    <br>
+    <h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-handshake-o"
+        aria-hidden="true"></i>
+      {{'OurBrands'|translate}}</h4>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4 py-5">
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand1.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand2.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand3.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand4.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand5.jpg" style="cursor: pointer;width: 90%;" (click)="goToBrandProducts(7)">
+        </div>
+        <a></a>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand6.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand7.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand8.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand9.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

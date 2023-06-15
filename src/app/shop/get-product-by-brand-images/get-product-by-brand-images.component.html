@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let product of products" >
+            <app-product-item [product]="product"></app-product-item>
+
+            <!-- <figure class="snip1171 orange"  >
+                <img src="https://localhost:7192/{{product.taxItemCode}}" alt="sample52" />
+                <div class="price" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    {{product.firstPrice}} {{'EGP'|translate}}
+                </div>
+                <figcaption>
+                    <h3 style="cursor: pointer;"><i class="fa fa-shopping-cart CartHover">
+                            {{'Cart'|translate}}</i></h3>
+                    <div *ngIf="currentCulture == 'ar'" class="text-center">
+
+                        <h6 style="direction: rtl;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+                        'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                            {{product.itemDescA}}
+                        </h6>
+                        <del style="color: red;margin-left: 18px;">{{product.totalCost}}</del>
+                        <span style="color: red;margin-left: 18px;">خصم {{product.discount}}%</span>
+                        <span>{{product.firstPrice}} {{'EGP'|translate}}</span>
+                    </div>
+                    <div *ngIf="currentCulture == 'en'" class="text-center">
+                        <h6 style="direction: ltr;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                         'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                            {{product.itemDescE}}
+                        </h6>
+                        <del style="color: red;margin-left: 18px;">{{product.totalCost}}</del>
+
+                        <span style="color: red;margin-left: 18px;">خصم {{product.discount}}%</span>
+
+                        <span>{{product.firstPrice}}</span>
+                    </div>
+
+                    <a href="#" routerLink="/shop/{{product.itemCardId}}"><i class="fa fa-eye" aria-hidden="true"></i>
+                        {{'View'|translate}}</a>
+                </figcaption>
+            </figure> -->
+        </div>
+    </div>
+</div>

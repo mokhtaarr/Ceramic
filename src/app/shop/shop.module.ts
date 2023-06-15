@@ -12,6 +12,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProductCarouselWithCardComponent } from './product-carousel-with-card/product-carousel-with-card.component';
+import { BrandProductsComponent } from './brand-products/brand-products.component';
+import { GetProductByBrandImagesComponent } from './get-product-by-brand-images/get-product-by-brand-images.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ProductCarouselWithCardComponent } from './product-carousel-with-card/p
     ProductItemComponent,
     ProductDetailsComponent,
     ProductCarouselComponent,
-    ProductCarouselWithCardComponent
+    ProductCarouselWithCardComponent,
+    BrandProductsComponent,
+    GetProductByBrandImagesComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,7 @@ import { ProductCarouselWithCardComponent } from './product-carousel-with-card/p
       }
     })
   ],
-  exports:[ShopComponent]
+  exports:[ShopComponent,GetProductByBrandImagesComponent]
 })
 export class ShopModule { }
 

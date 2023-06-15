@@ -99,6 +99,8 @@ export class BasketService {
     return {
       basketItemId: item.itemCardId,
       productName: item.itemDescA,
+      productNameAr:item.itemDescA,
+      productNameEn:item.itemDescE,
       price: item.firstPrice,
       quantity: 0,
       pictureUrl: item.taxItemCode

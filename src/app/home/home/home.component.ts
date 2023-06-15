@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductBrandImagesService } from 'src/app/Services/product-brand-images.service';
+import { Product } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +11,7 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   itemsPerSlide = 5;
   singleSlideOffset = true
-
+  brandId!:number
   slides = [
     {image: 'assets/images/brand1.jpg',title:'img1'},
     {image: 'assets/images/brand2.jpg',title:'img2'},
@@ -22,5 +25,16 @@ export class HomeComponent {
     {image: 'assets/images/brand10.jpg',title:'img10'}
   ]
 
-  
+  BrandId!:number
+  constructor(private productBrandService:ProductBrandImagesService,private router: Router){
+
+  }
+
+  goToBrandProducts(id:number) {
+    this.router.navigate(['ProductsByBrand',id]);
+  }
+
+
+    
+  // }
 }

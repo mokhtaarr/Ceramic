@@ -104,3 +104,5 @@ document.addEventListener("DOMContentLoaded", function() {
     slider.scrollLeft += slider.offsetWidth;
   });
 });
+
+

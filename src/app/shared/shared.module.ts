@@ -9,13 +9,15 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { httpTranslateLoader } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
+import { ScrollToTopButtonComponent } from './scroll-to-top-button/scroll-to-top-button.component';
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
     PagerComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    ScrollToTopButtonComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     PaginationModule,
     PagingHeaderComponent,
     PagerComponent,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    ScrollToTopButtonComponent
   ]
 })
 export class SharedModule { }
