@@ -33,9 +33,4 @@ export class GetProductByBrandImagesComponent implements OnInit {
       });
   }
 
-  // addItemToBasket() {
-  //    this.basketService.addItemToBasket()
-  //   console.log('welcome')
-
-  //  }
 }

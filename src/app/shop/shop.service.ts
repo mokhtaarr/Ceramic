@@ -43,4 +43,8 @@ export class ShopService {
   getProductsByBrandId(id:number):Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'Product/brandId?BrandId='+id);
   }
+
+  getProductsByCategoryId(id:number):Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl+'Product/CatId?CatId='+id);
+  }
 }

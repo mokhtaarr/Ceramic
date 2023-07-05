@@ -6,6 +6,7 @@ import { Brand } from 'src/app/shared/models/brands';
 import { Type } from 'src/app/shared/models/types';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { shopParams } from 'src/app/shared/models/shopParams';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -29,7 +30,8 @@ export class ShopComponent implements OnInit {
   itemsPerSlide = 5;
   singleSlideOffset = true
   
-  constructor(private shopService: ShopService, private translate: TranslateService) {
+  constructor(private shopService: ShopService, private translate: TranslateService,
+    private router:Router) {
     this.currentCulture = 'ar'
   }
 
@@ -97,6 +99,10 @@ export class ShopComponent implements OnInit {
     if(this.searchTerms)this.searchTerms.nativeElement.value ="";
     this.shopParams = new shopParams();
     this.getProducts();
+  }
+
+  goToCategoryProduct(id:number){
+    this.router.navigate(['ProductsByCategory',id])
   }
 
   slidesProduct = [
