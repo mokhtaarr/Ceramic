@@ -12,6 +12,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { SharedModule } from "./shared/shared.module";
+import { AccountModule } from './account/account.module';
+import { TestModule } from './test/test.module';
 
 @NgModule({
     declarations: [
@@ -29,6 +31,8 @@ import { SharedModule } from "./shared/shared.module";
         HttpClientModule,
         CoreModule,
         HomeModule,
+        AccountModule,
+        TestModule,
         TranslateModule.forRoot({
             defaultLanguage: 'ar',
             loader: {
@@ -37,12 +41,13 @@ import { SharedModule } from "./shared/shared.module";
                 deps: [HttpClient]
             }
         }),
-        SharedModule
+        SharedModule,
+        AppRoutingModule
     ]
 })
 export class AppModule { }
 
-export function httpTranslateLoader(http:HttpClient){
-  return new  TranslateHttpLoader(http,'./assets/i18n/','.json')
+export function httpTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json')
 
 } 

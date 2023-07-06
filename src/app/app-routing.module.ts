@@ -9,6 +9,8 @@ import { ServerErrorComponent } from './core/server-error/server-error.component
 import { BranchesComponent } from './home/branches/branches.component';
 import { GetProductByBrandImagesComponent } from './shop/get-product-by-brand-images/get-product-by-brand-images.component';
 import { GetProductByCategoryImageOfferComponent } from './shop/get-product-by-category-image-offer/get-product-by-category-image-offer.component';
+import { TestComponent } from './test/test/test.component';
+import { LoginComponent } from './account/login/login.component';
 
 const routes: Routes = [
   {path:'',component:ShopComponent},
@@ -24,6 +26,10 @@ const routes: Routes = [
   // {path:'shop/:id',component:ProductDetailsComponent},
   {path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
   {path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)},
+  {path:'test',component:TestComponent},
+  {path:'logo',component:LoginComponent},
+
+
 
 
   {path:'**',redirectTo:'',pathMatch:'full'}

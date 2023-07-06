@@ -15,6 +15,7 @@ export class AppComponent implements OnInit{
   currentCulture!:string;
   textDir: string="rtl";
   products:any[]=[]; 
+  currentLange !: string;
 
   constructor(private http:HttpClient,private translate: TranslateService,private basketService:BasketService){
     this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
@@ -22,14 +23,11 @@ export class AppComponent implements OnInit{
       if(translate.currentLang == 'ar')
       {
         this.textDir = 'rtl';
-        console.log("Arabic Direction")
       }else{
         this.textDir = 'ltr';
-        console.log("English Direction")
       }
     });
   }
- 
 
   ngOnInit(): void {
 
@@ -58,5 +56,6 @@ export class AppComponent implements OnInit{
       this.currentCulture = event.lang;
     });
   }
- 
+  
+  
 }
