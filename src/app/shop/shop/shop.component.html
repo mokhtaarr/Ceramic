@@ -1,3 +1,12 @@
+<!-- <app-product-carousel-with-card></app-product-carousel-with-card> -->
+
+<div id="mySidenav" class="sidenav" >
+  <a id="about" onclick="openNav()" style="cursor: pointer;"><i class="fa fa-search"></i> ابحث معانا</a>
+  <!-- <a id="projects" onclick="openNavBasket()"  style="cursor: pointer;margin-top: 53px;"><i class="fa fa-shopping-cart text-white"></i> سله المشتريات</a> -->
+
+ 
+</div>
+
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators" style="margin: unset;margin-bottom: 5px;">
     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
@@ -77,8 +86,8 @@
     <div class="row">
       <div class="col d-flex justify-content-center">
         <div class="d-flex">
-          <div style="margin: 15px;color: #43afaa;"><i class="fa fa-comments-o" aria-hidden="true"
-              style="font-size: 41px;"></i></div>
+          <a style="margin: 15px;color: #43afaa;cursor: pointer;" href="https://www.whatsapp.com/"><i class="fa fa-comments-o" aria-hidden="true"
+              style="font-size: 41px;"></i></a>
           <div class="media-body">
             <div class="media-heading h5">{{'Technical Support'|translate}}</div>
             <div class="text desc std text-muted">{{'All days of the week'|translate}}</div>
@@ -97,8 +106,8 @@
       </div>
       <div class="col d-flex justify-content-center" style="border-right: 1px solid #ccc;">
         <div class="d-flex">
-          <div style="margin: 15px;color: #43afaa;"><i class="fa fa-credit-card" aria-hidden="true"
-              style="font-size: 41px;"></i></div>
+          <a style="margin: 15px;color: #43afaa;"><i class="fa fa-credit-card" aria-hidden="true"
+              style="font-size: 41px;cursor: pointer;"></i></a>
           <div class="media-body">
             <div class="media-heading h5">{{"Payment methods"|translate}}</div>
             <div class="text desc std text-muted">{{'Safe and versatile'|translate}}</div>
@@ -109,10 +118,38 @@
   </div>
 
   <app-product-carousel></app-product-carousel>
-  <app-product-carousel-with-card></app-product-carousel-with-card>
+  <!-- <app-product-carousel-with-card></app-product-carousel-with-card> -->
 
   <div class="container mt-4">
     <!-- <app-product-carousel-with-card></app-product-carousel-with-card> -->
+
+    <!-- side bar for basket  -->
+    
+    <div id="mySidebarBasket" class="sidebar shadow-sm">
+      <a href="javascript:void(0)" class="closebtn mb-5" onclick="closeNavBasket()"><i class="fa fa-chevron-circle-left"
+        aria-hidden="true"></i>
+      </a>
+      <h5 style="color: #43afaa;" class="ms-3 text-center">مشترياتك</h5>
+
+      <table class="table">
+  <tbody>
+    <tr *ngFor="let item of cardProducts">
+      <td><img src="{{item.item.taxItemCode}}" class="card-img-top" alt="..."></td>
+      <td>{{item.item.itemDescA}}</td>
+    </tr>
+   
+  </tbody>
+</table>
+      <div class="card" style="width: 18rem;" *ngFor="let item of cardProducts">
+        <img src="{{item.item.taxItemCode}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{item.item.itemDescA}}</p>
+        </div>
+      </div>
+    </div>
+
+        <!-- side bar for product sorting -->
+
     <div id="mySidebar" class="sidebar shadow-sm">
 
       <a href="javascript:void(0)" class="closebtn mb-5" onclick="closeNav()"><i class="fa fa-chevron-circle-left"
@@ -229,21 +266,23 @@
       </div>
     </div>
 
-    <div id="main">
+    <!-- button for the advanced Search for the slide from a side -->
+
+    <!-- <div id="main">
       <button class="openbtn" onclick="openNav()"><i class="fa fa-search" aria-hidden="true"></i> بحـث متقدم</button>
-    </div>
+    </div> -->
 
     <!--  way to display product search  in body -->
 
     <!-- other style for collapse -->
-
+<!-- 
     <p>
       <button class="openbtn" style="margin-right: 14px;" type="button" data-bs-toggle="collapse"
         data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <i class="fa fa-search" aria-hidden="true"></i> بحـث متقدم</button>
-    </p>
+    </p> -->
 
-    <div class="collapse" id="collapseExample">
+    <!-- <div class="collapse" id="collapseExample"> -->
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12">
           <!-- shop price -->
@@ -340,7 +379,7 @@
 
         <div class="row mb-2">
           <div class="col-lg-3 col-sm-12" *ngFor="let product of products">
-            <app-product-item [product]="product"></app-product-item>
+            <app-product-item [product]="product" [productCart]="product"></app-product-item>
           </div>
         </div>
 
@@ -352,7 +391,6 @@
       </section>
     </div>
   </div>
-</div>
 <!-- old styles -->
 
 

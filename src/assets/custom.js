@@ -90,6 +90,16 @@ function openNav() {
     document.getElementById("main").style.marginLeft= "0";
   }
 
+  function openNavBasket() {
+    document.getElementById("mySidebarBasket").style.width = "300px";
+    document.getElementById("mainBasket").style.marginRight = "300px";
+  }
+  
+  function closeNavBasket() {
+    document.getElementById("mySidebarBasket").style.width = "0";
+    document.getElementById("mainBasket").style.marginRight= "0";
+  }
+
  // Slider functionality
 document.addEventListener("DOMContentLoaded", function() {
   const slider = document.querySelector('.slider');

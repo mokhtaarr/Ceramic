@@ -11,6 +11,7 @@ import { GetProductByBrandImagesComponent } from './shop/get-product-by-brand-im
 import { GetProductByCategoryImageOfferComponent } from './shop/get-product-by-category-image-offer/get-product-by-category-image-offer.component';
 import { TestComponent } from './test/test/test.component';
 import { LoginComponent } from './account/login/login.component';
+import { AboutCompanyComponent } from './home/about-company/about-company.component';
 
 const routes: Routes = [
   {path:'',component:ShopComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)},
   {path:'test',component:TestComponent},
   {path:'logo',component:LoginComponent},
+  {path:'aboutCompany',component:AboutCompanyComponent},
 
 
 

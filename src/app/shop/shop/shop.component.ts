@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search')searchTerms?:ElementRef;
+  @ViewChild('search') searchTerms?: ElementRef;
   currentCulture: string;
   products: Product[] = [];
   brands: Brand[] = [];
@@ -29,9 +29,10 @@ export class ShopComponent implements OnInit {
 
   itemsPerSlide = 5;
   singleSlideOffset = true
-  
+  cardProducts: any[]=[];
+
   constructor(private shopService: ShopService, private translate: TranslateService,
-    private router:Router) {
+    private router: Router) {
     this.currentCulture = 'ar'
   }
 
@@ -42,6 +43,7 @@ export class ShopComponent implements OnInit {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.currentCulture = event.lang;
     });
+    this.getCartProduct();
   }
 
   getProducts() {
@@ -50,7 +52,7 @@ export class ShopComponent implements OnInit {
         this.products = response.data;
         this.shopParams.pageNumber = response.pageIndex;
         this.shopParams.pageSize = response.pageSize;
-        this.TotalCount =response.count;
+        this.TotalCount = response.count;
       },
       error: error => console.log(error)
     })
@@ -71,48 +73,53 @@ export class ShopComponent implements OnInit {
 
   onBrandSelected(brandId: number) {
     this.shopParams.brandId = brandId;
-    this.shopParams.pageNumber=1;
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
   onTypeSelected(typeId: number) {
     this.shopParams.typeId = typeId;
-    this.shopParams.pageNumber=1;
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
   onSortSelected(event: any) {
     this.shopParams.sort = event.target.value;
     this.getProducts();
   }
-  onPageChanged(event:any){
-    if(this.shopParams.pageNumber!==event.page)
-    {
-      this.shopParams.pageNumber= event.page;
+  onPageChanged(event: any) {
+    if (this.shopParams.pageNumber !== event.page) {
+      this.shopParams.pageNumber = event.page;
       this.getProducts();
     }
   }
-  onSrarch(){
+  onSrarch() {
     this.shopParams.search = this.searchTerms?.nativeElement.value;
-    this.shopParams.pageNumber=1;
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
-  OnReset(){
-    if(this.searchTerms)this.searchTerms.nativeElement.value ="";
+  OnReset() {
+    if (this.searchTerms) this.searchTerms.nativeElement.value = "";
     this.shopParams = new shopParams();
     this.getProducts();
   }
 
-  goToCategoryProduct(id:number){
-    this.router.navigate(['ProductsByCategory',id])
+  goToCategoryProduct(id: number) {
+    this.router.navigate(['ProductsByCategory', id])
+  }
+
+  getCartProduct() {
+    if ("cart" in localStorage) {
+      this.cardProducts = JSON.parse(localStorage.getItem("cart")!)
+    }
   }
 
   slidesProduct = [
-    {image: 'assets/images/brandp1.jpg',title:'img1',desc:"20*80 سيراميك حوائط الملكه شاتو بلاك جراى"},
-    {image: 'assets/images/brandp1.jpg',title:'img1',desc:"60*60 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
-    {image: 'assets/images/brandp3.jpg',title:'img1',desc:"10*90 سيراميك ارضيات بروسلين شاتو اصفر جراى"},
-    {image: 'assets/images/brandp4.jpg',title:'img1',desc:"30*30 سيراميك ارضيات الجوهرة شاتو رمادي جراى"},
-    {image: 'assets/images/brandp5.jpg',title:'img1',desc:"20*20 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
-    {image: 'assets/images/brandp6.jpg',title:'img1',desc:"20*20 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
-    {image: 'assets/images/brandp7.jpg',title:'img1',desc:"10160 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
+    { image: 'assets/images/brandp1.jpg', title: 'img1', desc: "20*80 سيراميك حوائط الملكه شاتو بلاك جراى" },
+    { image: 'assets/images/brandp1.jpg', title: 'img1', desc: "60*60 سيراميك ارضيات الجوهرة شاتو دارك جراى" },
+    { image: 'assets/images/brandp3.jpg', title: 'img1', desc: "10*90 سيراميك ارضيات بروسلين شاتو اصفر جراى" },
+    { image: 'assets/images/brandp4.jpg', title: 'img1', desc: "30*30 سيراميك ارضيات الجوهرة شاتو رمادي جراى" },
+    { image: 'assets/images/brandp5.jpg', title: 'img1', desc: "20*20 سيراميك ارضيات الجوهرة شاتو دارك جراى" },
+    { image: 'assets/images/brandp6.jpg', title: 'img1', desc: "20*20 سيراميك ارضيات الجوهرة شاتو دارك جراى" },
+    { image: 'assets/images/brandp7.jpg', title: 'img1', desc: "10160 سيراميك ارضيات الجوهرة شاتو دارك جراى" },
 
   ]
 }

@@ -12,6 +12,5 @@ export class OrderTotalsComponent implements OnInit{
   constructor(public basketService:BasketService){}
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 }

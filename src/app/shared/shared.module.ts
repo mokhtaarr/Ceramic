@@ -10,6 +10,7 @@ import { httpTranslateLoader } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
 import { ScrollToTopButtonComponent } from './scroll-to-top-button/scroll-to-top-button.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ScrollToTopButtonComponent } from './scroll-to-top-button/scroll-to-top
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SharedRoutingModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',
@@ -39,7 +41,8 @@ import { ScrollToTopButtonComponent } from './scroll-to-top-button/scroll-to-top
     PagingHeaderComponent,
     PagerComponent,
     OrderTotalsComponent,
-    ScrollToTopButtonComponent
+    ScrollToTopButtonComponent,
+    FormsModule
   ]
 })
 export class SharedModule { }

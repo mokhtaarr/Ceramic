@@ -13,7 +13,10 @@ import { Observable } from 'rxjs';
 export class ShopService {
 
   constructor(private http: HttpClient) { }
-  baseUrl = "https://localhost:7192/api/"
+  // baseUrl = "https://localhost:7192/api/"
+  
+  baseUrl = "https://eldolia.softgoegypt.com/api/"
+  
 
   getProducts(shopParams: shopParams) {
     let params = new HttpParams();

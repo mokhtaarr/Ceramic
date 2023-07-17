@@ -39,6 +39,7 @@
   </div>
   <figcaption>
     <h3 style="cursor: pointer;"><i class="fa fa-shopping-cart CartHover" (click)="addItemToBasket()"> {{'Cart'|translate}}</i></h3>
+    <br>
     <div *ngIf="currentCulture == 'ar'" class="text-center">
       
       <h6 style="direction: rtl;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular', 
@@ -66,6 +67,16 @@
       <span style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{product.firstPrice}}</span>
     </div>
+    <!-- <div class="text-center mt-5">
+      <button  *ngIf="!addButton" (click)="addButton = true">Add to card</button>
+      <div class="d-flex" *ngIf="addButton">
+      
+        <input type="number" class="form-control" [(ngModel)]="amount" />
+        <button (click)="AddToCard();addButton=false">Add</button>
+
+      </div>
+
+    </div> -->
    
     <a href="#" routerLink="/shop/{{product.itemCardId}}"><i class="fa fa-eye" aria-hidden="true"></i> {{'View'|translate}}</a>
   </figcaption>

@@ -1,0 +1,122 @@
+<div class="container mt-5">
+    <ng-container>
+        <div class="container">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="bg-light text-uppercase">
+                            <tr>
+                                <th>
+                                    <div class="py-2">المنتجات</div>
+                                </th>
+                                <th>
+                                    <div class="py-2">السعر</div>
+                                </th>
+                                <th>
+                                    <div class="py-2">الكميه</div>
+                                </th>
+                                <th>
+                                    <div class="py-2">اجمالى</div>
+                                </th>
+                                <th>
+                                    <div class="py-2">ازاله</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cardProducts; let index = index">
+                                <th>
+                                    <div class="p-2 d-inline-block">
+                                        <img src="{{item.item.taxItemCode}}" alt="الصوره" class="img-fluid"
+                                            style="max-height: 50px;margin-left: 5px;" />
+                                        <div class="ms-3 d-inline-block align-middle">
+                                            <h5 class="mb-0">
+                                                <a routerLink="/shop/{{item.basketItemId}}"
+                                                    class="text-dark  text-decoration-none">
+                                                    {{item.item.itemDescA}}
+                                                </a>
+                                            </h5>
+
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="align-middle"><strong>{{item.item.firstPrice}}</strong></td>
+                                <td class="align-middle">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-minus-circle text-warning me-2  mx-2"
+                                            style="cursor: pointer; font-size: 2em;" (click)="minsAmount(index)"></i>
+                                        <strong style="font-size: 1.3em;">{{item.quantity}}</strong>
+                                        <i class="fa fa-plus-circle text-warning mx-2"
+                                            style="cursor: pointer; font-size: 2em;" (click)="AddAmount(index)"></i>
+                                    </div>
+                                </td>
+                                <td class="align-middle"><strong>{{item.item.firstPrice * item.quantity}}</strong></td>
+                                <td class="align-middle">
+                                    <a class="text-danger">
+                                        <i class="fa fa-trash" style="font-size: 2em; cursor: pointer;"
+                                            (click)="DeleteProduct(index)"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="row d-flex justify-content-start">
+                <div class="col-3 mb-5">
+                    <a class="btn btn-outline-danger py2" (click)="clearCart()">
+                        <i class="fa fa-trash" style="font-size: 1em; cursor: pointer;"></i> حذف جميع المنتجات
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="row d-flex justify-content-start">
+                <div class="col-6 mb-5">
+                    <div class="bg-light px-4 py-3 text-uppercase fw-bold">
+                        ملخص الطلب
+                    </div>
+                    <div class="p-4">
+                        <p class="fst-italic mb-4">سيتم احتساب تكاليف الشحن بناءً على الاختيارات التي يتم إجراؤها أثناء
+                            الخروج</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                                <strong class="text-muted">المجموع</strong>
+                                <strong>{{Total}} جنيه</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-grid">
+                        <a class="btn btn-outline-primary py2">
+                            تجهيز الخروج
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-start">
+                <div class="col-6 mb-5">
+                    <div class="p-4">
+                        <p class="fst-italic mb-4">سيتم احتساب تكاليف الشحن بناءً على الاختيارات التي يتم إجراؤها أثناء
+                            الخروج</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                                <strong class="text-muted">المجموع</strong>
+                                <strong>{{Total}} جنيه</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-grid">
+                        <a class="btn btn-outline-primary py2">
+                            تجهيز الخروج
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div>

@@ -12,13 +12,14 @@ import { BasketItem } from 'src/app/shared/models/basket';
 export class NavBarComponent implements OnInit {
   // currentCulture: string;
   currentLange!:string;
+  cardProducts: any[] =[];
   constructor(public translate:TranslateService,public basketService:BasketService,private i18nservice:I18nServicesService){
     // this.currentCulture = 'en';
     this.currentLange = localStorage.getItem('currentLange') || 'ar';
     this.translate.use(this.currentLange);
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getCartProduct()
   }
 //   ngOnInit(): void {
 //     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -37,4 +38,10 @@ export class NavBarComponent implements OnInit {
   this.i18nservice.changeLocale(lang);
 }
 
+getCartProduct(){
+  if("cart" in localStorage){
+    this.cardProducts = JSON.parse(localStorage.getItem("cart")!)
+  
+}
+}
 }

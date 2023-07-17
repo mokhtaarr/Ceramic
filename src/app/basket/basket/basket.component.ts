@@ -7,12 +7,10 @@ import { BasketItem } from 'src/app/shared/models/basket';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss']
 })
-export class BasketComponent implements OnInit {
+export class BasketComponent  {
   constructor(public basketService:BasketService){}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
    incrementQuantity(item:BasketItem)
   {

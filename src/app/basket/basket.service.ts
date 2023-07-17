@@ -23,7 +23,7 @@ export class BasketService {
     return this.http.get<Basket>(this.baseUrl + 'basket?id=' + id).subscribe({
       next: basket => {
         this.basketSource.next(basket);
-        console.log("get basket is complete");
+        console.log("###### from basket services get basket is complete");
         this.calculateTotals();
       }
     })
@@ -34,9 +34,9 @@ export class BasketService {
       next: basket => {
         this.basketSource.next(basket);
         this.calculateTotals();
-        console.log("set basket is complete");
+        console.log("###### from basket services set basket is complete");
       },
-      error: error => console.log("error in set basket")
+      error: error => console.log("errorrrrrrrrr in basket services")
     })
   }
 
@@ -84,18 +84,22 @@ export class BasketService {
       itemToAdd.quantity = quantity;
       items.push(itemToAdd);
     }
+    console.log("###### from basket services addOrUpdateItem is complete");
+
     return items;
   }
 
 
 
   createBasket(): Basket {
+    console.log("#### from basket services create basket is complete")
     const basket = new Basket();
     localStorage.setItem("basket_Id", basket.customerBasketId);
     return basket;
   }
 
   private mapProductItemToBasketItem(item: Product) {
+    console.log("#### from basket services mapping is complete")
     return {
       basketItemId: item.itemCardId,
       productName: item.itemDescA,
