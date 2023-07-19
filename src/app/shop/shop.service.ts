@@ -16,6 +16,7 @@ export class ShopService {
   // baseUrl = "https://localhost:7192/api/"
   
   baseUrl = "https://eldolia.softgoegypt.com/api/"
+
   
 
   getProducts(shopParams: shopParams) {
