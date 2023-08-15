@@ -14,8 +14,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProductCarouselWithCardComponent } from './product-carousel-with-card/product-carousel-with-card.component';
 import { GetProductByBrandImagesComponent } from './get-product-by-brand-images/get-product-by-brand-images.component';
 import { GetProductByCategoryImageOfferComponent } from './get-product-by-category-image-offer/get-product-by-category-image-offer.component';
-import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [

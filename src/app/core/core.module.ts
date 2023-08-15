@@ -14,6 +14,7 @@ import { ServerErrorComponent } from './server-error/server-error.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer/footer.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent, FooterComponent],
@@ -34,6 +35,8 @@ import { FooterComponent } from './footer/footer.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     }),
+    SharedModule
+
  ],
   exports:[
     NavBarComponent,

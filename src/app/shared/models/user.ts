@@ -1,6 +1,9 @@
 export interface User {
     email: string;
     displayName: string;
+    phoneNumber: string;
+    city: string;
+    street: string;
     token: string;
 }
 
@@ -12,5 +15,5 @@ export interface Address {
     street: string;
     city: string;
     state: string;
-    zipCode: string;
+    zipCode?: string;
 }

@@ -1,25 +1,48 @@
+<div class="phone-carousel-container">
+  <h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-line-chart"
+      aria-hidden="true"></i>
+    {{'BestSell'|translate}}</h4>
 
-<h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-line-chart" aria-hidden="true"></i>
-  {{'BestSell'|translate}}</h4>
-
-<!-- <div>
+  <!-- <div >
   <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
     [startFromIndex]="6" [interval]="0">
-
-    <slide *ngFor="let slide of slidesProduct; let index=index">
-      <figure class="snip1171 orange col-sm-3">
-        <img [src]="slide.image" alt="sample52" />
-        <div class="price">$19.00</div>
-        <figcaption>
-          <h3>Wax Jacket</h3>
-          <p class="card-text">{{slide.desc}}</p>
-          <a href="#">Add to Cart</a>
-        </figcaption>
-      </figure>
-    </slide>
+    <ng-container>
+      <slide *ngFor="let slide of slidesProduct; let index=index" class="col-sm-3" >
+        <figure class="snip1171 orange col-sm-3">
+          <img [src]="slide.image" alt="sample52" />
+          <div class="price">$19.00</div>
+          <figcaption>
+            <h3>Wax Jacket</h3>
+            <p class="card-text">{{slide.desc}}</p>
+            <a href="#">Add to Cart</a>
+          </figcaption>
+        </figure>
+      </slide>
+    </ng-container>  
   </carousel>
-</div> -->
+</div>  -->
 
+
+  <div class="carousel-container">
+    <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+      [interval]="0">
+      <ng-container>
+        <slide *ngFor="let slide of slidesProduct" class="col-12 col-sm-6 col-md-4 col-lg-3 m-4">
+          <figure class="snip1171 orange">
+            <img [src]="slide.image" alt="sample52" />
+            <div class="price">$19.00</div>
+            <figcaption>
+              <h3>Wax Jacket</h3>
+              <p class="card-text">{{slide.desc}}</p>
+              <a href="#">Add to Cart</a>
+            </figcaption>
+          </figure>
+        </slide>
+      </ng-container>
+    </carousel>
+  </div>
+
+</div>
 
 <!-- 
 <div class="single-showcase clearfix">
@@ -134,7 +157,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
 </body> -->
-<div class="container">
+<!-- <div class="container">
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <div class="col">
@@ -187,4 +210,12 @@
     </div>
 
   </div>
-</div>
+</div> -->
+<!-- 
+<div>Some tags before</div>
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide>Slide 1</ng-template>  
+  <ng-template carouselSlide>Slide 2</ng-template>  
+  <ng-template carouselSlide>Slide 3</ng-template>  
+</owl-carousel-o>
+<div>Some tags after</div> -->

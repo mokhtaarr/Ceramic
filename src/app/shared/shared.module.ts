@@ -10,7 +10,9 @@ import { httpTranslateLoader } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
 import { ScrollToTopButtonComponent } from './scroll-to-top-button/scroll-to-top-button.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     SharedRoutingModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',
       loader:{
@@ -33,7 +36,9 @@ import { FormsModule } from '@angular/forms';
       }
     }),
     PaginationModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    BsDropdownModule.forRoot(),
+
   ],
   exports:[
     CarouselModule,
@@ -42,7 +47,9 @@ import { FormsModule } from '@angular/forms';
     PagerComponent,
     OrderTotalsComponent,
     ScrollToTopButtonComponent,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BsDropdownModule
   ]
 })
 export class SharedModule { }

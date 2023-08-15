@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
@@ -14,7 +13,9 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { SharedModule } from "./shared/shared.module";
 import { AccountModule } from './account/account.module';
 import { TestModule } from './test/test.module';
-
+import { RouterModule } from '@angular/router';
+import { BasketModule } from './basket/basket.module';
+ 
 @NgModule({
     declarations: [
         AppComponent,
@@ -25,6 +26,7 @@ import { TestModule } from './test/test.module';
     ],
     bootstrap: [AppComponent],
     imports: [
+        RouterModule,
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
@@ -42,7 +44,9 @@ import { TestModule } from './test/test.module';
             }
         }),
         SharedModule,
-        AppRoutingModule
+        AppRoutingModule,
+        BasketModule
+
     ]
 })
 export class AppModule { }

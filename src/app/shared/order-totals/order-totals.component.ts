@@ -9,6 +9,8 @@ import { BasketService } from 'src/app/basket/basket.service';
 
 export class OrderTotalsComponent implements OnInit{
 
+
+
   constructor(public basketService:BasketService){}
   
   ngOnInit(): void {

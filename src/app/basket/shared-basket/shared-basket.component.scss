@@ -1,0 +1,100 @@
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1030;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.1s;
+  }
+  
+
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 17px;
+    cursor: pointer;
+    background-color: #43afaa;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    background-color: #f8f9fa;
+    color:#43afaa ;
+    border: 1px solid #43afaa;
+  }
+
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+
+
+#mySidenav a {
+    // position: absolute;
+    // left: -80px;
+    // transition: 0.3s;
+    // padding: 15px;
+    // width: 100px;
+    // text-decoration: none;
+    // font-size: 20px;
+    // color: white;
+    // border-radius: 0 5px 5px 0;
+    margin-top: 137px;
+    position: absolute;
+    left: -171px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 200px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    border-radius: 0 5px 5px 0;
+    position: fixed;
+    z-index: 10;
+
+  }
+  
+  #mySidenav a:hover {
+    left: 0;
+    z-index: 10;
+  }
+  
+  #about {
+    top: 20px;
+    background-color: #43afaa;
+  }
+  
+  #blog {
+    top: 80px;
+    background-color: #f44336;
+    margin-top: 10px;
+  }

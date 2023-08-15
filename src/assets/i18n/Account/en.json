@@ -1,3 +1,30 @@
 {
-    "tlogin":"LogIn"
+    "Alogin":"Log In",
+    "Email Address":"Email Address",
+    "Password":"Password",
+    "sumbit":"sumbit",
+    "Email is required":"Email is required",
+    "password is required":"password is required",
+    "Register":"Register",
+    "displayName":"Name",
+    "displayName is required":"Name is required",
+    "Sign Up":"Sign Up",
+    "Logout":"Logout",
+    "PhoneNumber":"PhoneNumber",
+    "Phone Number is required":"Phone Number is required",
+    "City":"City",
+    "City is required":"City is required",
+    "Street":"Street",
+    "Street is required":"Street is required",
+    "Email Confirmation Page":"Email Confirmation Page",
+    "Email confirmed":"Email confirmed",
+    "Unable to confirm email":"Unable to confirm email"
+
+
+
+
+
+
+
+
 }

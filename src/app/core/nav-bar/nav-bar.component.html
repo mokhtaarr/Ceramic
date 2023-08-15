@@ -1,5 +1,4 @@
 <!-- sticky-top -->
-<div class="">
   <nav class="navbar navbar-expand-lg" style="height:40px;background-color:#43afaa;">
     <div class="container-fluid">
       <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
@@ -35,7 +34,8 @@
     </div>
   </nav>
 
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/" class="col-md-3 text-center">
       <img src="/assets/images/logo.png" alt="logo" class="logo" style="max-height: 70px;" routerLink="/">
     </a>
@@ -48,9 +48,9 @@
         translate}}</a>
       <!-- <a class="p-2" routerLinkActive="active" routerLink="/Contact"><i class="fa fa-phone" aria-hidden="true"></i>
         {{'ContactUs' | translate}}</a> -->
-        <a class="p-2" routerLinkActive="active" routerLink="/aboutCompany"><i class="fa fa-university"></i>
+      <a class="p-2" routerLinkActive="active" routerLink="/aboutCompany"><i class="fa fa-university"></i>
 
-          {{'AboutCompany'|translate}}</a>
+        {{'AboutCompany'|translate}}</a>
 
       <!-- <a class="p-2" routerLinkActive="active" routerLink="/test-error">
          Error </a> -->
@@ -61,8 +61,40 @@
         </div>
       </a> -->
     </ul>
+    <div class="d-flex align-items-center">
+      <a  routerLink="/basket" class="position-relative">
+          <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
+          <div *ngIf="(basketService.basketSource$ |async) as basket" class="cart-no">
+              {{getCount(basket.items)}}
+          </div>
+      </a>
+      <ng-container *ngIf="(accountService.currentUser$ |async)==null">
+        <a routerLink="/account/login" type="button" class="btn btn-light me-2"><i class="fa fa-sign-in"
+          aria-hidden="true"></i>
+        {{'Login' | translate}}</a>
+      <a routerLink="/account/register" type="button" class="btn btn-primary"
+        style="margin-left: 5px;margin-right: 5px;color: white;background-color: #43afaa;"><i class="fa fa-sign-out"
+          aria-hidden="true"></i>
+        {{'LogUp' | translate}}</a>
+      </ng-container>
 
-    <div class="col-md-3 text-end">
+      <ng-container *ngIf="accountService.currentUser$ | async as user">
+          <div class="dropdown ms-3 me-5" style="cursor: pointer;margin-left: 5px" dropdown>
+              <a dropdownToggle class="dropdown-toggle">
+                  <strong>{{'Welcome'|translate}} {{user.displayName}}</strong>
+              </a>
+              <ul *dropdownMenu class="dropdown-menu">
+                  <li class="py-1">
+                      <a (click)="accountService.logout()" class="dropdown-item">
+                          <i class="fa fa-sign-out me-3"></i> {{'Logout'|translate}}
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </ng-container>
+  </div>
+    <!-- old -->
+    <!-- <div class="col-md-3 text-end">
       <a routerLink="/basket" class="position-relative" style="margin-left: 5px;">
         <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
         <div class="cart-no" *ngIf="(basketService.basketSource$ |async) as basket">
@@ -70,14 +102,46 @@
         </div>
       </a>
 
-      <a routerLink="/account/login" type="button" class="btn btn-light me-2"><i class="fa fa-sign-in"
-          aria-hidden="true"></i>
-        {{'Login' | translate}}</a>
-      <a routerLink="/account/register" type="button" class="btn btn-primary"
-        style="margin-right: 5px;color: white;background-color: #43afaa;"><i class="fa fa-sign-out"
-          aria-hidden="true"></i>
-        {{'LogUp' | translate}}</a>
-    </div>
+      <ng-container *ngIf="(accountService.currentUser$ |async)==null">
+        <a routerLink="/account/login" type="button" class="btn btn-light me-2"><i class="fa fa-sign-in"
+            aria-hidden="true"></i>
+          {{'Login' | translate}}</a>
+        <a routerLink="/account/register" type="button" class="btn btn-primary"
+          style="margin-right: 5px;color: white;background-color: #43afaa;"><i class="fa fa-sign-out"
+            aria-hidden="true"></i>
+          {{'LogUp' | translate}}</a>
+      </ng-container>
+      <ng-container *ngIf="accountService.currentUser$ | async as user">
+      
+        <div class="dropdown ms-3 me-5" style="cursor: pointer;display: contents;" dropdown>
+            <a dropdownToggle class="dropdown-toggle">
+                <strong>{{'Welcome'|translate}} {{user.displayName}}</strong>
+            </a>
+            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                <li class="py-1">
+                    <a routerLink="/basket" class="dropdown-item">
+                        <i class="fa fa-shopping-cart me-3"></i> View basket
+                    </a>
+                </li>
+                <li class="py-1">
+                    <a routerLink="/orders" class="dropdown-item">
+                        <i class="fa fa-history me-3"></i> View orders
+                    </a>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li class="py-1">
+                    <a (click)="accountService.logout()" class="dropdown-item">
+                        <i class="fa fa-sign-out me-3"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
+    </div> -->
+
+
+
     <!-- <div class="frame d-flex justify-content-center p-0 m-0 mt-5">
       <button class="custom-btn btn-12"><span><i style="font-size: 25px;"
                   class="fa fa-shopping-cart CartHover"></i></span><span
@@ -85,8 +149,6 @@
   </div> -->
 
   </header>
-</div>
-
 
 <!-- <header>
     <nav class="navbar navbar-expand-lg bg-light d-flex flex-row align-items-center justify-content-between p-3 px-4 mb-3
@@ -109,5 +171,3 @@
         </div>
       </nav>
 </header> -->
-
-

@@ -9,12 +9,14 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { SharedModule } from '../shared/shared.module';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ConfirmemailComponent } from './confirmemail/confirmemail.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConfirmemailComponent
   ],
   imports: [
     CommonModule,

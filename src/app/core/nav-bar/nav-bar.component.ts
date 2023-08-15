@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { I18nServicesService } from 'src/app/Services/i18n-services.service';
+import { AccountService } from 'src/app/account/account.service';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BasketItem } from 'src/app/shared/models/basket';
 
@@ -13,7 +14,10 @@ export class NavBarComponent implements OnInit {
   // currentCulture: string;
   currentLange!:string;
   cardProducts: any[] =[];
-  constructor(public translate:TranslateService,public basketService:BasketService,private i18nservice:I18nServicesService){
+  constructor(public translate:TranslateService,
+    public basketService:BasketService,
+    private i18nservice:I18nServicesService,
+    public accountService:AccountService){
     // this.currentCulture = 'en';
     this.currentLange = localStorage.getItem('currentLange') || 'ar';
     this.translate.use(this.currentLange);

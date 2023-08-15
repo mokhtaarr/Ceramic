@@ -61,7 +61,25 @@
     "Follow us":"تابعنا",
     "International Ceramic Company 2023© All Rights Reserved":"شركه الدوليه للسيراميك 2023© جميع الحقوق محفوظة",
     "Multiple and secure payment methods":"طرق دفع متعددة وآمنة",
-    "AboutCompany":"عن الشركه"
+    "AboutCompany":"عن الشركه",
+    "Exit processing":"تجهيز الخروج",
+    "BasketProduct":"المنتجات",
+    "BasketPrice":"السعر",
+    "BasketQuantity":"الكميه",
+    "BasketTotal":"اجمالى",
+    "BasketRemove":"ازاله",
+    "Order summary":"ملخص الطلب",
+    "Shopping Coast":"سيتم احتساب تكاليف الشحن بناءً على الاختيارات التي يتم إجراؤها أثناء الخروج",
+    "the total":"المجموع",
+    "Welcome":"مرحبا بك",
+    "Email is required":"البريد الالكتروني مطلوب",
+    "Logout":"تسجيل خروج",
+    "SearchWithUs":"ابحث معانا"
+
+
+
+
+
 
 
 

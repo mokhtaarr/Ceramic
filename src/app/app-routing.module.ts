@@ -12,6 +12,7 @@ import { GetProductByCategoryImageOfferComponent } from './shop/get-product-by-c
 import { TestComponent } from './test/test/test.component';
 import { LoginComponent } from './account/login/login.component';
 import { AboutCompanyComponent } from './home/about-company/about-company.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {path:'',component:ShopComponent},
@@ -26,7 +27,11 @@ const routes: Routes = [
   {path:'basket',loadChildren:()=>import('./basket/basket.module').then(m=>m.BasketModule)},
   // {path:'shop/:id',component:ProductDetailsComponent},
   {path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
-  {path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)},
+  {
+    path: 'checkout',
+    canActivate:[AuthGuard],
+    loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)
+  },
   {path:'test',component:TestComponent},
   {path:'logo',component:LoginComponent},
   {path:'aboutCompany',component:AboutCompanyComponent},

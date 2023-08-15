@@ -1,3 +1,28 @@
 {
-    "tlogin":"دخول"
+    "Alogin":"تسجيل الدخول",
+    "Email Address":"عنوان البريد الإلكتروني",
+    "Password":"كلمه السر",
+    "sumbit":"دخول",
+    "Email is required":"البريد الالكتروني مطلوب",
+    "password is required":"الباسورد مطلوب",
+    "Register":"تسجيـل حسـاب جـديد",
+    "displayName":"الاسم",
+    "displayName is required":"الاسم مطلوب",
+    "Sign Up":"تسجيـل",
+    "Logout":"تسجيل خروج",
+    "PhoneNumber":"رقم الموبايل",
+    "Phone Number is required":"رقم الموبايل مطلوب",
+    "City":"المدينه",
+    "City is required":"المدينه مطلوبه",
+    "Street":"اسم الشارع",
+    "Street is required":"اسم الشارع مطلوب",
+    "Email Confirmation Page":"صفحة تأكيد البريد الإلكتروني",
+    "Email confirmed":"تم تاكيد الايميل بنجاح",
+    "Unable to confirm email":"غير قادر على تأكيد البريد الإلكتروني"
+
+
+
+
+
+
 }

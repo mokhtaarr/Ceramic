@@ -1,47 +1,58 @@
-<div class="d-flex justify-content-center mt-5">
-    <div class="col-lg-3 col-md-6 col-sm-12">
-        <form >
-            <div class="text-center mb-4">
-                <h1 class="mb-3">Register</h1>
+
+<section >
+    <div class="container">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="text-center mb-4">
+                    <h1 class="mb-3">{{'Register'|translate}}</h1>
+                </div>
+
+                <div class="form-floating">
+                    <input [class.is-invalid]="registerForm.get('displayName')?.invalid&&registerForm.get('displayName')?.touched" type="text" formControlName="displayName" class="form-control" id="floatingEmail" placeholder="Display Name">
+                    <label for="floatingEmail">{{'displayName'|translate}}</label>
+                    <div *ngIf="registerForm.get('displayName')?.errors?.['required']" class="invalid-feedback">{{'displayName is required'|translate}}</div>
+                </div>
+
+                <div class="form-floating mt-3">
+                  <input [class.is-invalid]="registerForm.get('City')?.invalid&&registerForm.get('City')?.touched" type="text" formControlName="City" class="form-control" id="floatingEmail" placeholder="City">
+                  <label for="floatingEmail">{{'City'|translate}}</label>
+                  <div *ngIf="registerForm.get('City')?.errors?.['required']" class="invalid-feedback">{{'City is required'|translate}}</div>
+              </div>
+
+              <div class="form-floating mt-3">
+                <input [class.is-invalid]="registerForm.get('Street')?.invalid&&registerForm.get('Street')?.touched" type="text" formControlName="Street" class="form-control" id="floatingEmail" placeholder="Street">
+                <label for="floatingEmail">{{'Street'|translate}}</label>
+                <div *ngIf="registerForm.get('Street')?.errors?.['required']" class="invalid-feedback">{{'Street is required'|translate}}</div>
             </div>
 
-            <div class="form-floating mb-3">
-                <input 
-                    type="text"
-                    formControlName="displayName" 
-                    class="form-control" 
-                    id="floatingEmail" 
-                    placeholder="name@example.com">
-                <label for="floatingEmail">Display Name</label>
-                <div  class="invalid-feedback">display Name is required</div>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input 
-                    type="email"
-                    formControlName="email" 
-                    class="form-control" 
-                    id="floatingEmail" 
-                    placeholder="name@example.com">
-                <label for="floatingEmail">Email Address</label>
-                <div  class="invalid-feedback">Email is required</div>
-            </div>
-
-            <div class="form-floating">
-                <input 
-                   type="password"
-                   formControlName="password" 
-                   class="form-control" 
-                   id="floatingPassword" 
-                   placeholder="password">
-                <label for="floatingPassword">Password</label>
-                <div  class="invalid-feedback">password is required</div>
-
-            </div>
-
-            <div class="d-grid">
-                <button  class="btn btn-lg btn-primary mt-3" type="submit">Sign Up</button>
-            </div>
-        </form>
+                <div class="form-floating mt-3">
+                  <input [class.is-invalid]="registerForm.get('PhoneNumber')?.invalid&&registerForm.get('PhoneNumber')?.touched" type="text" formControlName="PhoneNumber" class="form-control" id="floatingEmail" placeholder="PhoneNumber">
+                  <label for="floatingEmail">{{'PhoneNumber'|translate}}</label>
+                  <div *ngIf="registerForm.get('PhoneNumber')?.errors?.['required']" class="invalid-feedback">{{'Phone Number is required'|translate}}</div>
+              </div>
+    
+                <div class="form-floating mt-3">
+                    <input [class.is-invalid]="registerForm.get('email')?.invalid&&registerForm.get('email')?.touched" type="email" formControlName="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                    <label for="floatingEmail">{{'Email Address'|translate}}</label>
+                    <div *ngIf="registerForm.get('email')?.errors?.['required']" class="invalid-feedback">{{'Email is required'|translate}}</div>
+                </div>
+    
+                <div class="form-floating mt-3">
+                    <input [class.is-invalid]="registerForm.get('password')?.invalid&&registerForm.get('password')?.touched" type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">{{'Password'|translate}}</label>
+                    <div *ngIf="registerForm.get('password')?.errors?.['required']" class="invalid-feedback">{{'password is required'|translate}}</div>
+                  </div>
+    
+                  <button [disabled]="registerForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit'|translate}}</button>  
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
+
+  

@@ -6,12 +6,16 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { BasketService } from 'src/app/basket/basket.service';
 import { take } from 'rxjs';
 
+declare function resetActiveImg() :any
+declare function ready() :any
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
+  
   product?: Product
   quantity = 1;
   quantityInBasket = 0;
@@ -22,10 +26,15 @@ export class ProductDetailsComponent implements OnInit {
   currentCulture: string = 'ar';
 
   ngOnInit(): void {
+    
     this.LoadProduct();
+    ready();
+    resetActiveImg();
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.currentCulture = event.lang;
     });
+   
+   
   }
 
   LoadProduct() {

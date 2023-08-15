@@ -1,68 +1,220 @@
 
 
-.slider{
-	width: 100%; /*Same as width of the large image*/
-	position: relative;
-	/*Instead of height we will use padding*/
-	padding-top: 320px; /*That helps bring the labels down*/
+// .slider{
+// 	width: 100%; 
+// 	position: relative;
+// 	padding-top: 320px; 
 	
-	margin: 100px auto;
+// 	margin: 100px auto;
 	
-	/*Lets add a shadow*/
-	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
-}
+// 	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+// }
 
 
-/*Last thing remaining is to add transitions*/
-.slider>img{
-	position: absolute;
-	left: 0; top: 0;
-	transition: all 0.5s;
-}
+// .slider>img{
+// 	position: absolute;
+// 	left: 0; top: 0;
+// 	transition: all 0.5s;
+// }
 
-.slider input[name='slide_switch'] {
-	display: none;
-}
+// .slider input[name='slide_switch'] {
+// 	display: none;
+// }
 
-.slider label {
-	/*Lets add some spacing for the thumbnails*/
-	margin: 18px 0 0 18px;
-	border: 3px solid #999;
+// .slider label {
+// 	margin: 18px 0 0 18px;
+// 	border: 3px solid #999;
 	
-	float: left;
-	cursor: pointer;
-	transition: all 0.5s;
+// 	float: left;
+// 	cursor: pointer;
+// 	transition: all 0.5s;
 	
-	/*Default style = low opacity*/
-	opacity: 0.6;
+	
+// 	opacity: 0.6;
+// }
+
+// .slider label img{
+// 	display: block;
+// }
+
+// .slider input[name='slide_switch']:checked+label {
+// 	border-color: #666;
+// 	opacity: 1;
+// }
+
+// .slider input[name='slide_switch'] ~ img {
+// 	opacity: 0;
+// 	transform: scale(1.1);
+// }
+
+// .slider input[name='slide_switch']:checked+label+img {
+// 	opacity: 1;
+// 	transform: scale(1);
+// }
+
+
+// .carousel-control-prev{
+// 	color: blue;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.slider label img{
-	display: block;
+html, body{
+    font-family: 'Roboto', sans-serif;
 }
 
-/*Time to add the click effects*/
-.slider input[name='slide_switch']:checked+label {
-	border-color: #666;
-	opacity: 1;
+img{
+    width: 100%;
+    display: block;
 }
-/*Clicking any thumbnail now should change its opacity(style)*/
-/*Time to work on the main images*/
-.slider input[name='slide_switch'] ~ img {
-	opacity: 0;
-	transform: scale(1.1);
+.main-wrapper{
+    min-height: 100vh;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-/*That hides all main images at a 110% size
-On click the images will be displayed at normal size to complete the effect
-*/
-.slider input[name='slide_switch']:checked+label+img {
-	opacity: 1;
-	transform: scale(1);
+.container{
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
 }
-/*Clicking on any thumbnail now should activate the image related to it*/
+.product-div{
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #fff;
+    border-radius: 3px;
+    column-gap: 10px;
+}
+.product-div-left{
+    padding: 20px;
+}
+.product-div-right{
+    padding: 20px;
+}
+.img-container img{
+    width: 200px;
+    margin: 0 auto;
+}
+.hover-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+}
+.hover-container div{
+    border: 2px solid rgba(252, 160, 175, 0.7);
+    padding: 1rem;
+    border-radius: 3px;
+    margin: 0 4px 8px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active{
+    border-color: rgb(255, 145, 163)!important;
+}
+.hover-container div:hover{
+    border-color: rgb(255, 145, 163);
+}
+.hover-container div img{
+    width: 50px;
+    cursor: pointer;
+}
+.product-div-right span{
+    display: block;
+}
+.product-name{
+    font-size: 26px;
+    margin-bottom: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+.product-price{
+    font-weight: 700;
+    font-size: 24px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+.product-rating{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+.product-rating span{
+    margin-right: 6px;
+}
+.product-description{
+    font-weight: 18px;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 22px;
+}
+.btn-groups{
+    margin-top: 22px;
+}
+.btn-groups button{
+    display: inline-block;
+    font-size: 16px;
+    font-family: inherit;
+    text-transform: uppercase;
+    padding: 15px 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-groups button .fas{
+    margin-right: 8px;
+}
+.add-cart-btn{
+    background-color: #FF9F00;
+    border: 2px solid #FF9F00;
+    margin-right: 8px;
+}
+.add-cart-btn:hover{
+    background-color: #fff;
+    color: #FF9F00;
+}
+.buy-now-btn{
+    background-color: #000;
+    border: 2px solid #000;
+}
+.buy-now-btn:hover{
+    background-color: #fff;
+    color: #000;
+}
 
-/*We are done :)*/
+@media screen and (max-width: 992px){
+    .product-div{
+        grid-template-columns: 100%;
+    }
+    .product-div-right{
+        text-align: center;
+    }
+    .product-rating{
+        justify-content: center;
+    }
+    .product-description{
+        max-width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
 
-.carousel-control-prev{
-	color: blue;
+@media screen and (max-width: 400px){
+    .btn-groups button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }

@@ -11,19 +11,19 @@
                         <thead class="bg-light text-uppercase">
                             <tr>
                                 <th>
-                                    <div class="py-2">المنتجات</div>
+                                    <div class="py-2">{{'BasketProduct'|translate}}</div>
                                 </th>
                                 <th>
-                                    <div class="py-2">السعر</div>
+                                    <div class="py-2">{{'BasketPrice'|translate}}</div>
                                 </th>
                                 <th>
-                                    <div class="py-2">الكميه</div>
+                                    <div class="py-2">{{'BasketQuantity'|translate}}</div>
                                 </th>
                                 <th>
-                                    <div class="py-2">اجمالى</div>
+                                    <div class="py-2">{{'BasketTotal'|translate}}</div>
                                 </th>
                                 <th>
-                                    <div class="py-2">ازاله</div>
+                                    <div class="py-2">{{'BasketRemove'|translate}}</div>
                                 </th>
                             </tr>
                         </thead>
@@ -34,10 +34,16 @@
                                         <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid"
                                             style="max-height: 50px;margin-left: 5px;" />
                                         <div class="ms-3 d-inline-block align-middle">
-                                            <h5 class="mb-0">
+                                            <h5 class="mb-0" *ngIf="currentCulture == 'ar'" >
                                                 <a routerLink="/shop/{{item.basketItemId}}"
                                                     class="text-dark  text-decoration-none">
                                                     {{item.productName}}
+                                                </a>
+                                            </h5>
+                                            <h5 class="mb-0" *ngIf="currentCulture == 'en'" >
+                                                <a routerLink="/shop/{{item.basketItemId}}"
+                                                    class="text-dark  text-decoration-none">
+                                                    {{item.productNameEn}}
                                                 </a>
                                             </h5>
 
@@ -70,11 +76,11 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-start">
-                <div class="col-6 mb-5">
+                <div class="col-lg-6 col-sm-12 mb-5">
                     <app-order-totals></app-order-totals>
                     <div class="d-grid">
-                        <a class="btn btn-outline-primary py2">
-                            تجهيز الخروج
+                        <a routerLink="/checkout" class="btn btn-outline-primary py2">
+                            {{'Exit processing'|translate}}
                         </a>
 
                     </div>

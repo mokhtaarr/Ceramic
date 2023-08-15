@@ -3,8 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  apiUrl:'https://eldolia.softgoegypt.com/api/'
+  production: false,
+  apiUrl : "https://localhost:7192/api/"
+
+  // apiUrl:'https://eldolia.softgoegypt.com/api/'
   
 
 };

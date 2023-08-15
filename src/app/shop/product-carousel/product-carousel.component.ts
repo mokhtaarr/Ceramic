@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-product-carousel',
   templateUrl: './product-carousel.component.html',
@@ -33,5 +34,6 @@ export class ProductCarouselComponent {
     {image: 'assets/images/brandp7.jpg',title:'img1',desc:"10160 سيراميك ارضيات الجوهرة شاتو دارك جراى"},
 
   ]
+
 }
 

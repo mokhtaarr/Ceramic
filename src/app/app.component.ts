@@ -4,6 +4,7 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Product } from './shared/models/product';
 import { Pagination } from './shared/models/pagination';
 import { BasketService } from './basket/basket.service';
+import { AccountService } from './account/account.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,9 @@ export class AppComponent implements OnInit{
   products:any[]=[]; 
   currentLange !: string;
 
-  constructor(private http:HttpClient,private translate: TranslateService,private basketService:BasketService){
+  constructor(private http:HttpClient,private translate: TranslateService,
+    private basketService:BasketService,
+    private accountService:AccountService){
     this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
     {   
       if(translate.currentLang == 'ar')
@@ -30,7 +33,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-
     this.http.get<Pagination<Product[]>>("https://localhost:7192/api/Product").subscribe({
       next :response=>{
         console.log(response)
@@ -44,8 +46,15 @@ export class AppComponent implements OnInit{
     })
     const basketId= localStorage.getItem("basket_Id");
     if(basketId) this.basketService.getBasket(basketId);
-    // this.loadCurrentUser();
+    
+    this.loadCurrentUser();
   
+  }
+
+  loadCurrentUser()
+  {
+    const token= localStorage.getItem('token');
+    this.accountService.loadCurrentUser(token).subscribe();
   }
 
   ngOnDestroy(){
@@ -57,5 +66,6 @@ export class AppComponent implements OnInit{
     });
   }
   
+
   
 }

@@ -13,7 +13,6 @@
     background-color: #f8f9fa;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
   }
   
   .sidebar a {
@@ -25,9 +24,7 @@
     transition: 0.1s;
   }
   
-  .sidebar a:hover {
-    color: #ff0404c9;
-  }
+
   
   .sidebar .closebtn {
     position: absolute;
@@ -52,9 +49,7 @@
     border: 1px solid #43afaa;
   }
 
-  .closebtn:hover{
-    color:#e21c1c ;
-  }
+
   
   #main {
     transition: margin-left .5s;
