@@ -6,12 +6,15 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PagingHeaderComponent } from './paging-header/paging-header.component';
 import { PagerComponent } from './pager/pager.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { httpTranslateLoader } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
 import { ScrollToTopButtonComponent } from './scroll-to-top-button/scroll-to-top-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { StepperComponent } from './components/stepper/stepper.component';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+
 
 
 
@@ -20,7 +23,8 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
     PagingHeaderComponent,
     PagerComponent,
     OrderTotalsComponent,
-    ScrollToTopButtonComponent
+    ScrollToTopButtonComponent,
+    StepperComponent
   ],
   imports: [
     CommonModule,
@@ -31,13 +35,14 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
       defaultLanguage:'ar',
       loader:{
         provide:TranslateLoader,
-        useFactory : httpTranslateLoader,
+        useFactory : SharedhttpLoaderFactory,
         deps:[HttpClient]
       }
     }),
     PaginationModule.forRoot(),
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
+    CdkStepperModule
 
   ],
   exports:[
@@ -49,7 +54,13 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
     ScrollToTopButtonComponent,
     FormsModule,
     ReactiveFormsModule,
-    BsDropdownModule
+    BsDropdownModule,
+    StepperComponent,
+    CdkStepperModule
   ]
 })
 export class SharedModule { }
+export function SharedhttpLoaderFactory(http:HttpClient){
+  return new  TranslateHttpLoader(http,'./assets/i18n/','.json')
+
+} 

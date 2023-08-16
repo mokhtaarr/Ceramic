@@ -74,7 +74,48 @@
     "Welcome":"مرحبا بك",
     "Email is required":"البريد الالكتروني مطلوب",
     "Logout":"تسجيل خروج",
-    "SearchWithUs":"ابحث معانا"
+    "SearchWithUs":"ابحث معانا",
+    "Adress":"العنوان",
+    "Review":"الطلب",
+    "Payment":"الدفع",
+    "First Name":"الاسم الاول",
+    "Last Name":"الاسم الاخير",
+    "Street":"اسم الشاع",
+    "City":"المدينه",
+    "Mobile":"رقم الجوال",
+    "First Name is required":"الاسم الاول مطلوب",
+    "Last Name is required":"الاسم الاخير مطلوب",
+    "Street is required":"اسم الشارع مطلوب",
+    "City is required":"اسم المدينه مطلوب",
+    "Mobile is required":"الموبايل مطلوب",
+    "sbPrice":"السعر",
+    "sbquantity":"الكميه",
+    "sbtotal":"الاجمالى",
+    "Product":"المنتج",
+    "cPrice":"السعر",
+    "cQuantity":"الكميه",
+    "Back to basket":"ارجع الى السله",
+    "Go to review":"انتقل إلى المراجعة",
+    "Shipping Address":"عنوان الشحن",
+    "Back to address":"ارجع الى العنوان",
+    "Go to payment":"اذهب الى الدفع",
+    "Back to review":"ارجع الي الطلب",
+    "Submit order":"دفع عن طريق الفيزا",
+    "Save the address":"حفظ العنوان",
+    "apartment":"رقم الدور",
+    "apartment is required":"رقم الدور مطلوب",
+    "floor":"رقم الشقه",
+    "floor is required":"رقم الشقه مطلوب",
+    "mark":"علامه مميزه",
+    "mark is required":"علامه مميزه مطلوب",
+    "building":"رقم المبنى",
+    "building is required":"رقم المبنى مطلوب",
+    "country":"المحافظه",
+    "country is required":"اسم المحافظه مطلوبه"
+
+
+
+
 
 
 

@@ -1,0 +1,239 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12">
+            <app-stepper [linearModeSelected]="false">
+                <cdk-step [label]="'Adress' | translate">
+                    <div class="mt-4"  [formGroup]="addressForm">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>{{'Shipping Address'|translate}}</h4>
+
+                            <button [disabled]="addressForm.invalid"    class="btn btn-outline-success mb-3" 
+        
+                             (click)="getAddressFormValues()">
+                                {{'Save the address'|translate}}
+                            </button>
+                        </div>
+                        <div class="row" *ngIf="addressForm">
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('firstName')?.invalid&&addressForm.get('firstName')?.touched"
+                                        formControlName="firstName" class="form-control" id="floatingFirstName">
+                                    <label for="floatingFirstName">{{'First Name'|translate}}</label>
+                                    <div *ngIf="addressForm.get('firstName')?.errors?.['required']"
+                                        class="invalid-feedback">{{'First Name is required'|translate}}</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('lastName')?.invalid&&addressForm.get('lastName')?.touched"
+                                        formControlName="lastName" class="form-control" id="floatingLastName">
+                                    <label for="floatingLastName">{{'Last Name'|translate}}</label>
+                                    <div *ngIf="addressForm.get('lastName')?.errors?.['required']"
+                                        class="invalid-feedback">{{'Last Name is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('city')?.invalid&&addressForm.get('city')?.touched"
+                                        formControlName="city" class="form-control" id="floatingCity">
+                                    <label for="floatingCity">{{'City'|translate}}</label>
+                                    <div *ngIf="addressForm.get('city')?.errors?.['required']" class="invalid-feedback">
+                                        {{'City is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('country')?.invalid&&addressForm.get('country')?.touched"
+                                        formControlName="country" class="form-control" id="floatingcountry">
+                                    <label for="floatingcountry">{{'country'|translate}}</label>
+                                    <div *ngIf="addressForm.get('country')?.errors?.['required']" class="invalid-feedback">
+                                        {{'country is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('street')?.invalid&&addressForm.get('street')?.touched"
+                                        formControlName="street" class="form-control" id="floatingStreet">
+                                    <label for="floatingStreet">{{'Street'|translate}}</label>
+                                    <div *ngIf="addressForm.get('street')?.errors?.['required']"
+                                        class="invalid-feedback">{{'Street is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('Mobile')?.invalid&&addressForm.get('Mobile')?.touched"
+                                        formControlName="Mobile" class="form-control" id="floatingMobile">
+                                    <label for="floatingMobile">{{'Mobile'|translate}}</label>
+                                    <div *ngIf="addressForm.get('Mobile')?.errors?.['required']"
+                                        class="invalid-feedback">{{'Mobile is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('building')?.invalid&&addressForm.get('building')?.touched"
+                                        formControlName="building" class="form-control" id="floatingbuilding">
+                                    <label for="floatingbuilding">{{'building'|translate}}</label>
+                                    <div *ngIf="addressForm.get('building')?.errors?.['required']"
+                                        class="invalid-feedback">{{'building is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('apartment')?.invalid&&addressForm.get('apartment')?.touched"
+                                        formControlName="apartment" class="form-control" id="floatingapartment">
+                                    <label for="floatingapartment">{{'apartment'|translate}}</label>
+                                    <div *ngIf="addressForm.get('apartment')?.errors?.['required']"
+                                        class="invalid-feedback">{{'apartment is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('floor')?.invalid&&addressForm.get('floor')?.touched"
+                                        formControlName="floor" class="form-control" id="floatingfloor">
+                                    <label for="floatingfloor">{{'floor'|translate}}</label>
+                                    <div *ngIf="addressForm.get('floor')?.errors?.['required']"
+                                        class="invalid-feedback">{{'floor is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                        [class.is-invalid]="addressForm.get('mark')?.invalid&&addressForm.get('mark')?.touched"
+                                        formControlName="mark" class="form-control" id="floatingmark">
+                                    <label for="floatingmark">{{'mark'|translate}}</label>
+                                    <div *ngIf="addressForm.get('mark')?.errors?.['required']"
+                                        class="invalid-feedback">{{'mark is required'|translate}}</div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between flex-row mb-5">
+                        <button class="btn btn-outline-primary" routerLink="/basket" >
+                            <i class="fa fa-angle-right"></i>   {{'Back to basket' |translate}}
+                        </button>
+                    
+                        <button class="btn btn-primary" [disabled]="addressForm.invalid" cdkStepperNext>
+                            {{'Go to review' |translate}} <i class="fa fa-angle-left"></i>
+                        </button>
+                    </div>
+                </cdk-step>
+                <cdk-step [label]="'Review' | translate">
+                    <div class="table-responsive mt-3" *ngIf="(basketService.basketSource$ |async) as basket">
+                        <table class="table">
+                            <thead class="bg-light text-uppercase">
+                                <tr>
+                                    <th>
+                                        <div class="py-2">{{'Product'|translate}}</div>
+                                    </th>
+                                    <th>
+                                        <div class="py-2">{{'cPrice'|translate}}</div>
+                                    </th>
+                                    <th>
+                                        <div class="py-2">{{'cQuantity'|translate}}</div>
+                                    </th>
+                                    <th>
+                                        <div class="py-2">{{'sbtotal'|translate}}</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of basket.items">
+                                    <th>
+                                        <div class="p-2 d-inline-block">
+                                            <img  src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid"
+                                                style="max-height: 50px;">
+                                            <div class="ms-3 d-inline-block align-middle">
+                                                <h5 class="mb-0" *ngIf="currentCulture == 'ar'">
+                                                    <a routerLink="/shop/{{item.basketItemId}}"
+                                                    class="text-dark  text-decoration-none">                                                        {{item.productName}}
+                                                    </a>
+                                                </h5>
+                                                <h5 class="mb-0" *ngIf="currentCulture == 'en'" >
+                                                    <a routerLink="/shop/{{item.basketItemId}}"
+                                                        class="text-dark  text-decoration-none">
+                                                        {{item.productNameEn}}
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="align-middle"><strong>{{item.price}}</strong></td>
+                                    <td class="align-middle">
+                                        <div class="d-flex align-items-center">
+
+                                            <strong style="font-size: 1.3em;">{{item.quantity}}</strong>
+
+                                        </div>
+                                    </td>
+                                    <td class="align-middle"><strong>{{item.price * item.quantity}}</strong>
+                                    </td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="d-flex justify-content-between flex-row mb-5">
+                        <button class="btn btn-outline-primary" cdkStepperPrevious >
+                            <i class="fa fa-angle-right"></i>   {{'Back to address' |translate}}
+                        </button>
+                    
+                        <button class="btn btn-primary" cdkStepperNext>
+                            {{'Go to payment' |translate}} <i class="fa fa-angle-left"></i>
+                        </button>
+                    </div>
+                </cdk-step>
+                <cdk-step [label]="'Payment'| translate">
+                    
+                    <div style="margin: 10%" class="d-flex justify-content-center">
+                        <button class="btn btn-primary" style="font-size:larger" (click)="firstStep()">
+                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>  {{'Submit order'|translate}} 
+
+                        </button>
+                    </div>
+
+                    <div class="d-flex justify-content-between flex-row mb-5 mt-3">
+                        <button class="btn btn-outline-primary" cdkStepperPrevious >
+                            <i class="fa fa-angle-right"></i>   {{'Back to review' |translate}}
+                        </button>
+                    
+                    </div>
+                </cdk-step>
+            </app-stepper>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <app-order-totals></app-order-totals>
+        </div>
+    </div>
+</div>

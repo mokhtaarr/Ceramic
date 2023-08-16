@@ -75,7 +75,51 @@
     "Welcome":"Welcome",
     "Email is required":"Email is required",
     "Logout":"Log Out",
-    "SearchWithUs":"Search With Us"
+    "SearchWithUs":"Search With Us",
+    "Adress":"Adress",
+    "Review":"Review",
+    "Payment":"Payment",
+    "First Name":"First Name",
+    "Last Name":"Last Name",
+    "Street":"Street",
+    "City":"City",
+    "Mobile":"Mobile",
+    "First Name is required":"First Name is required",
+    "Last Name is required":"Last Name is required",
+    "Street is required":"Street is required",
+    "City is required":"City is required",
+    "Mobile is required":"Mobile is required",
+    "sbPrice":"Price",
+    "sbquantity":"quantity",
+    "sbtotal":"Total",
+    "Product":"Product",
+    "cPrice":"Price",
+    "cQuantity":"Quantity",
+    "Back to basket":"Back to basket",
+    "Go to review":"Go to review",
+    "Shipping Address":"Shipping Address",
+    "Back to address":"Back to address",
+    "Go to payment":"Go to payment",
+    "Back to review":"Back to review",
+    "Submit order":"Submit order",
+    "Save the address":"Save the address",
+    "apartment":"apartment number",
+    "apartment is required":"apartment number is required",
+    "floor":"floor",
+    "floor is required":"floor is required",
+    "mark":"special mark",
+    "mark is required":"special mark is required",
+    "building":"building number",
+    "building is required":"building number is required",
+    "country":"country",
+    "country is required":"country is required"
+
+
+
+
+
+
+
 
 
 

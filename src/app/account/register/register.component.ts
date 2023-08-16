@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   
   ngOnInit(): void {
     this.i18nservice.localEvent.subscribe(locale=> this.translate.use(locale));
+    
    }
  
   registerForm=this.fb.group({
