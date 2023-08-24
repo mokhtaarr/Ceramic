@@ -6,11 +6,20 @@ function openNav() {
     document.getElementById("mySidebar").style.width = "0";
   }
 
-  function openNavBasket() {
-    document.getElementById("mySidebarBasket").style.width = "400px";
+  // function openNavBasket() {
+  //   document.getElementById("mySidebarBasket").style.width = "500px";
 
-  }
+  // }
   
+  function openNavBasket() {
+    var sidebar = document.getElementById("mySidebarBasket");
+    sidebar.style.width = "500px";
+    
+    if (window.matchMedia("(max-width: 400px)").matches) {
+        sidebar.style.width = "90%";
+    }
+}
+
   function closeNavBasket() {
     document.getElementById("mySidebarBasket").style.width = "0";
 

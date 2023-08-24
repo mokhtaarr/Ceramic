@@ -8,7 +8,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BranchesComponent } from './branches/branches.component';
-import { AboutCompanyComponent } from './about-company/about-company.component';
+import { CompanyComponent } from './company/company.component';
 
 
 
@@ -17,7 +17,7 @@ import { AboutCompanyComponent } from './about-company/about-company.component';
   declarations: [
     HomeComponent,
     BranchesComponent,
-    AboutCompanyComponent
+    CompanyComponent
   ],
   imports: [
     CommonModule,

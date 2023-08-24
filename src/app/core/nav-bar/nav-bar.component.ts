@@ -11,7 +11,7 @@ import { BasketItem } from 'src/app/shared/models/basket';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  // currentCulture: string;
+  currentCulture!: string;
   currentLange!:string;
   cardProducts: any[] =[];
   constructor(public translate:TranslateService,
@@ -22,14 +22,14 @@ export class NavBarComponent implements OnInit {
     this.currentLange = localStorage.getItem('currentLange') || 'ar';
     this.translate.use(this.currentLange);
   }
+  
   ngOnInit(): void {
     this.getCartProduct()
-  }
-//   ngOnInit(): void {
-//     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-//       this.currentCulture = event.lang;
-//     }); 
-//  }
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currentCulture = event.lang;
+    }); 
+ }
 
  getCount(items:BasketItem[])
  {

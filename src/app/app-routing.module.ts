@@ -11,17 +11,17 @@ import { GetProductByBrandImagesComponent } from './shop/get-product-by-brand-im
 import { GetProductByCategoryImageOfferComponent } from './shop/get-product-by-category-image-offer/get-product-by-category-image-offer.component';
 import { TestComponent } from './test/test/test.component';
 import { LoginComponent } from './account/login/login.component';
-import { AboutCompanyComponent } from './home/about-company/about-company.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { CompanyComponent } from './home/company/company.component';
 
 const routes: Routes = [
-  {path:'',component:ShopComponent},
+  {path:'',component:ShopComponent,data:{breadcrumb:' صفحه التسوق'}},
   {path:'home',component:HomeComponent},
   {path:'branches',component:BranchesComponent},
   {path:'test-error',component:TestErrorComponent},
   {path:'not-found',component:NotFoundComponent},
   {path:'server-error',component:ServerErrorComponent},
-  {path:'ProductsByBrand/:BrandId',component:GetProductByBrandImagesComponent},
+  {path:'Brands/:BrandId',component:GetProductByBrandImagesComponent},
   {path:'ProductsByCategory/:CatId',component:GetProductByCategoryImageOfferComponent},
   {path:'shop',loadChildren:()=>import('./shop/shop.module').then(m=>m.ShopModule)},
   {path:'basket',loadChildren:()=>import('./basket/basket.module').then(m=>m.BasketModule)},
@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {path:'test',component:TestComponent},
   {path:'logo',component:LoginComponent},
-  {path:'aboutCompany',component:AboutCompanyComponent},
+  {path:'Company',component:CompanyComponent},
 
 
 

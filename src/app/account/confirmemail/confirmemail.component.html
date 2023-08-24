@@ -1,10 +1,13 @@
 <div class="row">
 	<div class="col-md-6 offset-md-3 mt-4">
+		<div><i class="fa fa-check-circle fa-5x" style="color:green"></i> </div>
 		<h3>{{'Email Confirmation Page'|translate}}</h3>
 		<div class="alert alert-primary" *ngIf="emailConfirmed" role="alert">
 			{{'Email confirmed'|translate}}
 		</div>
 		<div class="alert alert-warning" *ngIf="!emailConfirmed" role="alert">
+			<div><i class="fa fa-check-circle fa-5x" style="color:green"></i> </div>
+
 			{{'Unable to confirm email'|translate}}
 		</div>
 	</div>

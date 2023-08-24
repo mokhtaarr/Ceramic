@@ -6,7 +6,7 @@
 <!-- side bar for basket  -->
 
 <div id="mySidebarBasket" class="sidebar shadow-sm">
-    <a href="javascript:void(0)" style="z-index: 1;position: sticky;" class="closebtn" onclick="closeNavBasket()" ><i class="fa fa-window-close" aria-hidden="true"></i>
+    <a href="javascript:void(0)" style="z-index: 1;position: sticky;color: #f44336;" class="closebtn" onclick="closeNavBasket()" ><i class="fa fa-window-close" aria-hidden="true"></i>
     </a>
     <!-- <button type="button" class="btn-close text-reset" style="padding: 0px; margin: 0px;margin-right: 10px;" onclick="closeNavBasket()"></button> -->
 
@@ -14,7 +14,7 @@
         <div class="card mt-1" style="max-width: 482px;margin: 10px;" *ngFor="let item of basket.items">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid rounded-start" />
+                    <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid" style="margin-top: 10%;" />
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

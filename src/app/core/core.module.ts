@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent, FooterComponent],
@@ -35,7 +36,9 @@ import { SharedModule } from '../shared/shared.module';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     }),
-    SharedModule
+    SharedModule,
+    BreadcrumbModule
+
 
  ],
   exports:[

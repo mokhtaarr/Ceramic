@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { BasketService } from 'src/app/basket/basket.service';
 import { take } from 'rxjs';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 declare function resetActiveImg() :any
 declare function ready() :any
@@ -20,9 +21,12 @@ export class ProductDetailsComponent implements OnInit {
   quantity = 1;
   quantityInBasket = 0;
 
-  constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute,
-    private translate: TranslateService,
-    private basketService: BasketService) { }
+  constructor(private shopService: ShopService,
+             private activatedRoute: ActivatedRoute,
+             private translate: TranslateService,
+             private basketService: BasketService,
+             private bcService:BreadcrumbService
+             ) { }
   currentCulture: string = 'ar';
 
   ngOnInit(): void {
@@ -42,6 +46,7 @@ export class ProductDetailsComponent implements OnInit {
     if (id) this.shopService.getProduct(+id).subscribe({
       next: product => {
         this.product = product;
+        this.bcService.set('@productDetails',product.itemDescA)
         this.basketService.basketSource$.pipe(take(1)).subscribe({
           next:basket=>{
             const item= basket?.items.find(x=>x.basketItemId===+id);

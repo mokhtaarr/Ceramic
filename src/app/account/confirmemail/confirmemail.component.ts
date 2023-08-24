@@ -26,11 +26,11 @@ export class ConfirmemailComponent implements OnInit {
       this.translate.use(this.currentLange);
   }
   ngOnInit(): void {
-    this.i18nservice.localEvent.subscribe(locale=> this.translate.use(locale));
-
     this.urlParams.token = this.route.snapshot.queryParamMap.get('token');
     this.urlParams.userid = this.route.snapshot.queryParamMap.get('userid');
     this.confirmEmail();
+
+    this.i18nservice.localEvent.subscribe(locale=> this.translate.use(locale));
   }
 
   confirmEmail() {

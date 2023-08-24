@@ -19,7 +19,8 @@
 
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators" style="margin: unset;margin-bottom: 5px;">
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
+      aria-current="true"></button>
     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
   </div>
@@ -55,11 +56,13 @@
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #43afaa;width: 40px;height: 40px;border-radius: 80px;"></span>
+    <span class="carousel-control-prev-icon" aria-hidden="true"
+      style="background-color: #43afaa;width: 40px;height: 40px;border-radius: 80px;"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #43afaa;width: 40px;height: 40px;border-radius: 80px;"></span>
+    <span class="carousel-control-next-icon" aria-hidden="true"
+      style="background-color: #43afaa;width: 40px;height: 40px;border-radius: 80px;"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
@@ -67,16 +70,16 @@
 <a routerLink="/branches" style="color: #43afaa; font-size: larger; text-decoration: none;"><i class="fa fa-code-fork"
     aria-hidden="true"></i>{{'OurBranches'|translate}}</a>
 
-<!-- <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+<carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
   [startFromIndex]="6" [interval]="4000">
 
-  <slide *ngFor="let slide of slides; let index=index" class="m-2">
-    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+  <slide *ngFor="let brand of Brands" class="m-2">
+    <img [src]="imagePath + brand.imagePath" alt="image slide" style="cursor: pointer;display: block; width: 100%;" (click)="goToBrandProducts(brand.brandId)">
     <div class="carousel-caption">
       <h1></h1>
     </div>
   </slide>
-</carousel> -->
+</carousel>
 
 <section style="background-color: #f4f5f5; margin-top: 20px;">
   <div class="container-fluid">
@@ -85,13 +88,17 @@
         aria-hidden="true"></i>
       {{'OurBrands'|translate}}</h4>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4 py-5">
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand1.jpg" style="cursor: pointer;width: 90%;">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4 py-5">
+        <div class="col d-flex align-items-center" *ngFor="let brand of Brands">
+          <div class="w-100">
+            <img [src]="imagePath + brand.imagePath" style="cursor: pointer; max-width: 100%;" (click)="goToBrandProducts(brand.brandId)"
+              alt="Brand Image">
+          </div>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
+  </div>
+</section>
+<!-- <div class="col d-flex align-items-start">
         <div>
           <img src="../../../assets/images/brand2.jpg" style="cursor: pointer;width: 90%;">
         </div>
@@ -146,8 +153,4 @@
         <div>
           <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </div> -->

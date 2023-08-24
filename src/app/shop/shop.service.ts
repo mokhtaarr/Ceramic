@@ -6,6 +6,8 @@ import { Brand } from '../shared/models/brands';
 import { Type } from '../shared/models/types';
 import { shopParams } from '../shared/models/shopParams';
 import { Observable } from 'rxjs';
+import { AllBrands } from '../shared/models/AllBrands';
+import { AllCategory } from '../shared/models/AllCategory';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +52,16 @@ export class ShopService {
 
   getProductsByCategoryId(id:number):Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'Product/CatId?CatId='+id);
+  }
+
+  getAllBrands():Observable<AllBrands[]>{
+    return this.http.get<AllBrands[]>(this.baseUrl + 'Product/GetAllBrands')
+
+  }
+
+  
+  getAllCategories():Observable<AllCategory[]>{
+    return this.http.get<AllCategory[]>(this.baseUrl + 'Product/GetAllCategory')
+
   }
 }
