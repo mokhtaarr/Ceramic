@@ -13,16 +13,20 @@ import { TestComponent } from './test/test/test.component';
 import { LoginComponent } from './account/login/login.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { CompanyComponent } from './home/company/company.component';
+import { ContactComponent } from './home/contact/contact.component';
+import { MethodsComponent } from './home/methods/methods.component';
 
 const routes: Routes = [
-  {path:'',component:ShopComponent,data:{breadcrumb:' صفحه التسوق'}},
+  {path:'',component:ShopComponent,data:{breadcrumb:'Shop'}},
   {path:'home',component:HomeComponent},
   {path:'branches',component:BranchesComponent},
+  {path:"Contact",component:ContactComponent},
+  {path:"Payment-Methods",component:MethodsComponent},
   {path:'test-error',component:TestErrorComponent},
   {path:'not-found',component:NotFoundComponent},
   {path:'server-error',component:ServerErrorComponent},
   {path:'Brands/:BrandId',component:GetProductByBrandImagesComponent},
-  {path:'ProductsByCategory/:CatId',component:GetProductByCategoryImageOfferComponent},
+  {path:'Categories/:CatId',component:GetProductByCategoryImageOfferComponent},
   {path:'shop',loadChildren:()=>import('./shop/shop.module').then(m=>m.ShopModule)},
   {path:'basket',loadChildren:()=>import('./basket/basket.module').then(m=>m.BasketModule)},
   // {path:'shop/:id',component:ProductDetailsComponent},

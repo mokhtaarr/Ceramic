@@ -5,6 +5,7 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AccountService } from 'src/app/account/account.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-basket',
@@ -15,6 +16,7 @@ export class BasketComponent implements OnInit  {
   currentLange!:string;
   currentCulture: string;
   city : string|undefined
+  ProductImageUrl = environment.ProductImageUrl
 
 
   constructor(public basketService:BasketService,
@@ -24,7 +26,7 @@ export class BasketComponent implements OnInit  {
              public accountService:AccountService){
       this.currentLange = localStorage.getItem('currentLange') || 'ar';
       this.translate.use(this.currentLange);
-      this.currentCulture = 'ar'
+      this.currentCulture = this.translate.currentLang;
     }
   ngOnInit(): void {
     this.i18nservice.localEvent.subscribe(locale=> this.translate.use(locale));

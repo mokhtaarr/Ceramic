@@ -55,13 +55,17 @@ export class ShopService {
   }
 
   getAllBrands():Observable<AllBrands[]>{
-    return this.http.get<AllBrands[]>(this.baseUrl + 'Product/GetAllBrands')
+    return this.http.get<AllBrands[]>(this.baseUrl + 'Product/GetAllBrands');
 
   }
 
   
   getAllCategories():Observable<AllCategory[]>{
-    return this.http.get<AllCategory[]>(this.baseUrl + 'Product/GetAllCategory')
+    return this.http.get<AllCategory[]>(this.baseUrl + 'Product/GetAllCategory');
 
+  }
+
+  getProductsWithOffer():Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl+'Product/ProductWithOffer');
   }
 }

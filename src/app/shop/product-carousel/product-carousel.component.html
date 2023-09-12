@@ -1,48 +1,41 @@
-<div class="phone-carousel-container">
+<!-- <carousel [itemsPerSlide]="itemsPerSlide"
+          [singleSlideOffset]="singleSlideOffset"
+          [startFromIndex]="6"
+          [interval]="0">
+  <slide *ngFor="let product of products; let index=index">
+    <app-product-item [product]="product"></app-product-item>
+  </slide>
+</carousel> -->
+
+
+
+<!-- <div class="phone-carousel-container">
   <h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-line-chart"
       aria-hidden="true"></i>
     {{'BestSell'|translate}}</h4>
 
-  <!-- <div >
-  <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
-    [startFromIndex]="6" [interval]="0">
-    <ng-container>
-      <slide *ngFor="let slide of slidesProduct; let index=index" class="col-sm-3" >
-        <figure class="snip1171 orange col-sm-3">
-          <img [src]="slide.image" alt="sample52" />
-          <div class="price">$19.00</div>
-          <figcaption>
-            <h3>Wax Jacket</h3>
-            <p class="card-text">{{slide.desc}}</p>
-            <a href="#">Add to Cart</a>
-          </figcaption>
-        </figure>
-      </slide>
-    </ng-container>  
-  </carousel>
-</div>  -->
+    <div class="carousel-container" *ngIf="slidesProduct">
+      <carousel [isAnimated]="true" [itemsPerSlide]="4" [singleSlideOffset]="true" [interval]="0">
+        <ng-container *ngFor="let slide of slidesProduct">
+          <slide class="col-12 m-4">
+            <figure class="snip1171 orange">
+              <img src="../../../assets/images/prd.jpg" alt="sample52" />
+              <div class="price">$19.00</div>
+              <figcaption>
+                <h3>Wax Jacket</h3>
+                <p class="card-text">{{slide.itemDescA}}</p>
+                <a href="#">Add to Cart</a>
+              </figcaption>
+            </figure>
+          </slide>
+        </ng-container>
+      </carousel>
+    </div>
+</div> -->
 
 
-  <div class="carousel-container">
-    <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
-      [interval]="0">
-      <ng-container>
-        <slide *ngFor="let slide of slidesProduct" class="col-12 col-sm-6 col-md-4 col-lg-3 m-4">
-          <figure class="snip1171 orange">
-            <img [src]="slide.image" alt="sample52" />
-            <div class="price">$19.00</div>
-            <figcaption>
-              <h3>Wax Jacket</h3>
-              <p class="card-text">{{slide.desc}}</p>
-              <a href="#">Add to Cart</a>
-            </figcaption>
-          </figure>
-        </slide>
-      </ng-container>
-    </carousel>
-  </div>
 
-</div>
+
 
 <!-- 
 <div class="single-showcase clearfix">
@@ -219,3 +212,185 @@
   <ng-template carouselSlide>Slide 3</ng-template>  
 </owl-carousel-o>
 <div>Some tags after</div> -->
+<!-- <div style="margin-left: 10%;margin-right: 10%;margin-top: 50px;">
+  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img src="{{ slide.img }}" alt="" style="margin-left: auto;margin-right: auto; height: 250px;width: 250px;">
+    </div>
+  </ngx-slick-carousel>
+
+</div> -->
+<!-- 
+<div class="container-fluid my-5">
+  <h1 class="text-center fw-bold display-1 mb-5">Owl <span class="text-danger">Carousel</span></h1>
+  <div class="row">
+      <div class="col-12 m-auto">
+          <div class="owl-carousel owl-theme">
+              <div class="item mb-4">
+                  <div class="card border-0 shadow">
+                      <img src="../../../assets/images/1.jpg" alt="" class="card-img-top">
+                      <div class="card-body">
+                          <div class="card-title text-center">
+                              <h4>Owl Carousel</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="item">
+                  <div class="card border-0 shadow">
+                      <img src="../../../assets/images/3.jpg" alt="" class="card-img-top">
+                      <div class="card-body">
+                          <div class="card-title text-center">
+                              <h4>Owl Carousel</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="card border-0 shadow">
+                      <img src="../../../assets/images/4.jpg" alt="" class="card-img-top">
+                      <div class="card-body">
+                          <div class="card-title text-center">
+                              <h4>Owl Carousel</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="card border-0 shadow">
+                      <img src="../../../assets/images/5.jpg" alt="" class="card-img-top">
+                      <div class="card-body">
+                          <div class="card-title text-center">
+                              <h4>Owl Carousel</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="card border-0 shadow">
+                      <img src="../../../assets/images/6.jpg" alt="" class="card-img-top">
+                      <div class="card-body">
+                          <div class="card-title text-center">
+                              <h4>Owl Carousel</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="card border-0 shadow">
+                      <img src="../../../assets/images/7.jpg" alt="" class="card-img-top">
+                      <div class="card-body">
+                          <div class="card-title text-center">
+                              <h4>Owl Carousel</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div> -->
+<!-- 
+<div class="slider-effectCoverflow">
+  <swiper
+    [effect]="'coverflow'"
+    [grabCursor]="true"
+    [centeredSlides]="true"
+    [slidesPerView]="3"
+    [dir]="'RTL'"
+    [coverflowEffect]="{
+      rotate:50,
+      stretch:0,
+      depth:100,
+      modifier:1,
+      slideShadows:true
+    }"
+    [pagination]="true"
+    [navigation]="true"
+    class="mySwiper"
+    
+  >
+  <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+    <app-product-item [product]="product"></app-product-item>
+  </ng-template>
+</swiper>
+</div> -->
+
+<!-- 
+<div class="slider-effectCoverflow">
+  <swiper
+    [effect]="'coverflow'"
+    [grabCursor]="true"
+    [centeredSlides]="true"
+    [slidesPerView]="'auto'"
+    [dir]="'RTL'"
+    [coverflowEffect]="{
+      rotate:50,
+      stretch:0,
+      depth:100,
+      modifier:1,
+      slideShadows:true
+    }"
+    [pagination]="true"
+    [navigation]="true"
+    class="mySwiper"
+    
+  >
+  <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+    <app-product-item [product]="product"></app-product-item>
+  </ng-template>
+</swiper>
+</div> -->
+
+
+<!-- Swiper الأول - للشاشات الكبيرة -->
+<div class="slider-effectCoverflow large-screen">
+  <swiper
+    [effect]="'coverflow'"
+    [grabCursor]="true"
+    [centeredSlides]="true"
+    [slidesPerView]="3"
+    [dir]="'RTL'"
+    [coverflowEffect]="{
+      rotate:50,
+      stretch:0,
+      depth:100,
+      modifier:1,
+      slideShadows:true
+    }"
+    [pagination]="true"
+    [navigation]="true"
+    class="mySwiper"
+  >
+    <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+      <app-product-item [product]="product"></app-product-item>
+    </ng-template>
+  </swiper>
+</div>
+
+<!-- Swiper الثاني - للشاشات الصغيرة -->
+<div class="slider-effectCoverflow small-screen">
+  <swiper
+    [effect]="'coverflow'"
+    [grabCursor]="true"
+    [centeredSlides]="true"
+    [slidesPerView]="'auto'"
+    [dir]="'RTL'"
+    [coverflowEffect]="{
+      rotate:50,
+      stretch:0,
+      depth:100,
+      modifier:1,
+      slideShadows:true
+    }"
+    [pagination]="true"
+    [navigation]="true"
+    class="mySwiper"
+  >
+    <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+      <app-product-item [product]="product"></app-product-item>
+    </ng-template>
+  </swiper>
+</div>

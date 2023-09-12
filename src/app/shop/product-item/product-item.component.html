@@ -26,12 +26,7 @@
 
 <!-- second card style -->
 
-<figure class="snip1171 orange" *ngIf="product">
-
-                                 <!-- افتكر انك تغير ال
-                                 URL
-                                 لما تيجي تعمل هوست -->
-
+<!-- <figure class="snip1171 orange" *ngIf="product">
   <img src="{{product.taxItemCode}}" alt="{{product.itemDescE}}" />
   <div class="price" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
@@ -67,7 +62,13 @@
       <span style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
       'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{product.firstPrice}}</span>
     </div>
-    <!-- <div class="text-center mt-5">
+ 
+   
+    <a href="#" routerLink="/shop/{{product.itemCardId}}"><i class="fa fa-eye" aria-hidden="true"></i> {{'View'|translate}}</a>
+  </figcaption>
+</figure> -->
+
+<!-- <div class="text-center mt-5">
       <button  *ngIf="!addButton" (click)="addButton = true">Add to card</button>
       <div class="d-flex" *ngIf="addButton">
       
@@ -77,58 +78,69 @@
       </div>
 
     </div> -->
-   
-    <a href="#" routerLink="/shop/{{product.itemCardId}}"><i class="fa fa-eye" aria-hidden="true"></i> {{'View'|translate}}</a>
-  </figcaption>
-</figure>
 
-<!-- <figure class="snip1171 blue hover" *ngIf="product">
-    <img src="{{product.taxItemCode}}"  alt="{{product.itemDescA}}"/>
-    <div class="price">$19.00</div>
-    <figcaption>
-      <h3 style="cursor: pointer;"><i class="fa fa-shopping-cart"></i> {{'Cart'|translate}}</h3>
-      <div *ngIf="currentCulture == 'ar'">
-        <h6 style="direction: rtl;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">{{product.itemDescA}}</h6>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <h6 style="direction: ltr;color: #0d6efd;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">{{product.itemDescE}}</h6>
-      </div>
-      <a href="#">{{'View'|translate}}</a>
-    </figcaption>
-  </figure> -->
 
-<!-- <div class="card shadow-sm mb-4">
-   
-    <div class="image position-relative" style="cursor: pointer;">
-      <img src="../../../assets/images/prd2.jpg" class="img-fluid bg-info">
-      <div class="d-flex align-items-center justify-content-center hover-overlay">
-          <button class="btn btn-primary me-2">{{'Cart'|translate}}</button>
-          <button  class="btn btn-primary" style="margin-right:5px">{{'View'|translate}}</button>
-        </div>
+<div class="card shadow-sm mb-4" *ngIf="product">
+  <div class="card-main">
+    <div class="discount">{{product.discount}}%</div>
+    <!-- <div class="label label-green">Pre-order</div> -->
+    <div class="product-container">
+      <div class="p" (click)="imageChange($event)">
+        <img [src]="ProductImageUrl + product.taxItemCode" alt="{{product.itemDescE}}" />
+      </div>
+      <div class="p" (click)="imageChange($event)">
+        <img [src]="ProductImageUrl + product.imgPath6" alt="Product">
+      </div>
+      <div class="p" (click)="imageChange($event)">
+        <img [src]="ProductImageUrl + product.imgPath2" alt="Product">
+      </div>
+      <div class="p" (click)="imageChange($event)">
+        <img [src]="ProductImageUrl + product.imgPath3" alt="Product">
+      </div>
+      <div class="p" (click)="imageChange($event)">
+        <img [src]="ProductImageUrl + product.imgPath4" alt="Product">
+      </div>
+      <div class="p" (click)="imageChange($event)">
+        <img [src]="ProductImageUrl + product.imgPath5" alt="Product">
+      </div>
+    </div>
+    <div class="image">
+      <img style="width: 100%; height: 300px; object-fit: fill;" src="{{url}}" alt="Product">
+    </div>
+    <div class="cart-line"></div>
+    <div class="cart-item">
+      <ul>
+        <li style="color: white;cursor: pointer;" (click)="addItemToBasket()"><i class="fa fa-shopping-basket"></i>
+          {{'Cart'|translate}}</li>
+        <li><a style="text-decoration: none;color:  white;" routerLink="/shop/{{product.itemCardId}}"><i
+              class="fa fa-eye"></i> {{'View'|translate}}</a></li>
+      </ul>
+    </div>
   </div>
-      <div class="card-body d-flex flex-column">
-        <a href="" class="text-decoration-none">
-          <h6 class="text-uppercase">25*70-A سيراميك اينوفا حوائط 7648</h6>
-        </a>
-        <span  class="mb-2" style="color: red;">ج.م180</span>
-      </div>
+  <div class="content">
+    <div  style="max-height: 137px; max-width: 273px;margin-right: 12px;">
+      <a *ngIf="currentCulture == 'ar'" href="javascript:void(0);" style="text-decoration: none;">
+        {{product.itemDescA}}
+      </a>
+      <a *ngIf="currentCulture == 'en'" href="javascript:void(0);" style="text-decoration: none;">
+        {{product.itemDescE}}
+      </a>
     </div>
-    <div class="card shadow-sm mb-4">
-      <div class="image position-relative" style="cursor: pointer;">
-        <img src="../../../assets/images/prd3.jpg" class="img-fluid bg-info">
-        <div class="d-flex align-items-center justify-content-center hover-overlay">
-          <button class="btn btn-primary me-2">{{'Cart'|translate}}</button>
-          <button  class="btn btn-primary" style="margin-right:5px">{{'View'|translate}}</button>
-        </div>
-     </div>
-        <div class="card-body d-flex flex-column">
-          <a href="" class="text-decoration-none">
-            <h6 class="text-uppercase">25*70-A سيراميك اينوفا حوائط 7648</h6>
-          </a>
-          <span  class="mb-2" style="color: red;">ج.م180</span>
-        </div>
+
+    <!-- <div *ngIf="currentCulture == 'en'" style="max-height: 137px; max-width: 273px;margin-right: 12px;">
+      <a href="javascript:void(0);" style="text-decoration: none;">
+        {{product.itemDescE}}
+      </a>
+    </div> -->
+
+    <div class="rating">
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
+      <i class="fa fa-star-o"></i>
     </div>
-   
-
-       -->
-
+    <p><span class="price-old">{{product.totalCost}} {{'EGP'|translate}}</span> <span class="money"
+        style="color: black;">{{product.firstPrice}} {{'EGP'|translate}}</span></p>
+  </div>
+</div>

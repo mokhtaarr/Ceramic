@@ -116,3 +116,30 @@
     top: 200px;
     background-color: #555
   }
+
+/* إزالة السهم الافتراضي */
+.form-select {
+  background-image: none; /* إزالة الصورة الخلفية */
+  /* يمكنك تعديل الخلفية والحدود والألوان حسب الحاجة */
+  background-color: #43afaa;
+  color: white;
+  border: 1px solid #43afaa; /* إعادة تعيين لون الحدود إلى اللون المطلوب */
+  border-radius: 0.375rem;
+  padding-right: 0.75rem; /* تعديل الهامش الأيمن للنص داخل القائمة المنسدلة */
+  /* يمكنك إضافة المزيد من التخصيصات حسب الحاجة */
+}
+
+/* تخصيص مظهر الخيارات */
+.form-select option {
+  background-color: #43afaa;
+  color: white;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+/* تخصيص مظهر الخيار المحدد */
+.form-select option:checked {
+  background-color: #fff; /* تخصيص لون الخيار المحدد */
+  color: #000; /* تخصيص لون النص في الخيار المحدد */
+}
+

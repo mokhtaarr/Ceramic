@@ -7,6 +7,8 @@ import { Type } from 'src/app/shared/models/types';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { shopParams } from 'src/app/shared/models/shopParams';
 import { Router } from '@angular/router';
+import { AllCategory } from 'src/app/shared/models/AllCategory';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-shop',
@@ -18,7 +20,9 @@ export class ShopComponent implements OnInit {
   currentCulture: string;
   products: Product[] = [];
   brands: Brand[] = [];
+  Categories !: AllCategory[];
   types: Type[] = [];
+  imagePath = environment.ImageUrl
   shopParams = new shopParams();
   TotalCount = 0;
   sortOptions = [
@@ -33,7 +37,7 @@ export class ShopComponent implements OnInit {
 
   constructor(private shopService: ShopService, private translate: TranslateService,
     private router: Router) {
-    this.currentCulture = 'ar'
+    this.currentCulture = this.translate.currentLang;
   }
 
   ngOnInit(): void {
@@ -44,6 +48,10 @@ export class ShopComponent implements OnInit {
       this.currentCulture = event.lang;
     });
     this.getCartProduct();
+
+    this.shopService.getAllCategories().subscribe(catList=>{
+      this.Categories = catList
+  });
   }
 
   getProducts() {
@@ -103,7 +111,7 @@ export class ShopComponent implements OnInit {
   }
 
   goToCategoryProduct(id: number) {
-    this.router.navigate(['ProductsByCategory', id])
+    this.router.navigate(['Categories', id])
   }
 
   getCartProduct() {

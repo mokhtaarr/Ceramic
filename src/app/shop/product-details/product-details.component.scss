@@ -112,7 +112,7 @@ img{
     margin-top: 32px;
 }
 .hover-container div{
-    border: 2px solid rgba(252, 160, 175, 0.7);
+    border: 2px solid #43afaa;
     padding: 1rem;
     border-radius: 3px;
     margin: 0 4px 8px 4px;
@@ -121,7 +121,7 @@ img{
     justify-content: center;
 }
 .active{
-    border-color: rgb(255, 145, 163)!important;
+    border-color:#43afaa !important;
 }
 .hover-container div:hover{
     border-color: rgb(255, 145, 163);

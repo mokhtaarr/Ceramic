@@ -7,6 +7,7 @@ import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 import { AccountService } from 'src/app/account/account.service';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BasketItem } from 'src/app/shared/models/basket';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -29,6 +30,7 @@ export class CheckoutComponent implements OnInit {
   OrderData : BasketItem[] | undefined
   Total:number|undefined
   email : string|undefined
+  ProductImageUrl = environment.ProductImageUrl
 
 
   
@@ -45,7 +47,7 @@ export class CheckoutComponent implements OnInit {
              {
               this.currentLange = localStorage.getItem('currentLange') || 'ar';
               this.translate.use(this.currentLange);
-              this.currentCulture = 'ar'
+              this.currentCulture = this.translate.currentLang;
              }
   
   ngOnInit(): void {

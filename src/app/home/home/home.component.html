@@ -1,3 +1,42 @@
+<carousel>
+  <slide *ngFor="let cat of Categories">
+    <img  [src]="imagePath + cat.imagePath" alt="first slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <p *ngIf="currentCulture == 'ar'">{{cat.imageDescription}}</p>
+      
+      <p *ngIf="currentCulture == 'en'">{{cat.imageDescriptionEn}}</p>
+      <button type="button" class="btn btn-primary" (click)="goToCategoryProduct(cat.itemCategoryId)">{{'ShopNow'|translate}}</button>
+    </div>
+  </slide>
+</carousel>
+
+
+
+<!-- <carousel>
+  <slide>
+    <img src="../../../assets/images/slide1.png" alt="first slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3 style="color: red;">First slide label</h3>
+      <p style="color: red;" >Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </slide>
+  <slide>
+    <img src="../../../assets/images/slide2.png" alt="second slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>Second slide label</h3>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </slide>
+  <slide>
+    <img src="../../../assets/images/slide3.jpg" alt="third slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3 style="color: red;">Third slide label</h3>
+      <p style="color: red;">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </div>
+  </slide>
+</carousel> -->
+
+
 <!-- old carousel for home page -->
 
 <!-- <carousel [isAnimated]="true">
@@ -17,7 +56,7 @@
 
 <!-- new carousel for home page -->
 
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators" style="margin: unset;margin-bottom: 5px;">
     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
       aria-current="true"></button>
@@ -65,12 +104,11 @@
       style="background-color: #43afaa;width: 40px;height: 40px;border-radius: 80px;"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
+</div> -->
 
-<a routerLink="/branches" style="color: #43afaa; font-size: larger; text-decoration: none;"><i class="fa fa-code-fork"
-    aria-hidden="true"></i>{{'OurBranches'|translate}}</a>
 
-<carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
+
+<!-- <carousel [isAnimated]="true" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset"
   [startFromIndex]="6" [interval]="4000">
 
   <slide *ngFor="let brand of Brands" class="m-2">
@@ -79,78 +117,35 @@
       <h1></h1>
     </div>
   </slide>
-</carousel>
+</carousel> -->
 
-<section style="background-color: #f4f5f5; margin-top: 20px;">
+ <section style="background-color: #f4f5f5; margin-top: 10px;">
   <div class="container-fluid">
     <br>
-    <h4 class="ms-3  mt-4 p-1" style="color: #43afaa; background-color: #f5f5f5;"><i class="fa fa-handshake-o"
-        aria-hidden="true"></i>
-      {{'OurBrands'|translate}}</h4>
+    <h4 class="ms-3  p-1" style="color: #43afaa; background-color: #f5f5f5;">
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+      {{'OurBrands'|translate}}
+    </h4>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4 py-5">
-        <div class="col d-flex align-items-center" *ngFor="let brand of Brands">
-          <div class="w-100">
-            <img [src]="imagePath + brand.imagePath" style="cursor: pointer; max-width: 100%;" (click)="goToBrandProducts(brand.brandId)"
-              alt="Brand Image">
-          </div>
+    <div class="row">
+      <div class="col-6 col-md-4 col-lg-2" *ngFor="let brand of Brands">
+        <div class="w-100 m-2">
+          <img [src]="imagePath + brand.imagePath" style="cursor: pointer; max-width: 100%;" 
+               (click)="goToBrandProducts(brand.brandId)" alt="Brand Image">
         </div>
       </div>
+    </div>
   </div>
 </section>
-<!-- <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand2.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand3.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand4.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand5.jpg" style="cursor: pointer;width: 90%;" (click)="goToBrandProducts(7)">
-        </div>
-        <a></a>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand6.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand7.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand8.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand9.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div>
-          <img src="../../../assets/images/brand10.jpg" style="cursor: pointer;width: 90%;">
-        </div>
-      </div> -->
+
+<div class="p-5 mb-4 mt-5 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <img src="../../../assets/images/Eldwlia.jpg" width="100" height="100" class="me-2">
+    <h3 style="color: #43afaa">{{'About the company'|translate}} :</h3>
+    <p class="col-md-8">Eldawlia for ceramic & porcelin الدولية للسيراميك و البورسلين</p>
+    <p class="col-md-8">{{'Established in 1988 AD'|translate}}</p>
+    <p class="col-md-8">{{'Agents with major ceramic, sanitary ware and supplement companies'|translate}}</p>
+    <a routerLink="/branches" class="btn btn-outline-primary">{{'OurBranches'|translate}}</a>
+    <p></p>
+  </div>
+</div>

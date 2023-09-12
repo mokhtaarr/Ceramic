@@ -14,6 +14,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProductCarouselWithCardComponent } from './product-carousel-with-card/product-carousel-with-card.component';
 import { GetProductByBrandImagesComponent } from './get-product-by-brand-images/get-product-by-brand-images.component';
 import { GetProductByCategoryImageOfferComponent } from './get-product-by-category-image-offer/get-product-by-category-image-offer.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import {SwiperModule} from 'swiper/angular'
 
 @NgModule({
   declarations: [
@@ -23,22 +25,25 @@ import { GetProductByCategoryImageOfferComponent } from './get-product-by-catego
     ProductCarouselComponent,
     ProductCarouselWithCardComponent,
     GetProductByBrandImagesComponent,
-    GetProductByCategoryImageOfferComponent
+    GetProductByCategoryImageOfferComponent,
   ],
   imports: [
     CommonModule,
     ShopRoutingModule,
     RouterModule,
     SharedModule,
-    TranslateModule.forRoot({
+    TranslateModule.forChild({
       defaultLanguage:'ar',
       loader:{
         provide:TranslateLoader,
         useFactory : httpTranslateLoader,
         deps:[HttpClient]
       }
-    })
-  ],
+    }),
+    SlickCarouselModule,
+    SwiperModule
+
+    ],
   exports:[ShopComponent,GetProductByBrandImagesComponent,GetProductByCategoryImageOfferComponent]
 })
 export class ShopModule { }

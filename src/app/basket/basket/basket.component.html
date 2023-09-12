@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div *ngIf="(basketService.basketSource$ | async)===null">
-        <p>there are no items in your basket</p>
+        <p>{{'there are no items in your basket'|translate}}</p>
     </div>
 
     <ng-container *ngIf="(basketService.basketSource$ | async) as basket">
@@ -31,7 +31,7 @@
                             <tr *ngFor="let item of basket.items">
                                 <th>
                                     <div class="p-2 d-inline-block">
-                                        <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid"
+                                        <img [src]="ProductImageUrl + item.pictureUrl" alt="{{item.productName}}" class="img-fluid"
                                             style="max-height: 50px;margin-left: 5px;" />
                                         <div class="ms-3 d-inline-block align-middle">
                                             <h5 class="mb-0" *ngIf="currentCulture == 'ar'" >

@@ -6,9 +6,11 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { BasketService } from 'src/app/basket/basket.service';
 import { take } from 'rxjs';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { environment } from 'src/environments/environment';
+import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 
-declare function resetActiveImg() :any
-declare function ready() :any
+declare function resetActiveImg(): any
+declare function ready(): any
 
 @Component({
   selector: 'app-product-details',
@@ -16,29 +18,30 @@ declare function ready() :any
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  
+  ProductImageUrl = environment.ProductImageUrl
+
   product?: Product
   quantity = 1;
   quantityInBasket = 0;
+  currentCulture: string='ar';
 
   constructor(private shopService: ShopService,
-             private activatedRoute: ActivatedRoute,
-             private translate: TranslateService,
-             private basketService: BasketService,
-             private bcService:BreadcrumbService
-             ) { }
-  currentCulture: string = 'ar';
-
-  ngOnInit(): void {
+    private activatedRoute: ActivatedRoute,
+    private translate: TranslateService,
+    private basketService: BasketService,
+    private bcService: BreadcrumbService,
+    private i18nservice:I18nServicesService) 
+  {
+    this.i18nservice.localEvent.subscribe(locale=> {this.translate.use(locale),this.currentCulture = locale} );
     
+   
+  }
+
+  ngOnInit(): void { 
     this.LoadProduct();
     ready();
     resetActiveImg();
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.currentCulture = event.lang;
-    });
-   
-   
+    
   }
 
   LoadProduct() {
@@ -46,30 +49,28 @@ export class ProductDetailsComponent implements OnInit {
     if (id) this.shopService.getProduct(+id).subscribe({
       next: product => {
         this.product = product;
-        this.bcService.set('@productDetails',product.itemDescA)
+        this.bcService.set('@productDetails', product.itemDescA)
         this.basketService.basketSource$.pipe(take(1)).subscribe({
-          next:basket=>{
-            const item= basket?.items.find(x=>x.basketItemId===+id);
-            if(item){
-              this.quantity=item.quantity;
-              this.quantityInBasket=item.quantity;
+          next: basket => {
+            const item = basket?.items.find(x => x.basketItemId === +id);
+            if (item) {
+              this.quantity = item.quantity;
+              this.quantityInBasket = item.quantity;
             }
           }
         })
       },
       error: error => console.log(error)
 
-    
+
     })
   }
 
-  incrementQuantity()
-  {
+  incrementQuantity() {
     this.quantity++;
   }
 
-  decrementQuantity()
-  {
+  decrementQuantity() {
     this.quantity--;
   }
 
@@ -87,8 +88,7 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  get buttonText()
-  {
-    return this.quantityInBasket===0?'Add to basket ':'Update basket';
+  get buttonText() {
+    return this.quantityInBasket === 0 ? 'Add to basket ' : 'Update basket';
   }
 }

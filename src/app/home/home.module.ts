@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BranchesComponent } from './branches/branches.component';
 import { CompanyComponent } from './company/company.component';
+import { ContactComponent } from './contact/contact.component';
+import { MethodsComponent } from './methods/methods.component';
 
 
 
@@ -17,7 +19,9 @@ import { CompanyComponent } from './company/company.component';
   declarations: [
     HomeComponent,
     BranchesComponent,
-    CompanyComponent
+    CompanyComponent,
+    ContactComponent,
+    MethodsComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +36,7 @@ import { CompanyComponent } from './company/company.component';
       }
     }),
   ],
-  exports:[HomeComponent,BranchesComponent]
+  exports:[HomeComponent,BranchesComponent,ContactComponent,MethodsComponent]
 })
 export class HomeModule {   }
 

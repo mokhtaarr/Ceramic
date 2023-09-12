@@ -14,10 +14,23 @@ label.xng-breadcrumb-trail
 }
 
 .carousel-control-next-icon {
-    background-color: #43afaa;
+    background-color: #007aff;
 }
 
 .carousel-control-prev-icon {
-    background-color: #43afaa;
+    background-color: #007aff;
 
 }
+
+.page-link.active, .active > .page-link {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background-color: #43afaa;
+    border-color: #43afaa;
+}
+
+.slick-prev:before,.slick-next:before{
+    color: black !important;
+}
+
+

@@ -21,7 +21,6 @@ export class GetProductByCategoryImageOfferComponent implements OnInit {
   ngOnInit(): void {
     let getCategoryFromUrl: number = (this.activedRoute.snapshot.paramMap.get('CatId')) ? Number(
       this.activedRoute.snapshot.paramMap.get('CatId')) : 0;
-    console.log(getCategoryFromUrl);
 
    this.shopservice.getProductsByCategoryId(getCategoryFromUrl)
       .subscribe((prdList) => {

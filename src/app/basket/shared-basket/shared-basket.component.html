@@ -1,6 +1,7 @@
 <div id="mySidenav" class="sidenav">
-    <a id="blog" onclick="openNavBasket()" style="cursor: pointer;"><i class="fa fa-shopping-cart text-white"></i> سله
-        المشتريات</a>
+    <a id="blog" onclick="openNavBasket()" style="cursor: pointer;"><i class="fa fa-shopping-cart text-white"></i>
+      {{'shopping basket'|translate}}
+    </a>
 </div>
 
 <!-- side bar for basket  -->
@@ -13,8 +14,8 @@
     <ng-container *ngIf="(basketService.basketSource$ | async) as basket">
         <div class="card mt-1" style="max-width: 482px;margin: 10px;" *ngFor="let item of basket.items">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid" style="margin-top: 10%;" />
+                <div class="col-md-4 d-flex justify-content-center">
+                    <img [src]="ProductImageUrl + item.pictureUrl" alt="{{item.productName}}" class="img-fluid" style="margin-top: 10%;" />
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -25,7 +26,7 @@
                             style="font-size: 15px;">{{item.productNameEn}}</a>
 
                         <div class="d-flex justify-content-between">
-                            <p class="card-text mt-1"> {{'sbPrice'|translate}}:<strong>{{item.price}}</strong></p>
+                            <p class="card-text mt-1"> {{'sbPrice'|translate}}: <strong>{{item.price}}</strong></p>
 
                             <p class="card-text">{{'sbquantity'|translate}} : <i class="fa fa-minus-circle text-warning"
                                     (click)="removeItem(item.basketItemId,1)"
@@ -51,8 +52,8 @@
 
     <hr>
     <div class="d-flex justify-content-evenly mb-4" *ngIf="(basketService.basketTotalSource$ | async) as Totals" >
-      <p><strong>اجمالى مشترياتك :  {{Totals.total}} </strong></p>
-      <button  class="btn btn-outline-primary" onclick="closeNavBasket()">مواصلة التسوق</button>
+      <p><strong>{{'Your total purchases'|translate}} :  {{Totals.total}} </strong></p>
+      <button  class="btn btn-outline-primary" onclick="closeNavBasket()">{{'Continue shopping'|translate}}</button>
     </div>
 </div>
 

@@ -12,3 +12,22 @@
     color:#43afaa ;
     border: 1px solid #43afaa;
   }
+
+  // @media (min-width: 992px) {
+  //   .row-cols-custom {
+  //     column-count: 6; /* 6 images per row for larger screens */
+  //   }
+  // }
+  
+  // @media (max-width: 991px) {
+  //   .row-cols-custom {
+  //     column-count: 3; /* 3 images per row for smaller screens */
+  //   }
+  // }
+  
+@media (min-width: 992px){
+.col-lg-2 {
+    flex: 0 0 auto;
+    width: 11.666667%;
+}
+}

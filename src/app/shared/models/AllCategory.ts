@@ -4,4 +4,6 @@ export class AllCategory{
     itemCatDescE!:string;
     imagePath!:string;
     imageDescription!:string;
+    imageDescriptionEn!:string;
+     
 }

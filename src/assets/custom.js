@@ -16,7 +16,7 @@ function openNav() {
     sidebar.style.width = "500px";
     
     if (window.matchMedia("(max-width: 400px)").matches) {
-        sidebar.style.width = "90%";
+        sidebar.style.width = "100%";
     }
 }
 
@@ -45,9 +45,10 @@ allHoverImages.forEach((image) => {
 });
 }
 
-function resetActiveImg(){
-    allHoverImages.forEach((img) => {
-        img.parentElement.classList.remove('active');
-    });
-}
+
+// function resetActiveImg(){
+//     allHoverImages.forEach((img) => {
+//         img.parentElement.classList.remove('active');
+//     });
+// }
 

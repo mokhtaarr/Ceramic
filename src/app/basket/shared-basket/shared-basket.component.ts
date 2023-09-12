@@ -3,6 +3,7 @@ import { BasketService } from '../basket.service';
 import { BasketItem } from 'src/app/shared/models/basket';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { I18nServicesService } from 'src/app/Services/i18n-services.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-shared-basket',
@@ -13,6 +14,7 @@ import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 export class SharedBasketComponent implements OnInit {
   currentLange!:string;
   currentCulture: string;
+  ProductImageUrl = environment.ProductImageUrl
 
   constructor(public basketService:BasketService,
               private translate:TranslateService , 
