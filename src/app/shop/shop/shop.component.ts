@@ -9,6 +9,7 @@ import { shopParams } from 'src/app/shared/models/shopParams';
 import { Router } from '@angular/router';
 import { AllCategory } from 'src/app/shared/models/AllCategory';
 import { environment } from 'src/environments/environment';
+import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 
 @Component({
   selector: 'app-shop',
@@ -34,16 +35,55 @@ export class ShopComponent implements OnInit {
   itemsPerSlide = 5;
   singleSlideOffset = true
   cardProducts: any[]=[];
+  initialProductList = [];
+  initialProductListEn = [];
+  productList : any[] = [];
+
+  currentLange!:string;
+
+  // productList = [
+  //   { productName: 'دلايه' },
+  //   { productName: 'سيراميك' },
+  //   { productName: 'مو مو سيراميك' },
+  //   { productName: 'حمام' },
+  //   { productName: 'رخام' },
+  //    ];
+
+    selectedProduct: any;
+    showDropdown: boolean = false;
+    showDropdownEn: boolean = false;
+    filteredProducts: any[] = [];
+    filteredProductsEn: any[] = [];
+  
 
   constructor(private shopService: ShopService, private translate: TranslateService,
-    private router: Router) {
-    this.currentCulture = this.translate.currentLang;
+    private router: Router,private i18nservice:I18nServicesService) {
+      
+      this.currentLange = localStorage.getItem('currentLange') || 'ar';
+      this.translate.use(this.currentLange);
+      this.currentCulture = this.translate.currentLang;
+
+    this.shopService.getAllProductNameAr().subscribe({
+      next: (res : any[])=> {
+        this.productList = res
+      },
+  
+      error : error => console.log(error)
+    }
+    );
+  
   }
 
   ngOnInit(): void {
+
+    this.i18nservice.localEvent.subscribe(locale=> this.translate.use(locale));
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currentCulture = event.lang;
+    });
     this.getProducts();
     this.getBrands();
     this.getTypes();
+
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.currentCulture = event.lang;
     });
@@ -99,6 +139,68 @@ export class ShopComponent implements OnInit {
       this.getProducts();
     }
   }
+
+  onSearchInputChange() {
+    const searchTerm = this.selectedProduct?.productName.toLowerCase();
+
+    this.filteredProducts = this.productList.filter(product => {
+      return product.productName.toLowerCase().indexOf(searchTerm) > -1;
+    });
+
+
+    this.filteredProductsEn = this.productList.filter(product => {
+      return product.productNameEn.toLowerCase().indexOf(searchTerm) > -1;
+    });
+
+    // إظهار/إخفاء القائمة حسب وجود نص في حقل البحث
+    this.showDropdown = searchTerm.length > 0 && this.filteredProducts.length > 0;
+    this.showDropdownEn = searchTerm.length > 0 && this.filteredProductsEn.length > 0;
+  }
+
+  selectProduct(product: any) {
+    this.selectedProduct = product;
+    this.showDropdown = false;
+    this.showDropdownEn = false;
+  }
+
+  onKeyUp(event: KeyboardEvent) {
+    // Check if the pressed key is not 'Enter'
+    if (event.key !== 'Enter') {
+
+      const searchTerm = this.searchTerms?.nativeElement.value;
+
+     
+   this.filteredProducts = this.productList.filter(product =>
+      product.productName.toLowerCase().includes(searchTerm)
+    );
+
+    this.filteredProductsEn = this.productList.filter(product =>
+      product.productNameEn.toLowerCase().includes(searchTerm)
+    );
+  
+    if(this.filteredProducts.length > 0)
+      this.showDropdown = searchTerm && searchTerm.trim() !== '';
+
+      if(this.filteredProductsEn.length > 0)
+      this.showDropdownEn = searchTerm && searchTerm.trim() !== '';
+    }
+  }
+
+  // onKeyUp(event: KeyboardEvent) {
+  //   // Check if the pressed key is not 'Enter'
+  //   if (event.key !== 'Enter') {
+  //     const searchTerm = this.searchTerms?.nativeElement.value.toLowerCase().trim();
+  
+  //     // تصفية productList باستخدام الحرف المدخل في حقل البحث
+  //     this.productList = this.productList.filter(product =>
+  //       product.productName.toLowerCase().includes(searchTerm)
+  //     );
+  
+  //     this.showDropdown = this.productList.length > 0;
+  //   }
+  // }
+  
+
   onSrarch() {
     this.shopParams.search = this.searchTerms?.nativeElement.value;
     this.shopParams.pageNumber = 1;
@@ -107,6 +209,9 @@ export class ShopComponent implements OnInit {
   OnReset() {
     if (this.searchTerms) this.searchTerms.nativeElement.value = "";
     this.shopParams = new shopParams();
+    this.selectedProduct = null;
+    this.showDropdown = false;
+    this.filteredProducts = [];
     this.getProducts();
   }
 

@@ -19,7 +19,7 @@ declare function ready(): any
 })
 export class ProductDetailsComponent implements OnInit {
   ProductImageUrl = environment.ProductImageUrl
-
+  minsQuantity = false;
   product?: Product
   quantity = 1;
   quantityInBasket = 0;
@@ -68,10 +68,16 @@ export class ProductDetailsComponent implements OnInit {
 
   incrementQuantity() {
     this.quantity++;
+    if(this.quantity > 1){
+      this.minsQuantity = false
+    }
   }
 
   decrementQuantity() {
     this.quantity--;
+    if(this.quantity < 2){
+      this.minsQuantity = true
+    }
   }
 
   updateBasket() {

@@ -7,18 +7,35 @@
     "password is required":"password is required",
     "Register":"Register",
     "displayName":"Name",
+    "Name Minmum":"The minimum name is 8 characters",
+    "Name Maximum":"The maximum name length is 15 characters",
     "displayName is required":"Name is required",
+    "Only letters are allowed":"invalid name",
+    "Maximum length is 15 characters":"Maximum length is 15 characters",
+    "Minmum length is 3 characters":"Minmum length is 3 characters",
     "Sign Up":"Sign Up",
     "Logout":"Logout",
     "PhoneNumber":"PhoneNumber",
     "Phone Number is required":"Phone Number is required",
+    "phone Number Count":"The mobile number must contain 11 digits.",
+    "PhoneStart":"Only numbers are allowed, and they must start with 0",
     "City":"City",
+    "invalidEmail":"Invalid Email",
+    "Emailmax":"The maximum email length is 50 characters only",
+    "Emailmin":"The minimum email length is 5 characters only",
     "City is required":"City is required",
+    "Show Password":"Show Password",
+    "password minimum":"The minimum password is 5 characters",
+    "password maxnmum":"The maximum password is 20 characters",
     "Street":"Street",
     "Street is required":"Street is required",
     "Email Confirmation Page":"Email Confirmation Page",
     "Email confirmed":"Email confirmed",
-    "Unable to confirm email":"Unable to confirm email"
+    "Unable to confirm email":"Unable to confirm email",
+    "password pattern": "The password must contain letters and numbers",
+    "register":"Register",
+    "validData":"Please enter valid data to complete the registration process"
+
 
 
 

@@ -194,6 +194,7 @@
     }
   }
   
+  
   /* للشاشات الصغيرة */
   @media (max-width: 767px) {
     .large-screen {
@@ -201,9 +202,16 @@
     }
     .small-screen {
       display: block;
+      margin-right: 4px;
+      justify-content: center;
+      .swiper-button-next, .swiper-rtl .swiper-button-prev {
+        right: 10px;
+        left: auto;
+        display: none;
+    }
     }
   }
-
+ 
 // .slider-effectCoverflow{
 //     width: 70%;
 //     height: 450px;

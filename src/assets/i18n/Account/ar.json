@@ -8,6 +8,13 @@
     "Register":"تسجيـل حسـاب جـديد",
     "displayName":"الاسم",
     "displayName is required":"الاسم مطلوب",
+    "Only letters are allowed":"اسم غير صالح",
+    "Name Minmum":"الحد الادنى للإسم هو 8 حروف",
+    "Name Maximum":"الحد الاقصى للإسم هو 15 حروف",
+    "Maximum length is 15 characters":"الحد الأقصى للحروف هو 15 حرفًا",
+    "Minmum length is 3 characters":"الحد الإدنى للحروف هو 3 حروف",
+    "phone Number Count":"رقم الموبايل يجب ان يحتوي علي 11 رقم",
+    "PhoneStart":"مسموح بكتابه ارقام فقط و يجب ان تبدا ب رقم 0",
     "Sign Up":"تسجيـل",
     "Logout":"تسجيل خروج",
     "PhoneNumber":"رقم الموبايل",
@@ -18,7 +25,16 @@
     "Street is required":"اسم الشارع مطلوب",
     "Email Confirmation Page":"صفحة تأكيد البريد الإلكتروني",
     "Email confirmed":"تم تاكيد الايميل بنجاح",
-    "Unable to confirm email":"غير قادر على تأكيد البريد الإلكتروني"
+    "invalidEmail":"ايميل غير صالح",
+    "Emailmax":"الحد الاقصي للإيميل هو 50 حرف فقط",
+    "Emailmin":"الحد الإدنى للإيميل هو 5 حرف فقط",
+    "Show Password":"اظهار كلمه المرور",
+    "password minimum":"الحد الادني للباسورد هو 5",
+    "password maxnmum":"الحد الاقصي للباسورد هو 20",
+    "password pattern":"يجب ان يحتوى الباسورد على حروف و ارقام",
+    "Unable to confirm email":"غير قادر على تأكيد البريد الإلكتروني",
+    "register":"تسجيل جديد",
+    "validData":"يرجي ادخال بيانات صحيحه لإكمال عمليه التسجيل"
 
 
 

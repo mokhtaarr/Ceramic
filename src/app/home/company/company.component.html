@@ -1,13 +1,29 @@
-
+<!-- 
   <div class="container my-5">
     <div class="bg-light p-5 rounded">
       <div class="col-sm-8 py-5 mx-auto text-center">
-        <img src="../../../assets/images/Eldwlia.jpg" class="img-fluid" alt="صورة متجاوبة"> <!-- استخدام 'img-fluid' للصور لتحقيق الاستجابة -->
+        <img src="../../../assets/images/Beshai Logo_Final Ceramic Final-01.png" class="img-fluid" alt="صورة متجاوبة"> 
         <h3 class="fs-5 mt-3">{{'About the company'|translate}} :</h3>
         <p>{{'Established in 1988 AD'|translate}}</p>
         <p>{{'Agents with major ceramic, sanitary ware and supplement companies'|translate}}</p>
         <p>
         </p>
     </div>
+    </div>
+  </div> -->
+
+  <div class="p-5 mb-4 mt-5 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <div class="d-flex flex-column-reverse flex-md-row align-items-md-center">
+        <img src="../../../assets/images/Beshai Logo_Final Ceramic Final-01.png" width="300" height="200"
+          class="mb-3 mb-md-0 me-md-2">
+        <div>
+          <h3 style="color: #8c6f4e">{{ 'About the company' | translate }} :</h3>
+          <p class="col-md-8">{{ 'Established in 1988 AD' | translate }}</p>
+          <p class="col-md-8">{{ 'Agents with major ceramic, sanitary ware and supplement companies' | translate }}</p>
+          <a routerLink="/branches" class="btn btn-outline-primary"
+            style="background-color: #8c6f4e; border-color: #8c6f4e;color: white;">{{ 'OurBranches' | translate }}</a>
+        </div>
+      </div>
     </div>
   </div>

@@ -12,6 +12,7 @@ import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 })
 export class RegisterComponent implements OnInit {
   currentLange!:string;
+  showPassword: boolean = false;
 
   
   constructor(private translate:TranslateService , 
@@ -31,17 +32,46 @@ export class RegisterComponent implements OnInit {
    }
  
   registerForm=this.fb.group({
-    displayName:['',Validators.required],
-    PhoneNumber:['',Validators.required],
-    City:['',Validators.required],
-    Street:['',Validators.required],
-    email:['',Validators.required],
-    password:['',Validators.required]
+
+    displayName:['', [Validators.required, 
+      Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),
+      Validators.minLength(8) ,Validators.maxLength(15)]],
+
+    PhoneNumber:['', [
+      Validators.required,
+      Validators.minLength(11) ,Validators.maxLength(11),Validators.pattern(/^0[0-9]{10}$/),
+    ]],
+
+    City:['',[Validators.required , Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),Validators.minLength(3) ,Validators.maxLength(15)]],
+
+    Street:['',[Validators.required,Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),Validators.minLength(3) ,Validators.maxLength(15)]],
+
+    email:['',
+    [
+      Validators.required,
+      Validators.minLength(5), // قدر الحد الأدنى حسب احتياجاتك
+      Validators.maxLength(50), // قدر الحد الأقصى حسب احتياجاتك
+      Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/),
+    ]
+    ],
+
+    password:['',
+    [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z0-9]+$/),
+      Validators.minLength(5),
+      Validators.maxLength(20),
+    ]]
   })
 
   onSubmit() {
     this.accountService.register(this.registerForm.value).subscribe({
-      next: () => this.router.navigateByUrl('/shop')
+      // next: () => this.router.navigateByUrl('/shop')
     })
   }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+}
+
 }

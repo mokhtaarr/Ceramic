@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { ShopComponent } from './shop/shop/shop.component';
-import { ProductDetailsComponent } from './shop/product-details/product-details.component';
-import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { BranchesComponent } from './home/branches/branches.component';
 import { GetProductByBrandImagesComponent } from './shop/get-product-by-brand-images/get-product-by-brand-images.component';
 import { GetProductByCategoryImageOfferComponent } from './shop/get-product-by-category-image-offer/get-product-by-category-image-offer.component';
@@ -15,16 +12,16 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { CompanyComponent } from './home/company/company.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { MethodsComponent } from './home/methods/methods.component';
+import { CheckOutResponseComponent } from './checkout/response/check-out-response.component';
 
 const routes: Routes = [
-  {path:'',component:ShopComponent,data:{breadcrumb:'Shop'}},
+  {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'branches',component:BranchesComponent},
   {path:"Contact",component:ContactComponent},
   {path:"Payment-Methods",component:MethodsComponent},
-  {path:'test-error',component:TestErrorComponent},
+  
   {path:'not-found',component:NotFoundComponent},
-  {path:'server-error',component:ServerErrorComponent},
   {path:'Brands/:BrandId',component:GetProductByBrandImagesComponent},
   {path:'Categories/:CatId',component:GetProductByCategoryImageOfferComponent},
   {path:'shop',loadChildren:()=>import('./shop/shop.module').then(m=>m.ShopModule)},
@@ -39,6 +36,7 @@ const routes: Routes = [
   {path:'test',component:TestComponent},
   {path:'logo',component:LoginComponent},
   {path:'Company',component:CompanyComponent},
+  {path:'CheckOutResponse',component:CheckOutResponseComponent},
 
 
 

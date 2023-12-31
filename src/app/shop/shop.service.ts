@@ -68,4 +68,8 @@ export class ShopService {
   getProductsWithOffer():Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'Product/ProductWithOffer');
   }
+
+  getAllProductNameAr():Observable<any[]>{
+    return this.http.get<any[]>(this.baseUrl+'Product/GetAllProductName');
+  }
 }

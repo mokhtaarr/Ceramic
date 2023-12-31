@@ -1,7 +1,29 @@
 
+/* استهدف العناصر المحددة في عنصر select */
+option.selected {
+  background-color: #4e72a1; /* لون الخلفية عند الاختيار */
+  color: white; /* لون النص عند الاختيار */
+}
 
+/* استهدف العناصر عندما يتم تحويل الماوس عليها */
+option:hover {
+  background-color: #3c5c91; /* لون الخلفية عند التحويل بالماوس */
+  color: white; /* لون النص عند التحويل بالماوس */
+}
+
+.list-group-item {
+  background-color: #ffffff; /* لون الخلفية الافتراضي */
+  color: #000000; /* لون النص الافتراضي */
+  cursor: pointer; /* تحويل المؤشر إلى يد عند التحويل */
+}
+
+/* قم بتغيير اللون عند التحويل (hover) */
+.list-group-item:hover {
+  background-color: #e0e0e0; /* لون الخلفية عند التحويل */
+  color: #333333; /* لون النص عند التحويل */
+}
 .list-group-item.active{
-  background-color:#43afaa ;
+  background-color: #8c6f4e; ;
 }
   .sidebar {
     height: 100%;
@@ -37,7 +59,7 @@
   .openbtn {
     font-size: 17px;
     cursor: pointer;
-    background-color: #43afaa;
+    background-color: #8c6f4e;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -45,8 +67,8 @@
   
   .openbtn:hover {
     background-color: #f8f9fa;
-    color:#43afaa ;
-    border: 1px solid #43afaa;
+    color:#8c6f4e ;
+    border: 1px solid #8c6f4e;
   }
 
 
@@ -99,7 +121,7 @@
   
   #about {
     top: 20px;
-    background-color: #43afaa;
+    background-color: #8c6f4e;
   }
   
   #blog {
@@ -121,9 +143,9 @@
 .form-select {
   background-image: none; /* إزالة الصورة الخلفية */
   /* يمكنك تعديل الخلفية والحدود والألوان حسب الحاجة */
-  background-color: #43afaa;
+  background-color: #8c6f4e;
   color: white;
-  border: 1px solid #43afaa; /* إعادة تعيين لون الحدود إلى اللون المطلوب */
+  border: 1px solid #8c6f4e; /* إعادة تعيين لون الحدود إلى اللون المطلوب */
   border-radius: 0.375rem;
   padding-right: 0.75rem; /* تعديل الهامش الأيمن للنص داخل القائمة المنسدلة */
   /* يمكنك إضافة المزيد من التخصيصات حسب الحاجة */
@@ -131,7 +153,7 @@
 
 /* تخصيص مظهر الخيارات */
 .form-select option {
-  background-color: #43afaa;
+  background-color: #8c6f4e;
   color: white;
   font-weight: bolder;
   font-size: larger;

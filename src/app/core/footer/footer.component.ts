@@ -7,5 +7,9 @@ import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
- 
+  scrollToTarget() {
+    const middleOfPage = window.innerHeight / 2;
+    window.scrollTo({ top: middleOfPage, behavior: 'smooth' });
+
+  }
 }

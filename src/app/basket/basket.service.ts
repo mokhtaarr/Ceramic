@@ -23,7 +23,7 @@ export class BasketService {
     return this.http.get<Basket>(this.baseUrl + 'basket?id=' + id).subscribe({
       next: basket => {
         this.basketSource.next(basket);
-        console.log("###### from basket services get basket is complete");
+        // console.log("###### from basket services get basket is complete");
         this.calculateTotals();
       }
     })

@@ -298,7 +298,7 @@
 }
 
 .title span {
-  color: #43afaa;
+  color: #8c6f4e;
 }
 
 .card {
@@ -316,7 +316,7 @@
 }
 
 .discount {
-  background: #43afaa;
+  background: #8c6f4e;
   z-index: 3;
   position: absolute;
   font-weight: 700;
@@ -336,7 +336,7 @@
 }
 
 .discount::after {
-  border-top: 6px solid #43afaa;
+  border-top: 6px solid #8c6f4e;
   content: '';
   position: absolute;
   left: 0;
@@ -388,7 +388,7 @@
 }
 
 cart-item:hover{
-  color: #43afaa;
+  color: #8c6f4e;
 }
 .cart-item ul {
   padding: 0;
@@ -421,7 +421,7 @@ cart-item:hover{
 }
 
 .cart-item ul li:hover {
-  color: #43afaa;
+  color: #8c6f4e;
 }
 
 .product-container {
@@ -476,7 +476,7 @@ cart-item:hover{
 }
 
 .content a:hover {
-  color: #43afaa;
+  color: #8c6f4e;
   text-decoration: none;
 }
 
@@ -486,7 +486,7 @@ cart-item:hover{
 
 .content .money {
   font-size: 20px;
-  color: #43afaa;
+  color: #8c6f4e;
   font-weight: 700;
   font-style: italic;
   margin-right: 6px;

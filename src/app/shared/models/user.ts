@@ -3,8 +3,10 @@ export interface User {
     displayName: string;
     phoneNumber: string;
     city: string;
+    message:string;
     street: string;
     token: string;
+    statu:boolean;
 }
 
 export interface Address {

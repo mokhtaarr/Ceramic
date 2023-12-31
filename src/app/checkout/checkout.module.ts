@@ -7,7 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { CheckOutResponseComponent } from './check-out-response/check-out-response.component';
+import { CheckOutResponseComponent } from './response/check-out-response.component';
 
 
 @NgModule({
@@ -27,7 +27,9 @@ import { CheckOutResponseComponent } from './check-out-response/check-out-respon
         deps:[HttpClient]
       }
     }),
-  ]
+  ],
+  exports:[CheckOutResponseComponent]
+
 })
 export class CheckoutModule { }
 export function checkouthttpLoaderFactory(http:HttpClient){

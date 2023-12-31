@@ -13,42 +13,150 @@
                 </div>
 
                 <div class="form-floating">
-                    <input [class.is-invalid]="registerForm.get('displayName')?.invalid&&registerForm.get('displayName')?.touched" type="text" formControlName="displayName" class="form-control" id="floatingEmail" placeholder="Display Name">
+                    <input  [class.is-invalid]="registerForm.get('displayName')?.invalid&&registerForm.get('displayName')?.touched" type="text" formControlName="displayName" class="form-control" id="floatingEmail" placeholder="Display Name">
                     <label for="floatingEmail">{{'displayName'|translate}}</label>
-                    <div *ngIf="registerForm.get('displayName')?.errors?.['required']" class="invalid-feedback">{{'displayName is required'|translate}}</div>
+                    
+                    <div *ngIf="registerForm.get('displayName')?.errors?.['required']" class="invalid-feedback">
+                      {{ 'displayName is required' | translate }}
+                    </div>
+
+                    <div *ngIf="registerForm.get('displayName')?.hasError('pattern')" class="invalid-feedback">
+                      {{ 'Only letters are allowed' | translate }}
+                    </div>
+
+                    <div *ngIf="registerForm.get('displayName')?.hasError('minlength')" class="invalid-feedback">
+                      {{'Name Minmum'|translate }}
+                    </div>
+
+                    <div *ngIf="registerForm.get('displayName')?.hasError('maxlength')" class="invalid-feedback">
+                      {{'Name Maximum'|translate }}
+                    </div>
                 </div>
 
                 <div class="form-floating mt-3">
                   <input [class.is-invalid]="registerForm.get('City')?.invalid&&registerForm.get('City')?.touched" type="text" formControlName="City" class="form-control" id="floatingEmail" placeholder="City">
                   <label for="floatingEmail">{{'City'|translate}}</label>
                   <div *ngIf="registerForm.get('City')?.errors?.['required']" class="invalid-feedback">{{'City is required'|translate}}</div>
-              </div>
+                
+                  <div *ngIf="registerForm.get('City')?.hasError('minlength')" class="invalid-feedback">
+                    {{'Minmum length is 3 characters' | translate }}
+                  </div>
+
+                  <div *ngIf="registerForm.get('City')?.hasError('maxlength')" class="invalid-feedback">
+                    {{ 'Maximum length is 15 characters' | translate }}
+                  </div>
+                
+                  <div *ngIf="registerForm.get('City')?.hasError('pattern')" class="invalid-feedback">
+                    {{ 'Only letters are allowed' | translate }}
+                  </div>
+                </div>
 
               <div class="form-floating mt-3">
                 <input [class.is-invalid]="registerForm.get('Street')?.invalid&&registerForm.get('Street')?.touched" type="text" formControlName="Street" class="form-control" id="floatingEmail" placeholder="Street">
                 <label for="floatingEmail">{{'Street'|translate}}</label>
                 <div *ngIf="registerForm.get('Street')?.errors?.['required']" class="invalid-feedback">{{'Street is required'|translate}}</div>
-            </div>
+              
+                <div *ngIf="registerForm.get('Street')?.hasError('minlength')" class="invalid-feedback">
+                  {{'Minmum length is 3 characters' | translate }}
+                </div>
+
+                <div *ngIf="registerForm.get('Street')?.hasError('maxlength')" class="invalid-feedback">
+                  {{ 'Maximum length is 15 characters' | translate }}
+                </div>
+              
+                <div *ngIf="registerForm.get('Street')?.hasError('pattern')" class="invalid-feedback">
+                  {{ 'Only letters are allowed' | translate }}
+                </div>
+            
+            
+              </div>
 
                 <div class="form-floating mt-3">
                   <input [class.is-invalid]="registerForm.get('PhoneNumber')?.invalid&&registerForm.get('PhoneNumber')?.touched" type="text" formControlName="PhoneNumber" class="form-control" id="floatingEmail" placeholder="PhoneNumber">
                   <label for="floatingEmail">{{'PhoneNumber'|translate}}</label>
+                 
                   <div *ngIf="registerForm.get('PhoneNumber')?.errors?.['required']" class="invalid-feedback">{{'Phone Number is required'|translate}}</div>
-              </div>
+              
+                  <div *ngIf="registerForm.get('PhoneNumber')?.hasError('minlength')" class="invalid-feedback">
+                    {{'phone Number Count'|translate }}
+                  </div>
+  
+                  <div *ngIf="registerForm.get('PhoneNumber')?.hasError('maxlength')" class="invalid-feedback">
+                    {{ 'phone Number Count' | translate }}
+                  </div>
+
+                  <div *ngIf="registerForm.get('PhoneNumber')?.hasError('pattern')" class="invalid-feedback">
+                    {{ 'PhoneStart' | translate }}
+                  </div>
+              
+              
+                </div>
     
                 <div class="form-floating mt-3">
                     <input [class.is-invalid]="registerForm.get('email')?.invalid&&registerForm.get('email')?.touched" type="email" formControlName="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
                     <label for="floatingEmail">{{'Email Address'|translate}}</label>
                     <div *ngIf="registerForm.get('email')?.errors?.['required']" class="invalid-feedback">{{'Email is required'|translate}}</div>
+              
+                    <div *ngIf="registerForm.get('email')?.hasError('pattern')" class="invalid-feedback">
+                       {{'invalidEmail'|translate}}
+                    </div>
+                
+                    <div *ngIf="registerForm.get('email')?.hasError('maxlength')" class="invalid-feedback">
+                      {{'Emailmax'|translate}}
+                   </div>
+               
+                   <div *ngIf="registerForm.get('email')?.hasError('minlength')" class="invalid-feedback">
+                    {{'Emailmin'|translate}}
+                  </div>
                 </div>
     
-                <div class="form-floating mt-3">
+                <!-- <div class="form-floating mt-3">
                     <input [class.is-invalid]="registerForm.get('password')?.invalid&&registerForm.get('password')?.touched" type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">{{'Password'|translate}}</label>
                     <div *ngIf="registerForm.get('password')?.errors?.['required']" class="invalid-feedback">{{'password is required'|translate}}</div>
-                  </div>
+                </div> -->
     
-                  <button [disabled]="registerForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit'|translate}}</button>  
+                <div class="form-floating mt-3">
+                  <input [class.is-invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" 
+                         [type]="showPassword ? 'text' : 'password'"
+                         formControlName="password" 
+                         class="form-control" 
+                         id="floatingPassword" 
+                         placeholder="Password">
+                  <label for="floatingPassword">{{ 'Password' | translate }}</label>
+                  
+                  <div *ngIf="registerForm.get('password')?.errors?.['required']" class="invalid-feedback">
+                      {{ 'password is required' | translate }}
+                  </div>
+
+                  <div *ngIf="registerForm.get('password')?.hasError('minlength')" class="invalid-feedback">
+                    {{'password minimum'|translate}}
+                  </div>
+             
+                  <div *ngIf="registerForm.get('password')?.hasError('maxlength')" class="invalid-feedback">
+                  {{'password maxnmum'|translate}}
+                 </div>
+
+                 <div *ngIf="registerForm.get('password')?.hasError('pattern')" class="invalid-feedback">
+                  {{'password pattern'|translate}}
+                 </div>
+                  
+                  <div class="form-check mt-2">
+                      <input class="form-check-input" 
+                             type="checkbox" 
+                             (change)="togglePasswordVisibility()" 
+                             id="showPasswordCheckbox">
+                      <label class="form-check-label" for="showPasswordCheckbox">
+                          {{'Show Password'|translate}}
+                      </label>
+                  </div>
+              </div>
+                   <div [hidden]="registerForm.valid" class="alert alert-info" role="alert">
+                     {{'validData'|translate}}
+                  </div>
+
+                  <button [hidden]="registerForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'register'|translate}}</button>  
+                  <!-- <button *ngif="!registerForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit'|translate}}</button>   -->
           </form>
         </div>
       </div>

@@ -1,49 +1,35 @@
+
+
 <!-- sticky-top -->
-  <nav class="navbar navbar-expand-lg" style="height:40px;background-color:#43afaa;">
+  <nav class="navbar navbar-expand-lg" style="height:40px;background-color:#8c6f4e;">
     <div class="container-fluid">
       <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
         (click)="changeCurrentLanguage('en')">
         English
       </span>
-      <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
+    
+       
+        <a class="navbar-brand d-md-block" href="tel:19671" style="color: white; font-size: small;">
+          <i class="fa fa-phone" aria-hidden="true"> 19671 </i> {{'CallUs' | translate}}
+        </a>
+
+        <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
         (click)="changeCurrentLanguage('ar')">
         عربى
       </span>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-
-          </li>
-        </ul>
-        <a class="navbar-brand" href="#" style="color: white;font-size: small;"> <i class="fa fa-phone"
-            aria-hidden="true">+20 12 29200322</i>  {{'CallUs' | translate}}</a>
-
-        <!-- <div *ngIf="currentCulture=='ar'">
-              <span class="navbar-text" style="color: white;font-size: small;margin-right: 10px; cursor: pointer;"
-                (click)="translate.use('en')">
-                English
-              </span>
-            </div>
-            <div *ngIf="currentCulture=='en'">
-              <span class="navbar-text" style="color: white;font-size: small;cursor: pointer;"
-                (click)="translate.use('ar')">
-                عربي
-              </span>
-            </div> -->
-      </div>
     </div>
   </nav>
 
   <header
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/" class="col-md-3 text-center">
-      <img src="../../../assets/images/Eldwlia.jpg" alt="logo" class="logo" style="max-height: 85px;" routerLink="/">
+      <img src="../../../assets/images/Beshai Logo_Final Ceramic Final-01.png" alt="logo" class="logo" style="max-height: 85px;" routerLink="/">
     </a>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 my-2 text-uppercase fs-4">
       <!-- خلى بالك ان دي بتاعت التسوق لكن انت غيرت العنوان فقط -->
-      <a class="p-2" routerLinkActive="active" routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i>
+      <a class="p-2" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/"><i class="fa fa-home" aria-hidden="true"></i>
         {{'Home'| translate}}</a>
-      <a class="p-2" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">
+      <a class="p-2"  routerLinkActive="active" routerLink="/shop">
         <i class="fa fa-shopping-basket" aria-hidden="true"></i> {{'Shop' |
         translate}}</a>
       <!-- <a class="p-2" routerLinkActive="active" routerLink="/Contact"><i class="fa fa-phone" aria-hidden="true"></i>
@@ -73,7 +59,7 @@
           aria-hidden="true"></i>
         {{'Login' | translate}}</a>
       <a routerLink="/account/register" type="button" class="btn btn-primary"
-        style="margin-left: 5px;margin-right: 5px;color: white;background-color: #43afaa;"><i class="fa fa-sign-out"
+        style="margin-left: 5px;margin-right: 5px;color: white;background-color: #8c6f4e;"><i class="fa fa-sign-out"
           aria-hidden="true"></i>
         {{'LogUp' | translate}}</a>
       </ng-container>
@@ -107,7 +93,7 @@
             aria-hidden="true"></i>
           {{'Login' | translate}}</a>
         <a routerLink="/account/register" type="button" class="btn btn-primary"
-          style="margin-right: 5px;color: white;background-color: #43afaa;"><i class="fa fa-sign-out"
+          style="margin-right: 5px;color: white;background-color: #8c6f4e;"><i class="fa fa-sign-out"
             aria-hidden="true"></i>
           {{'LogUp' | translate}}</a>
       </ng-container>
