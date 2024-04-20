@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
     displayName:['', [Validators.required, 
       Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),
-      Validators.minLength(8) ,Validators.maxLength(15)]],
+      Validators.minLength(3) ,Validators.maxLength(20)]],
 
     PhoneNumber:['', [
       Validators.required,
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
     [
       Validators.required,
       Validators.pattern(/^[a-zA-Z0-9]+$/),
-      Validators.minLength(5),
+      Validators.minLength(8),
       Validators.maxLength(20),
     ]]
   })

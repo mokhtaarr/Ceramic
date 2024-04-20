@@ -2,6 +2,8 @@ export interface Product {
     itemCardId: number;
     itemDescA: string;
     itemDescE: string;
+    productDescA : string;
+    productDescE : string;
     firstPrice: number;
     taxItemCode:string;
     imgPath2: string;

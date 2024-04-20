@@ -9,7 +9,8 @@ import { BasketService } from 'src/app/basket/basket.service';
 import { BasketItem } from 'src/app/shared/models/basket';
 import { environment } from 'src/environments/environment';
 import { CheckoutService } from '../checkout.service';
-import { map, take } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-checkout',
@@ -38,7 +39,8 @@ export class CheckoutComponent implements OnInit {
   private totalPurchases!: number;
   private savedMappedData: any;
   basketData: any; // يجب تحديد نوع البيانات بناءً على ما تعود على استخدامه
-
+  CustomerBasketId : string | undefined = "" ;
+  Navigate : boolean = false
   
   Api='ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6VXhNaUo5LmV5SndjbTltYVd4bFgzQnJJam8zTVRVMk56Z3NJbU5zWVhOeklqb2lUV1Z5WTJoaGJuUWlMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkuckF4dlNNNnZFMDlpWC1uNWN1SXNWYzhHeWNIU2VHYXpEeG05c3MzVVhzUDI3ZXk5ZzVHY1J6VkVRd2hjREVtQk1SdnpqMDJPRWcyaFhvcFpBZUVsMXc='
   integrationID = 3528310;
@@ -50,7 +52,8 @@ export class CheckoutComponent implements OnInit {
              private http:HttpClient,
              public accountService:AccountService,
              private toastr:ToastrService,
-             private checkoutService : CheckoutService)
+             private checkoutService : CheckoutService,
+             private router: Router)
              {
               this.currentLange = localStorage.getItem('currentLange') || 'ar';
               this.translate.use(this.currentLange);
@@ -60,6 +63,10 @@ export class CheckoutComponent implements OnInit {
                 // تحديث القيمة عند تغييرها
                 this.totalPurchases = totals!.total;
                });
+
+               this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                this.currentCulture = event.lang;
+              });
              }
   
   ngOnInit(): void {
@@ -70,7 +77,6 @@ export class CheckoutComponent implements OnInit {
 
     this.basketService.basketSource$.subscribe(basket=>{
       this.OrderData = basket?.items
-      // console.log(this.OrderData);
     });
 
     this.basketService.basketTotalSource$.subscribe(basket => {
@@ -80,7 +86,6 @@ export class CheckoutComponent implements OnInit {
 
     this.accountService.currentUser$.subscribe(user=>{
       this.email = user?.email
-      // console.log('user email is ' , this.email) 
     })
 
   
@@ -108,7 +113,7 @@ export class CheckoutComponent implements OnInit {
       [
         Validators.required,
         Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),
-        Validators.minLength(3) ,Validators.maxLength(8)
+        Validators.minLength(3) ,Validators.maxLength(20)
       ]],
 
 
@@ -116,7 +121,7 @@ export class CheckoutComponent implements OnInit {
       [
         Validators.required,
         Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),
-        Validators.minLength(3) ,Validators.maxLength(8)
+        Validators.minLength(3) ,Validators.maxLength(20)
       ]],
 
       Mobile:['', [
@@ -145,9 +150,9 @@ export class CheckoutComponent implements OnInit {
 
       mark:['',[
         Validators.required,
-        Validators.maxLength(20),
-        Validators.minLength(5),
-        Validators.pattern(/^[a-zA-Z0-9]+$/)
+         Validators.maxLength(20),
+         Validators.minLength(5),
+        // Validators.pattern(/^[a-zA-Z0-9]+$/)
 
       ]],
 
@@ -164,11 +169,12 @@ export class CheckoutComponent implements OnInit {
       [
         Validators.required,
         Validators.pattern(/^(?!.*\s{2,})[^\d]+(\s[^\d]+)?$/),
-        Validators.minLength(3) ,Validators.maxLength(8)
+        Validators.minLength(3) ,Validators.maxLength(20)
       ]],
   })
 
   getAddressFormValues(){
+    this.Navigate = true;
     this.firstName = this.addressForm.value.firstName;
     this.LastName = this.addressForm.value.lastName;
     this.street = this.addressForm.value.street;
@@ -201,12 +207,14 @@ export class CheckoutComponent implements OnInit {
     },
     error => {
       // يمكنك إضافة المنطق الخاص بالخطأ هنا
-      console.error('حدث خطأ أثناء إضافة العميل', error);
     }
   );
     
+  // if(this.currentCulture == 'ar')
+  // this.toastr.success("تم حفظ العنوان بنجاح");
 
-    this.toastr.success('تم حفظ العنوان بنجاح','Address saved successfully');
+  // if(this.currentCulture == 'en')
+  // this.toastr.success("Address saved successfully");
 
   }
 
@@ -280,6 +288,7 @@ CreateOrder(){
       header_TermId: '6073',
       header_CustomerId: this.customerId,
       header_NotPaid: this.Total,
+      Email : this.email,
       orderDetails: basket!.items.map(item => {
         return {
           itemCardId: item.basketItemId,
@@ -289,15 +298,76 @@ CreateOrder(){
       }),
     };
   });
+
+  this.checkoutService.createOrderHeader(this.savedMappedData).subscribe({
+    next: (response) => {
+      if (this.currentCulture == 'ar') {
+          this.clearAllProduct();
+          this.router.navigate(['/']);
+          // this.toastr.success(`طلبك تم بنجاح رقم الطلب : ${response.salesOfferId}`);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500); 
+
+      }
   
-  this.checkoutService.createOrderHeader(this.savedMappedData).subscribe(
-        response => {
-              this.toastr.success(`طلبك تم بنجاح رقم الطلب : ${response.salesOfferId}`);
-        },
-        error => {
-          this.toastr.error("حدث خطا اثناء محاوله اضافه الطلب");
-        }
-      );
+      if (this.currentCulture == 'en') {
+        this.clearAllProduct();
+        this.router.navigate(['/']);
+        // this.toastr.success(`Your order has been completed successfully. Order number : ${response.salesOfferId}`);
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 500); 
+
+      }
+    },
+    error: (error) => {
+      // إذا حدث خطأ أثناء إنشاء الطلب
+      if (this.currentCulture == 'ar') {
+        this.toastr.error("حدث خطا اثناء محاوله اضافه الطلب");
+      }
+  
+      if (this.currentCulture == 'en') {
+        this.toastr.error("An error occurred while trying to add the order");
+      }
+    },
+    // complete: () => {
+    //   // إذا اكتملت العملية بشكل كامل
+    //   this.clearAllProduct();
+    //   this.router.navigate(['/']);
+      
+    // }
+  });
+  
+  
+  // this.checkoutService.createOrderHeader(this.savedMappedData).subscribe(
+  //       response => {
+  //         if(this.currentCulture == 'ar')
+  //         {
+  //           this.toastr.success(`طلبك تم بنجاح رقم الطلب : ${response.salesOfferId}`);
+  //           // this.clearAllProduct()
+  //           this.router.navigate(['/shop']);
+  //         }
+
+  //         if(this.currentCulture == 'en')
+  //         {
+  //           this.toastr.success(`Your order has been completed successfully. Order number : ${response.salesOfferId}`);
+  //           // this.clearAllProduct()
+  //           this.router.navigate(['/shop']);
+
+  //         }
+  //       },
+  //       error => {
+  //         if(this.currentCulture == 'ar')
+  //         this.toastr.error("حدث خطا اثناء محاوله اضافه الطلب");
+
+  //         if(this.currentCulture == 'en')
+  //         this.toastr.error("An error occurred while trying to add the order");
+  //       }
+  //     );
+
 }
 
 
@@ -370,10 +440,8 @@ CreateOrder(){
       ).toPromise();
   
       const token = response.token; // Retrieve the token from the resolved response
-    console.log('first step',token)
     this.secondStep(token)
     } catch (error) {
-      console.error('Error in firstStep:', error);
       // Handle the error appropriately
     }
   }
@@ -410,10 +478,8 @@ CreateOrder(){
   
         this.thirdStep(token, id);
       } catch (error) {
-        console.error('Error:', error);
       }
     } else {
-      console.error('Error: OrderData is undefined');
     }
   }
 
@@ -451,7 +517,6 @@ CreateOrder(){
     ).toPromise();
 
     const theToken = response.token;
-    console.log('third step token is' ,theToken);
 
      this.cardPayment(theToken);
   }
@@ -461,5 +526,19 @@ CreateOrder(){
     window.location.href = iframeURL;
   }
 
+  clearAllProduct(){
+    this.basketService.basketSource$.subscribe((basket) =>{
+      this.CustomerBasketId = basket?.customerBasketId
+       if(this.CustomerBasketId != null){
+        this.basketService.RemoveItemFromBasket(this.CustomerBasketId);
+        
+       }
+    })
+  }
+
+  getCount(items:BasketItem[])
+ {
+   return items.reduce((sum,item)=>sum+item.quantity,0)
+ }
 
 }

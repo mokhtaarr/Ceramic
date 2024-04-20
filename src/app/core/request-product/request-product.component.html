@@ -1,0 +1,94 @@
+<div class="row">
+  
+    <form [formGroup]="ProductForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-md-12 col-sm-12">
+
+    
+     <div class="form-floating mt-3">
+        <input [class.is-invalid]="ProductForm.get('ProductNameAr')?.invalid&&ProductForm.get('ProductNameAr')?.touched"
+         type="text" formControlName="ProductNameAr" class="form-control" id="floatingEmail" placeholder="ProductName">
+        <label for="floatingEmail">{{'ProductNameAr'|translate}}</label>
+       
+        <div *ngIf="ProductForm.get('ProductNameAr')?.errors?.['required']" class="invalid-feedback">
+            {{'Product Name is required'|translate}}</div>
+    
+        <div *ngIf="ProductForm.get('ProductNameAr')?.hasError('minlength')" class="invalid-feedback">
+          {{'Product Name minmum'|translate }}
+        </div>
+  
+        <div *ngIf="ProductForm.get('ProductNameAr')?.hasError('maxlength')" class="invalid-feedback">
+          {{ 'Product Name maxmum' | translate }}
+        </div>    
+      </div>
+
+      <div class="form-floating mt-3">
+        <input [class.is-invalid]="ProductForm.get('ProductDescA')?.invalid&&ProductForm.get('ProductDescA')?.touched"
+         type="text" formControlName="ProductDescA" class="form-control" id="floatingEmail" placeholder="ProductName">
+        <label for="floatingEmail">{{'ProductDescA'|translate}}</label>
+       
+        <div *ngIf="ProductForm.get('ProductDescA')?.errors?.['required']" class="invalid-feedback">
+            {{'Product Descerption is required'|translate}}</div>
+    
+        <div *ngIf="ProductForm.get('ProductDescA')?.hasError('minlength')" class="invalid-feedback">
+          {{'Product Descerption minmum'|translate }}
+        </div>
+  
+        <div *ngIf="ProductForm.get('ProductDescA')?.hasError('maxlength')" class="invalid-feedback">
+          {{ 'Product Descerption maxmum' | translate }}
+        </div>    
+      </div>
+
+      <div class="form-floating mt-3">
+        <input [class.is-invalid]="ProductForm.get('Price')?.invalid&&ProductForm.get('Price')?.touched"
+         type="text" formControlName="Price" class="form-control" id="floatingEmail" placeholder="ProductName">
+        <label for="floatingEmail">{{'product price'|translate}}</label>
+       
+        <div *ngIf="ProductForm.get('Price')?.errors?.['required']" class="invalid-feedback">
+            {{'product price is required'|translate}}</div>
+    
+  
+        <div *ngIf="ProductForm.get('Price')?.hasError('maxlength')" class="invalid-feedback">
+          {{ 'product price maxmum' | translate }}
+        </div>    
+
+        <div *ngIf="ProductForm.get('Price')?.hasError('pattern')" class="invalid-feedback">
+            {{ 'product price pattern' | translate }}
+          </div>  
+      </div>
+
+      <div class="form-floating mt-3">
+        <input [class.is-invalid]="ProductForm.get('phone')?.invalid&&ProductForm.get('phone')?.touched" type="text" formControlName="phone" class="form-control" id="floatingEmail" placeholder="PhoneNumber">
+        <label for="floatingEmail">{{'Phone Number'|translate}}</label>
+       
+        <div *ngIf="ProductForm.get('phone')?.errors?.['required']" class="invalid-feedback">{{'Phone Number is required'|translate}}</div>
+    
+        <div *ngIf="ProductForm.get('phone')?.hasError('minlength')" class="invalid-feedback">
+          {{'phone Number Count'|translate }}
+        </div>
+  
+        <div *ngIf="ProductForm.get('phone')?.hasError('maxlength')" class="invalid-feedback">
+          {{ 'phone Number Count' | translate }}
+        </div>
+  
+        <div *ngIf="ProductForm.get('phone')?.hasError('pattern')" class="invalid-feedback">
+          {{ 'PhoneStart' | translate }}
+        </div>
+      </div>
+  
+
+  
+  
+  
+     <div class="mb-3">
+      <label for="formFile" class="form-label">{{'Choose Images'|translate}}</label>
+      <input class="form-control" type="file" id="formFile" formControlName="Image" (change)="onFileSelected($event)" accept=".png, .jpg , .jpeg" >
+    </div>
+  
+    <button [disabled]="ProductForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit Order'|translate}}</button>  
+    
+  </form>
+  
+  <div class="col-lg-6 col-md-12 col-sm-12 mt-5 text-center">
+    <img [src]="selectedImage" *ngIf="selectedImage" alt="Selected Image" style="width: 50%;" class="img-fluid">
+  </div>
+  
+  </div>

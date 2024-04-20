@@ -345,52 +345,129 @@
 </div> -->
 
 
-<!-- Swiper الأول - للشاشات الكبيرة -->
-<div class="slider-effectCoverflow large-screen">
-  <swiper
-    [effect]="'coverflow'"
-    [grabCursor]="true"
-    [centeredSlides]="true"
-    [slidesPerView]="3"
-    [dir]="'RTL'"
-    [coverflowEffect]="{
-      rotate:50,
-      stretch:0,
-      depth:100,
-      modifier:1,
-      slideShadows:true
-    }"
-    [pagination]="true"
-    [navigation]="true"
-    class="mySwiper"
-  >
-    <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
-      <app-product-item [product]="product"></app-product-item>
-    </ng-template>
-  </swiper>
+<div class=" mt-5 text-center" *ngIf="slidesProduct.length != 0">
+  <h3 class="display-5">{{'BestSell'|translate}}</h3>
 </div>
 
-<!-- Swiper الثاني - للشاشات الصغيرة -->
-<div class="slider-effectCoverflow small-screen">
+
+  <div class="large-screen mt-5">
+    <swiper
+    [effect]="'slide'"
+    [spaceBetween]="25" 
+    [slidesPerView]="4"
+    [dir]="'RTL'"
+    class="mySwiper"
+    [navigation]="true"
+
+  >
+    <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+      <div style="width: 100%;margin-right: 20px;">
+        <app-product-item [product]="product"></app-product-item>
+      </div>
+    </ng-template>
+    
+
+   </swiper>
+  </div>
+
+  <div class="slider-effectCoverflow small-screen">
+    <swiper
+      [effect]="'coverflow'"
+      [grabCursor]="true"
+      [centeredSlides]="true"
+      [slidesPerView]="'auto'"
+      [dir]="'RTL'"
+      [coverflowEffect]="{
+        rotate:50,
+        stretch:0,
+        depth:100,
+        modifier:1,
+        slideShadows:true
+      }"
+      [pagination]="true"
+      [navigation]="true"
+      class="mySwiper"
+    >
+      <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+        <app-product-item [product]="product"></app-product-item>
+      </ng-template>
+    </swiper>
+  </div>
+  
+  
+  <div class="slider-effectCoverflow mudiem-screen">
+    <swiper
+      [effect]="'slide'"
+      [spaceBetween]="25" 
+      [slidesPerView]="3"
+      [dir]="'RTL'"
+      class="mySwiper"
+      [navigation]="true"
+  
+    >
+      <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+        <div style="width: 100%;margin-right: 20px;">
+          <app-product-item [product]="product"></app-product-item>
+        </div>
+      </ng-template>
+      
+  
+     </swiper>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ng-container>
   <swiper
-    [effect]="'coverflow'"
+    [effect]="'slide'"
+    [spaceBetween]="25" 
+    [slidesPerView]="4"
+    [dir]="'RTL'"
+    [slideToClickedSlide]="true"
+    [navigation]="true"
+
+
+    class="mySwiper"
+  >
+    <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
+      <div style="width: 100%;">
+        <app-product-item [product]="product"></app-product-item>
+      </div>
+    </ng-template>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </swiper>
+</ng-container> -->
+
+
+<!-- Swiper الأول - للشاشات الكبيرة -->
+<!-- <div class="slider-effectCoverflow">
+  <swiper
+   [effect]="'slide'"
     [grabCursor]="true"
     [centeredSlides]="true"
-    [slidesPerView]="'auto'"
+    [slideToClickedSlide]="true"
+    [slidesPerView]="4"
     [dir]="'RTL'"
-    [coverflowEffect]="{
-      rotate:50,
-      stretch:0,
-      depth:100,
-      modifier:1,
-      slideShadows:true
-    }"
+   
     [pagination]="true"
     [navigation]="true"
+    
     class="mySwiper"
   >
     <ng-template class="m-2" swiperSlide *ngFor="let product of slidesProduct">
       <app-product-item [product]="product"></app-product-item>
     </ng-template>
   </swiper>
-</div>
+</div> -->
+
+<!-- Swiper الثاني - للشاشات الصغيرة -->

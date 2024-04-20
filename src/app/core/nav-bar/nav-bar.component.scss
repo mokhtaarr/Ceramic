@@ -6,7 +6,7 @@
     background: #8c6f4e;
     color: white;
     text-align: center;
-    top: -12px;
+    top: -26px;
     right: 32px;
 }
 
@@ -16,6 +16,7 @@ a{
     &.active{
         color: #8c6f4e;
     }
+
 }
 
 .logo{
@@ -48,4 +49,31 @@ a{
      4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
   }
+
+  .logo-text {
+    display: block; /* يجعل النص يظهر في سطر منفصل */
+  }
   
+  .logo-icon {
+    margin-top: -5px; /* تحديد التباعد العلوي بين الأيقونة والنص حسب الحاجة */
+  }
+  
+
+  @media (min-width: 912px) {
+    .large-screen {
+      display: block;
+    }
+    .small-screen {
+      display: none;
+    }
+  }
+
+
+  @media (max-width: 912px) {
+    .large-screen {
+      display: none;
+    }
+    .small-screen {
+      display: block;
+    }
+  }

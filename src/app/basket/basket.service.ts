@@ -34,9 +34,7 @@ export class BasketService {
       next: basket => {
         this.basketSource.next(basket);
         this.calculateTotals();
-        console.log("###### from basket services set basket is complete");
-      },
-      error: error => console.log("errorrrrrrrrr in basket services")
+      },     
     })
   }
 
@@ -76,6 +74,16 @@ export class BasketService {
     })
   }
 
+  RemoveItemFromBasket(basketId :any) {
+     this.http.delete(this.baseUrl + 'Basket/ClearBasketAsync?id=' + basketId).subscribe({
+      next: () => {
+        this.basketSource.next(null);
+        this.basketTotalSource.next(null);
+        localStorage.removeItem("basket_Id");
+      }
+    });
+  }
+
 
   addOrUpdateItem(items: BasketItem[], itemToAdd: BasketItem, quantity: number): BasketItem[] {
     const item = items.find(x => x.basketItemId === itemToAdd.basketItemId);
@@ -84,7 +92,6 @@ export class BasketService {
       itemToAdd.quantity = quantity;
       items.push(itemToAdd);
     }
-    console.log("###### from basket services addOrUpdateItem is complete");
 
     return items;
   }
@@ -92,14 +99,12 @@ export class BasketService {
 
 
   createBasket(): Basket {
-    console.log("#### from basket services create basket is complete")
     const basket = new Basket();
     localStorage.setItem("basket_Id", basket.customerBasketId);
     return basket;
   }
 
   private mapProductItemToBasketItem(item: Product) {
-    console.log("#### from basket services mapping is complete")
     return {
       basketItemId: item.itemCardId,
       productName: item.itemDescA,

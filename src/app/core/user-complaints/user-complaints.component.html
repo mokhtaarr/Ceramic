@@ -1,0 +1,75 @@
+<div class="row">
+  
+  <form [formGroup]="ComplaintForm" (ngSubmit)="onSubmit()" class="col-lg-6 col-md-12 col-sm-12">
+     
+    <div class="form-floating mt-3">
+      <input [class.is-invalid]="ComplaintForm.get('phone')?.invalid&&ComplaintForm.get('phone')?.touched" type="text" formControlName="phone" class="form-control" id="floatingEmail" placeholder="PhoneNumber">
+      <label for="floatingEmail">{{'Phone Number'|translate}}</label>
+     
+      <div *ngIf="ComplaintForm.get('phone')?.errors?.['required']" class="invalid-feedback">{{'Phone Number is required'|translate}}</div>
+  
+      <div *ngIf="ComplaintForm.get('phone')?.hasError('minlength')" class="invalid-feedback">
+        {{'phone Number Count'|translate }}
+      </div>
+
+      <div *ngIf="ComplaintForm.get('phone')?.hasError('maxlength')" class="invalid-feedback">
+        {{ 'phone Number Count' | translate }}
+      </div>
+
+      <div *ngIf="ComplaintForm.get('phone')?.hasError('pattern')" class="invalid-feedback">
+        {{ 'PhoneStart' | translate }}
+      </div>
+    </div>
+
+    <div class="form-floating mt-3">
+      <input [class.is-invalid]="ComplaintForm.get('email')?.invalid&&ComplaintForm.get('email')?.touched" type="email" formControlName="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+      <label for="floatingEmail">{{'Email Address'|translate}}</label>
+      <div *ngIf="ComplaintForm.get('email')?.errors?.['required']" class="invalid-feedback">{{'Email is required'|translate}}</div>
+
+      <div *ngIf="ComplaintForm.get('email')?.hasError('pattern')" class="invalid-feedback">
+         {{'invalidEmail'|translate}}
+      </div>
+  
+      <div *ngIf="ComplaintForm.get('email')?.hasError('maxlength')" class="invalid-feedback">
+        {{'Emailmax'|translate}}
+     </div>
+ 
+     <div *ngIf="ComplaintForm.get('email')?.hasError('minlength')" class="invalid-feedback">
+      {{'Emailmin'|translate}}
+     </div>
+   </div>
+
+
+   <div class="form-floating mt-3">
+      <textarea  [class.is-invalid]="ComplaintForm.get('ComDesc')?.invalid&&ComplaintForm.get('ComDesc')?.touched" type="text" style="height: 200px;" formControlName="ComDesc" class="form-control" id="floatingEmail" placeholder="name@example.com">
+        </textarea>
+      <label for="floatingTextarea">{{'Add complait'|translate}}</label>
+      <div *ngIf="ComplaintForm.get('ComDesc')?.errors?.['required']" class="invalid-feedback">{{'Complaint Text is required'|translate}}</div>
+
+      <div *ngIf="ComplaintForm.get('ComDesc')?.hasError('pattern')" class="invalid-feedback">
+         {{'invalid Complaint Text'|translate}}
+      </div>
+  
+      <div *ngIf="ComplaintForm.get('ComDesc')?.hasError('maxlength')" class="invalid-feedback">
+        {{'max Complaint Text'|translate}}
+     </div>
+ 
+     <div *ngIf="ComplaintForm.get('ComDesc')?.hasError('minlength')" class="invalid-feedback">
+      {{'min Complaint Text'|translate}}
+     </div>
+   </div>
+
+   <div class="mb-3">
+    <label for="formFile" class="form-label">{{'Choose Images'|translate}}</label>
+    <input class="form-control" type="file" id="formFile" formControlName="Image" (change)="onFileSelected($event)" accept=".png, .jpg , .jpeg" >
+  </div>
+
+  <button [disabled]="ComplaintForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit Complain'|translate}}</button>  
+  
+</form>
+
+<div class="col-lg-6 col-md-12 col-sm-12 mt-5 text-center">
+  <img [src]="selectedImage" *ngIf="selectedImage" alt="Selected Image" style="width: 50%;" class="img-fluid">
+</div>
+
+</div>

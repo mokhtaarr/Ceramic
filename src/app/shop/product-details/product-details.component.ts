@@ -9,7 +9,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 import { environment } from 'src/environments/environment';
 import { I18nServicesService } from 'src/app/Services/i18n-services.service';
 
-declare function resetActiveImg(): any
+// declare function resetActiveImg(): any
 declare function ready(): any
 
 @Component({
@@ -24,6 +24,8 @@ export class ProductDetailsComponent implements OnInit {
   quantity = 1;
   quantityInBasket = 0;
   currentCulture: string='ar';
+  currentLange!:string;
+
 
   constructor(private shopService: ShopService,
     private activatedRoute: ActivatedRoute,
@@ -32,15 +34,27 @@ export class ProductDetailsComponent implements OnInit {
     private bcService: BreadcrumbService,
     private i18nservice:I18nServicesService) 
   {
-    this.i18nservice.localEvent.subscribe(locale=> {this.translate.use(locale),this.currentCulture = locale} );
-    
+    this.currentLange = localStorage.getItem('currentLange') || 'ar';
+    this.translate.use(this.currentLange);
+    this.currentCulture = this.translate.currentLang;
+    this.scrollToTarget();
+
    
   }
 
   ngOnInit(): void { 
+    this.i18nservice.localEvent.subscribe(locale=> this.translate.use(locale));
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currentCulture = event.lang;
+    });
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currentCulture = event.lang;
+    });
+
+    
     this.LoadProduct();
-    ready();
-    resetActiveImg();
+    // resetActiveImg();
     
   }
 
@@ -59,6 +73,9 @@ export class ProductDetailsComponent implements OnInit {
             }
           }
         })
+
+        ready();
+
       },
       error: error => console.log(error)
 
@@ -96,5 +113,15 @@ export class ProductDetailsComponent implements OnInit {
 
   get buttonText() {
     return this.quantityInBasket === 0 ? 'Add to basket ' : 'Update basket';
+  }
+
+  get buttonTextAr() {
+    return this.quantityInBasket === 0 ? 'أضافة الى السلة' : 'تحديث السلة';
+  }
+
+  scrollToTarget() {
+    const middleOfPage = window.innerHeight / 5;
+    window.scrollTo({ top: middleOfPage, behavior: 'smooth' });
+
   }
 }

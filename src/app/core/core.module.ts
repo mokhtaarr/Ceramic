@@ -16,9 +16,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { USerComplaintsComponent } from './user-complaints/user-complaints.component';
+import { RequestProductComponent } from './request-product/request-product.component';
 
 @NgModule({
-  declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent, FooterComponent],
+  declarations: [NavBarComponent, SectionHeaderComponent, TestErrorComponent, ServerErrorComponent, NotFoundComponent, FooterComponent, USerComplaintsComponent, RequestProductComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -45,7 +47,9 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
     NavBarComponent,
     SectionHeaderComponent,
     NgxSpinnerModule,
-    FooterComponent
+    FooterComponent,
+    USerComplaintsComponent,
+    RequestProductComponent
   ]
 })
 export class CoreModule { }

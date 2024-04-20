@@ -8,137 +8,84 @@
   <a id="about" onclick="openNav()" style="cursor: pointer;"><i class="fa fa-search"></i>{{'SearchWithUs'|translate}}</a>
 </div> -->
 
-<carousel>
+<carousel [isAnimated]="true" [interval]="8000">
   <slide *ngFor="let cat of Categories">
-    <img  [src]="imagePath + cat.imagePath" alt="first slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-      <p *ngIf="currentCulture == 'ar'">{{cat.imageDescription}}</p>
-      <p *ngIf="currentCulture == 'en'">{{cat.imageDescriptionEn}}</p>
-      <button type="button" class="btn btn-primary" style="background-color: #8c6f4e;border-color: #8c6f4e;" (click)="goToCategoryProduct(cat.itemCategoryId)">{{'ShopNow'|translate}}</button>
+    <img [src]="imagePath + cat.imagePath" alt="first slide" style="display: block; width: 100%;">
+    <div class="carousel-caption  d-md-block" style="background-color: #1f1e1ea6;width: 30%;bottom: 13%;">
+      <p *ngIf="currentCulture == 'ar'" style="font-size: large;">{{cat.imageDescription}}</p>
+
+      <p *ngIf="currentCulture == 'en'" style="font-size: large;">{{cat.imageDescriptionEn}}</p>
+      <button type="button" class="btn btn-primary" style="background-color: #8c6f4e;border-color: #8c6f4e;"
+        (click)="goToCategoryProduct(cat.itemCategoryId)">{{'ShopNow'|translate}}</button>
     </div>
   </slide>
 </carousel>
 
-<!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators" style="margin: unset;margin-bottom: 5px;">
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../../../assets/images/slideWithOffer1.jpg" style="height: 100%;width: 100%;" />
-      <div class="container" style="margin: 5px;margin-top: 10px;">
-        <div class="carousel-caption text-center" style="background-color:#706e6ec4;width: fit-content;">
-          <p>{{'Description Stone offer'|translate}}</p>
-          <p><a class="openbtn" style="text-decoration: none;" (click)="goToCategoryProduct(27)">{{'Shop Now'|translate}}</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../../../assets/images/slideWithOffer2.jpg" style="height: 100%;width: 100%;" />
 
-      <div class="container" style="margin: 5px;margin-top: 10px;">
-        <div class="carousel-caption text-center" style="background-color:#706e6ec4;width: fit-content;">
-          <p>{{'Description Showering offer'|translate}}</p>
-          <p><a class="openbtn" style="text-decoration: none;" href="#">{{'Shop Now'|translate}}</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../../../assets/images/slideWithOffer3.jpg" style="height: 100%;width: 100%;" />
 
-      <div class="container" style="margin: 5px;margin-top: 10px;">
-        <div class="carousel-caption text-center" style="background-color:#706e6ec4;width: fit-content;">
-          <p>{{'Description kitchen offer'|translate}}</p>
-          <p><a class="openbtn" style="text-decoration: none;" href="#">{{'Shop Now'|translate}}</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #8c6f4e;width: 40px;height: 40px;border-radius: 80px;"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #8c6f4e;width: 40px;height: 40px;border-radius: 80px;"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div> -->
+<div class="line" ></div>
+
+
 
 <div>
-  <!-- <carousel [isAnimated]="true" [interval]="4000" >
-    <slide style="height: 700px">
-      <img src="../../../assets/images/slideWithOffer1.jpg" alt="slide" style="display: block; width: 100%;">
-      <div class="carousel-caption">
-        <h1>Another example headline.</h1>
-        <p>Some representative placeholder content for the second slide of the carousel.</p>
-        <p><a class="btn btn-lg btn-primary" href="#">تسوق الان</a></p>
-      </div>
-    </slide>
-    <slide>
-      <img src="../../../assets/images/slideWithOffer2.jpg" alt="slide" style="display: block; width: 100%;">
-      <div class="carousel-caption">
-        <h1>Another example headline.</h1>
-        <p>Some representative placeholder content for the second slide of the carousel.</p>
-        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-      </div>
-    </slide>
-    <slide>
-      <img src="../../../assets/images/slideWithOffer3.jpg" alt="slide" style="display: block; width: 100%;">
-      <div class="carousel-caption">
-        <h1>Another example headline.</h1>
-        <p>Some representative placeholder content for the second slide of the carousel.</p>
-        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-      </div>
-    </slide>
-  </carousel> -->
-
-  <div class="text-center mt-5" style="margin-bottom: 50px;">
+  <div class=" mt-5 text-center">
+    <h3 class="display-5">{{'What we offer you'|translate}}</h3>
+  </div>
+  
+  <div class="text-center mt-5" style="margin-bottom: 100px;">
     <div class="row  row-cols-1 row-cols-lg-3">
+      <div class="col d-flex justify-content-center" >
+        <div class="content-benfit">
+          <div class="d-flex">
+            <a style="margin: 15px;color: #8c6f4e;cursor: pointer;" href="https://wa.me/+201155927722"><i class="fa fa-comments-o" aria-hidden="true"
+                style="font-size: 41px;"></i></a>
+            <div class="media-body">
+              <div class="media-heading h3">{{'Technical Support'|translate}}</div>
+              <div class="text desc std text-muted">{{'All days of the week'|translate}}</div>
+              <a href="https://wa.me/+201155927722" style="text-decoration: none;color:#8c6f4e;">01155927722</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
       <div class="col d-flex justify-content-center">
-        <div class="d-flex">
-          <a style="margin: 15px;color: #8c6f4e;cursor: pointer;" href="https://wa.me/+201155927722"><i class="fa fa-comments-o" aria-hidden="true"
-              style="font-size: 41px;"></i></a>
-          <div class="media-body">
-            <div class="media-heading h5">{{'Technical Support'|translate}}</div>
-            <div class="text desc std text-muted">{{'All days of the week'|translate}}</div>
-            <a href="https://wa.me/+201155927722" style="text-decoration: none;color:#8c6f4e;">01155927722</a>
+        <div class="content-benfit">
+          <div class="d-flex">
+            <div style="margin: 15px;color: #8c6f4e;"><i class="fa fa-repeat" aria-hidden="true"
+                style="font-size: 41px;"></i></div>
+            <div class="media-body">
+              <div class="media-heading h3">14&nbsp;{{'retrieval day'|translate}}&nbsp;</div>
+              <div class="text desc std text-muted">{{'retrieval reason'|translate}}</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col d-flex justify-content-center" style="border-right: 1px solid #ccc;">
-        <div class="d-flex">
-          <div style="margin: 15px;color: #8c6f4e;"><i class="fa fa-repeat" aria-hidden="true"
-              style="font-size: 41px;"></i></div>
-          <div class="media-body">
-            <div class="media-heading h5">14&nbsp;{{'retrieval day'|translate}}&nbsp;</div>
-            <div class="text desc std text-muted">{{'retrieval reason'|translate}}</div>
-          </div>
-        </div>
-      </div>
-      <div class="col d-flex justify-content-center" style="border-right: 1px solid #ccc;">
-        <div class="d-flex">
-          <a style="margin: 15px;color: #8c6f4e;"><i class="fa fa-credit-card" aria-hidden="true"
-              style="font-size: 41px;cursor: pointer;"></i></a>
-          <div class="media-body">
-            <div class="media-heading h5">{{"Payment methods"|translate}}</div>
-            <div class="text desc std text-muted">{{'Safe and versatile'|translate}}</div>
+  
+  
+      <div class="col d-flex justify-content-center" >
+        <div class="content-benfit">
+          <div class="d-flex">
+            <a style="margin: 15px;color: #8c6f4e;"><i class="fa fa-credit-card" aria-hidden="true"
+                style="font-size: 41px;cursor: pointer;"></i></a>
+            <div class="media-body">
+              <div class="media-heading h3">{{"Payment methods"|translate}}</div>
+              <div class="text desc std text-muted">{{'Safe and versatile'|translate}}</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="line" ></div>
+
 
   <app-product-carousel></app-product-carousel>
 
 
-
-
-  <!-- <app-product-carousel-with-card></app-product-carousel-with-card> -->
+  <div class="line" ></div>
 
   <div class="container mt-4">
-    <!-- <app-product-carousel-with-card></app-product-carousel-with-card> -->
 
     
         <!-- side bar for product sorting -->
@@ -259,26 +206,13 @@
       </div>
     </div>
 
-    <!-- button for the advanced Search for the slide from a side -->
 
-    <!-- <div id="main">
-      <button class="openbtn" onclick="openNav()"><i class="fa fa-search" aria-hidden="true"></i> بحـث متقدم</button>
-    </div> -->
+    
 
-    <!--  way to display product search  in body -->
-
-    <!-- other style for collapse -->
 <!-- 
-    <p>
-      <button class="openbtn" style="margin-right: 14px;" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <i class="fa fa-search" aria-hidden="true"></i> بحـث متقدم</button>
-    </p> -->
-
-    <!-- <div class="collapse" id="collapseExample"> -->
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12">
-          <!-- shop price -->
+
           <h5 style="color: #8c6f4e;" class="ms-3 text-center"> {{'ShopByPrice'|translate}}
           </h5>
           <div *ngIf="currentCulture == 'ar'">
@@ -344,24 +278,12 @@
         </div>
       </div>
     </div>
-    <!-- search seaction -->
+
     <div>
       <section class="col-lg-12 col-md-12  col-sm-12">
         <div class="row mb-4">
           <div>
-            <!-- <div class="row d-flex" style="justify-content: center;">
-              <input type="text" placeholder="{{'PlaceHolderSearch'|translate}}" (keyup)="onKeyUp($event)" 
-              (keyup.enter)="onSrarch()"
-                class="form-control me-2 col-sm-12" style="width:90%;border-radius: 50px;
-                  border: 2px solid #8c6f4e;" #search  [value]="selectedProduct?.productName">
-            </div>
-
-            
-            <ul class="list-group" *ngIf="showDropdown">
-              <li class="list-group-item" *ngFor="let product of filteredProducts" (click)="selectProduct(product)">
-                {{ product.productName }}
-              </li>
-            </ul> -->
+           
 
             <div class="row d-flex" style="justify-content: center; position: relative;">
             
@@ -428,194 +350,178 @@
       </section>
     </div>
   </div>
-<!-- old styles -->
+ -->
 
 
-<!-- <section class="col-lg-3  col-sm-12"> -->
-<!-- shop price -->
-<!-- <h5 class="text-warning ms-3 text-center">{{'ShopByPrice'|translate}}</h5>
-      <div *ngIf="currentCulture == 'ar'">
-        <select class="form-select mb-4" (change)="onSortSelected($event)">
-          <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
-            {{option.nameAr}}
-          </option>
-        </select>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <select class="form-select mb-4" (change)="onSortSelected($event)">
-          <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
-            {{option.nameEn}}
-          </option>
-        </select>
-      </div> -->
+  <!-- Other Style  -->
+
+ <div class="container">
+  <div class="row">
+      <section class="col-lg-3 col-sm-12">
+        <h5 style="color: #8c6f4e;" class="ms-3 text-center">{{'ShopByPrice'|translate}}</h5>
+        <div *ngIf="currentCulture == 'ar'">
+          <select class="form-select mb-4" (change)="onSortSelected($event)">
+            <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
+              {{option.nameAr}}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="currentCulture == 'en'">
+          <select class="form-select mb-4" (change)="onSortSelected($event)">
+            <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
+              {{option.nameEn}}
+            </option>
+          </select>
+        </div>
+
+
+        <h5 class="ms-3 text-center" style="color: #8c6f4e;">{{'ShopByBrands' | translate}}</h5>
+
+        <div *ngIf="currentCulture == 'ar'">
+          <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
+            <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
+              [value]="brand.brandId">{{brand.descA}}</option>
+          </select>
+        </div>
+        <div *ngIf="currentCulture == 'en'">
+          <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
+            <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
+              [value]="brand.brandId">{{brand.descE}}</option>
+          </select>
+        </div>
+  
+
+        <h5 class="ms-3 text-center" style="color: #8c6f4e;">{{'ShopByType'|translate}}</h5>
+        <div *ngIf="currentCulture == 'ar'">
+          <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
+            <option class="text-center" *ngFor="let type of types"
+              [class.selected]="type.itemCategoryId==shopParams.typeId" [value]="type.itemCategoryId">
+              {{type.itemCatDescA}}</option>
+          </select>
+        </div>
+        <div *ngIf="currentCulture == 'en'">
+          <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
+            <option class="text-center" *ngFor="let type of types" [class.selected]="type.itemCategoryId"
+              [value]="type.itemCategoryId">{{type.itemCatDescE}}</option>
+          </select>
+        </div>
+
+      </section>
+      <section class="col-lg-9 col-sm-12">
+          <!-- <div class="d-flex justify-content-between align-items-center pb-2">
+             <app-paging-header 
+             [TotalCount]="TotalCount"
+             [pageNumber]="shopParams.pageNumber"
+             [pageSize]="shopParams.pageSize" 
+             >
+             </app-paging-header>
+
+              <div class="d-flex mt-2">
+                  <input type="text" (keypress)="onSrarch()" placeholder="Search" class="form-control me-2" #search>
+                  <button (click)="onSrarch()" class="btn btn-outline-primary mx-2">Search</button>
+                  <button (click)="OnReset()" class="btn btn-outline-success">Reset</button>
+              </div>
+          </div> -->
+        
+        
+          <div>
+            <div class="row d-flex" style="justify-content: center; position: relative;">
+              <!-- (keyup.enter)="onSrarch()" -->
+              <ng-container *ngIf="currentCulture == 'ar'">
+                <input type="text" placeholder="{{'PlaceHolderSearch'|translate}}" (keyup)="onKeyUp($event)" 
+                      class="form-control me-2 col-sm-12" 
+                     style="width:90%;border: 2px solid #8c6f4e;"
+                     (blur)="onBlur()" 
+                     #search [value]="selectedProduct?.productName">
+              </ng-container>
+              
+              <ng-container *ngIf="currentCulture == 'en'">
+                <input type="text" placeholder="{{'PlaceHolderSearch'|translate}}" (keyup)="onKeyUp($event)" 
+                  class="form-control me-2 col-sm-12" 
+                     style="width:90%;border-radius: 50px; border: 2px solid #8c6f4e;" 
+                     #search [value]="selectedProduct?.productNameEn">
+              </ng-container>
+              
+              <ng-container *ngIf="currentCulture == 'ar'">
+                <ul class="list-group" *ngIf="showDropdown" style="position: absolute; top: 100%; left: 5%; z-index: 1000;
+                width: 90%; margin-top: 5px; border-radius: 5px;max-height: 400px;overflow-y: auto;" >
+<!-- 
+                 <li class="list-group-item" style="cursor: pointer;" *ngFor="let product of filteredProducts; let i = index;"
+                 [class.active]="i === selectedProductIndex"  
+                 (click)="selectProduct(product)"
+                 (keydown)="onArrowDown($event)"
+                 (keydown)="onArrowUp($event)"
+                 >
+                   {{ product.productName }}
+                 </li> -->
+
+                 <li class="list-group-item" style="cursor: pointer;" *ngFor="let product of filteredProducts; let i = index;"
+                     [class.active]="i === selectedProductIndex"  
+                     (click)="selectProduct(product)"
+                     (keyup.enter)="onArrowDown()">
+                     {{ product.productName }}
+                 </li>
+
+               </ul>
+
+               <ul class="list-group" *ngIf="ShowNoProductFound" style="position: absolute; top: 100%; left: 5%; z-index: 1000;
+                width: 90%; margin-top: 5px; border-radius: 5px;max-height: 400px;overflow-y: auto;">
+                 <li class="list-group-item" style="cursor: pointer;">
+                    {{'no products found'|translate}}
+                 </li>
+               </ul>
+              </ng-container>
+               
+              <ng-container *ngIf="currentCulture == 'en'">
+                <ul class="list-group" *ngIf="showDropdownEn" style="position: absolute; top: 100%; left: 5%; z-index: 1000;
+                 width: 90%; margin-top: 5px; border-radius: 5px;max-height: 400px;overflow-y: auto;">
+                <li class="list-group-item" style="cursor: pointer;" *ngFor="let product of filteredProductsEn" (click)="selectProduct(product)">
+                  {{ product.productNameEn }}
+                </li>
+              </ul>
+              <ul class="list-group" *ngIf="ShowNoProductFoundEn" style="position: absolute; top: 100%; left: 5%; z-index: 1000;
+              width: 90%; margin-top: 5px; border-radius: 5px;max-height: 400px;overflow-y: auto;">
+               <li class="list-group-item" style="cursor: pointer;">
+                  {{'no products found'|translate}}
+               </li>
+             </ul>
+              </ng-container>
+              
+            </div>
+            
+            <div class="d-flex" style="justify-content:center">
+           
+              <button style="background-color: #8c6f4e;color: white;border-color: #8c6f4e;" class="btn btn-info m-2" (click)="onSrarch()"> <i
+                class="fa fa-search" aria-hidden="true"></i>
+              {{'Search'|translate}}</button>
+
+              <button class="btn btn-light m-2" style="color: black;" (click)="OnReset()"> <i class="fa fa-repeat"
+                  aria-hidden="true"></i>
+                {{'Reset'|translate}}</button>
+             
+            </div>
+          </div>
 
 
 
-<!-- shop Brand -->
-<!-- <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
-
-      <div *ngIf="currentCulture == 'ar'">
-        <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
-          <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
-            [value]="brand.brandId">{{brand.descA}}</option>
-        </select>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <select class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
-          <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
-            [value]="brand.brandId">{{brand.descE}}</option>
-        </select>
-      </div> -->
-
-<!-- shop Type -->
-<!-- <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
-      <div *ngIf="currentCulture == 'ar'">
-        <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
-          <option class="text-center" *ngFor="let type of types"
-            [class.selected]="type.itemCategoryId==shopParams.typeId" [value]="type.itemCategoryId">
-            {{type.itemCatDescA}}</option>
-        </select>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <select class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
-          <option class="text-center" *ngFor="let type of types" [class.selected]="type.itemCategoryId"
-            [value]="type.itemCategoryId">{{type.itemCatDescE}}</option>
-        </select>
-      </div> -->
-
-<!-- other way to view brands and types -->
-<!-- old style with menu in right side for brand and type -->
-
-<!-- <h5 class="text-warning ms-3 text-center">{{'ShopByBrands' | translate}}</h5>
-      <div *ngIf="currentCulture == 'ar'">
-        <ul class="list-group my-3">
-          <li class="list-group-item text-center" style="cursor:pointer;" *ngFor="let brand of brands"
-            [class.active]="brand.brandId === shopParams.brandId" [value]="brand.brandId"
-            (click)="onBrandSelected(brand.brandId)">
-            {{brand.descA}}
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <ul class="list-group my-3">
-          <li class="list-group-item text-center" style="cursor:pointer;" *ngFor="let brand of brands"
-            [class.active]="brand.brandId === shopParams.brandId" [value]="brand.brandId"
-            (click)="onBrandSelected(brand.brandId)">
-            {{brand.descE}}
-          </li>
-        </ul>
-      </div> -->
-
-<!-- <h5 class="text-warning ms-3 text-center">{{'ShopByType'|translate}}</h5>
-      <div *ngIf="currentCulture == 'ar'">
-        <ul class="list-group my-3">
-          <li class="list-group-item text-center" style="cursor:pointer;" *ngFor="let type of types"
-            [class.active]="type.itemCategoryId === shopParams.typeId" [value]="type.itemCategoryId"
-            (click)="onTypeSelected(type.itemCategoryId)">
-            {{type.itemCatDescA}}
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <ul class="list-group my-3">
-          <li class="list-group-item text-center" style="cursor: pointer;" *ngFor="let type of types"
-            [class.active]="type.itemCategoryId === shopParams.typeId" [value]="type.itemCategoryId"
-            (click)="onTypeSelected(type.itemCategoryId)">
-            {{type.itemCatDescE}}
-          </li>
-        </ul>
-      </div> -->
-<!-- </section> -->
-
-<!-- _________________________________________________________________________________________ -->
+          
+          <div class="row mb-2">
+            <div class="col-lg-4 col-sm-12" *ngFor="let product of products">
+              <app-product-item [product]="product" [productCart]="product"></app-product-item>
+            </div>
+          </div>
 
 
-<!-- <div class="card mb-4 rounded-3 shadow-sm">
-    <div class="card-header py-3">
-      <h4 class="my-0 fw-normal">Free</h4>
-    </div>
-    <div class="card-body">
-      <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-      <ul class="list-unstyled mt-3 mb-4">
-        <li>10 users included</li>
-        <li>2 GB of storage</li>
-        <li>Email support</li>
-        <li>Help center access</li>
-      </ul>
-      <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-    </div>
-  </div> -->
+          <div class="d-flex justify-content-center" *ngIf="TotalCount > 0">
+              <app-pager
+              [TotalCount]="TotalCount"
+              [pageSize]="shopParams.pageSize"
+              (pageChanged)="onPageChanged($event)"
+              >
+              </app-pager>
+          </div>
+      </section>
+  </div>
+</div>
 
-<!-- old style in 18-5 -->
-<!-- <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-12">
-      <h5 style="color: #8c6f4e;" class="ms-3 text-center"><i style="font-size: 20px;"
-          class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-        <span class="sr-only">Loading...</span> {{'ShopByBrands' | translate}}
-      </h5>
-
-      <div *ngIf="currentCulture == 'ar'">
-        <select
-          style="border-radius: 50px;border: 2px solid #8c6f4e;font-weight: bolder;font-size: larger;color: #8c6f4e;"
-          class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
-          <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
-            [value]="brand.brandId">{{brand.descA}}</option>
-        </select>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <select
-          style="border-radius: 50px;border: 2px solid #8c6f4e;font-weight: bolder;font-size: larger;color: #8c6f4e;"
-          class="form-select mb-4" #v (change)="onBrandSelected(+v.value)">
-          <option class="text-center" *ngFor="let brand of brands" [class.selected]="brand.brandId"
-            [value]="brand.brandId">{{brand.descE}}</option>
-        </select>
-      </div>
-    </div>
-    <div class="col">
-      <h5 style="color: #8c6f4e;" class="ms-3 text-center"><i style="font-size: 20px;"
-          class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-        <span class="sr-only">Loading...</span> {{'ShopByType'|translate}}
-      </h5>
-      <div *ngIf="currentCulture == 'ar'">
-        <select
-          style="border-radius: 50px;border: 2px solid #8c6f4e;font-weight: bolder;font-size: larger;color: #8c6f4e;"
-          class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
-          <option class="text-center" *ngFor="let type of types"
-            [class.selected]="type.itemCategoryId==shopParams.typeId" [value]="type.itemCategoryId">
-            {{type.itemCatDescA}}</option>
-        </select>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <select
-          style="border-radius: 50px;border: 2px solid #8c6f4e;font-weight: bolder;font-size: larger;color: #8c6f4e;"
-          class="form-select mb-4" #v (change)="onTypeSelected(+v.value)">
-          <option class="text-center" *ngFor="let type of types" [class.selected]="type.itemCategoryId"
-            [value]="type.itemCategoryId">{{type.itemCatDescE}}</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-12">
-      <h5 style="color: #8c6f4e;" class="ms-3 text-center"><i style="font-size: 20px;"
-          class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-        <span class="sr-only">Loading...</span> {{'ShopByPrice'|translate}}
-      </h5>
-      <div *ngIf="currentCulture == 'ar'">
-        <select
-          style="border-radius: 50px;border: 2px solid #8c6f4e;font-weight: bolder;font-size: larger;color: #8c6f4e;"
-          class="form-select mb-4" (change)="onSortSelected($event)">
-          <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
-            {{option.nameAr}}
-          </option>
-        </select>
-      </div>
-      <div *ngIf="currentCulture == 'en'">
-        <select
-          style="border-radius: 50px;border: 2px solid #8c6f4e;font-weight: bolder;font-size: larger;color: #8c6f4e;"
-          class="form-select mb-4" (change)="onSortSelected($event)">
-          <option class="text-center" *ngFor="let option of sortOptions" [value]="option.value">
-            {{option.nameEn}}
-          </option>
-        </select>
-      </div>
-    </div>
-  </div> -->
+<div class="line" ></div>

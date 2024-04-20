@@ -40,4 +40,10 @@ export class SharedBasketComponent implements OnInit {
   {
     this.basketService.removeItemFromBasket(id,quantity);
   }
+
+  getCount(items:BasketItem[])
+  {
+    return items.reduce((sum,item)=>sum+item.quantity,0)
+  }
+ 
 }

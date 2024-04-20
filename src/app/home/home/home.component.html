@@ -1,11 +1,12 @@
-<carousel>
+<carousel [isAnimated]="true" [interval]="8000">
   <slide *ngFor="let cat of Categories">
-    <img  [src]="imagePath + cat.imagePath" alt="first slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-      <p *ngIf="currentCulture == 'ar'">{{cat.imageDescription}}</p>
-      
-      <p *ngIf="currentCulture == 'en'">{{cat.imageDescriptionEn}}</p>
-      <button type="button" class="btn btn-primary" style="background-color: #8c6f4e;border-color: #8c6f4e;" (click)="goToCategoryProduct(cat.itemCategoryId)">{{'ShopNow'|translate}}</button>
+    <img [src]="imagePath + cat.imagePath" alt="first slide" style="display: block; width: 100%;">
+    <div class="carousel-caption  d-md-block" style="background-color: #1f1e1ea6;width: 30%;bottom: 13%;">
+      <p *ngIf="currentCulture == 'ar'" style="font-size: large;">{{cat.imageDescription}}</p>
+
+      <p *ngIf="currentCulture == 'en'" style="font-size: large;">{{cat.imageDescriptionEn}}</p>
+      <button type="button" class="btn btn-primary" style="background-color: #8c6f4e;border-color: #8c6f4e;"
+        (click)="goToCategoryProduct(cat.itemCategoryId)">{{'ShopNow'|translate}}</button>
     </div>
   </slide>
 </carousel>
@@ -119,7 +120,7 @@
   </slide>
 </carousel> -->
 
- <section style="background-color: #f4f5f5; margin-top: 10px;">
+<!-- <section style="background-color: #f4f5f5; margin-top: 10px;">
   <div class="container-fluid">
     <br>
     <h4 class="ms-3  p-1" style="color: #8c6f4e; background-color: #f5f5f5;">
@@ -130,15 +131,148 @@
     <div class="row">
       <div class="col-6 col-md-4 col-lg-2" *ngFor="let brand of Brands">
         <div class="w-100 m-2">
-          <img [src]="imagePath + brand.imagePath" style="cursor: pointer; max-width: 100%;" 
+          <img [src]="imagePath + brand.imagePath" style="cursor: pointer;width: 100%;height:50px" 
                (click)="goToBrandProducts(brand.brandId)" alt="Brand Image">
         </div>
       </div>
     </div>
   </div>
+</section> -->
+
+
+<section>
+
 </section>
 
-<div class="p-5 mb-4 mt-5 bg-light rounded-3">
+
+<!-- <carousel [itemsPerSlide]="2"
+          [singleSlideOffset]="true"
+          [interval]="5000"
+          [indicatorsByChunk]="true">
+  <slide *ngFor="let slide of slides; let index=index">
+    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+   
+  </slide>
+</carousel> -->
+
+
+<div class="line"></div>
+
+
+<div class=" mt-5 text-center">
+  <h3 class="display-5">{{'Types of products'|translate}}</h3>
+</div>
+
+
+
+<div class="row mt-5">
+
+
+  <div class="col-md-4" style="height: 100%; cursor: pointer; position: relative;" (click)="goToCategoryProduct(1019)">
+    <h3 class="img-content" style="padding: 10px;">{{"Porcelain and ceramic"|translate}}</h3>
+    <img src="../../../assets/images/Porcelain and ceramic.jpg" class="img-fluid" alt="Full Image">
+  </div>
+
+
+  <div class="col-md-8" style="height: 100%;cursor: pointer;">
+    <div class="row">
+
+      <div class="col-md-12 mt-2" style="position: relative;" (click)="goToCategoryProduct(1018)">
+        <h3 class="img-content2" style="padding: 10px;">{{"Bathroom units"|translate}}</h3>
+        <img src="../../../assets/images/وحدات حمام.jpg" class="img-fluid" alt="Full Image">
+      </div>
+
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-4 mt-2" style="position: relative;" (click)="goToCategoryProduct(7)">
+        <h3 class="img-content3" style="padding: 10px;">{{"Mixers"|translate}}</h3>
+        <img src="../../../assets/images/موزايك.jpg" class="img-fluid" alt="Full Image">
+      </div>
+      <div class="col-md-4 mt-2" style="position: relative;" (click)="goToCategoryProduct(6)">
+        <h3 class="img-content3" style="padding: 10px;">{{"Healthy bathroom"|translate}}</h3>
+        <img src="../../../assets/images/حمامات.jpg" class="img-fluid" alt="Full Image">
+      </div>
+      <div class="col-md-4 mt-2" style="position: relative;" (click)="goToCategoryProduct(1017)">
+        <h3 class="img-content3" style="padding: 10px;">{{"Accessories"|translate}}</h3>
+        <img src="../../../assets/images/اكسسورات.jpg" class="img-fluid" alt="Full Image">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="line"></div>
+
+
+<div class="mt-5">
+  <app-product-carousel></app-product-carousel>
+</div>
+
+
+<div class="line"></div>
+
+
+<div class="mt-5">
+  <app-product-carousel-with-card></app-product-carousel-with-card>
+</div>
+
+<div class="line mt-5"></div>
+
+<div class=" mt-5 text-center">
+  <h3 class="display-5">{{'What we offer you'|translate}}</h3>
+</div>
+
+
+<div class="text-center mt-5" style="margin-bottom: 100px;">
+  <div class="row  row-cols-1 row-cols-lg-3">
+    <div class="col d-flex justify-content-center">
+      <div class="content-benfit">
+        <div class="d-flex">
+          <a style="margin: 15px;color: #8c6f4e;cursor: pointer;" href="https://wa.me/+201155927722"><i
+              class="fa fa-comments-o" aria-hidden="true" style="font-size: 41px;"></i></a>
+          <div class="media-body">
+            <div class="media-heading h3">{{'Technical Support'|translate}}</div>
+            <div class="text desc std text-muted">{{'All days of the week'|translate}}</div>
+            <a href="https://wa.me/+201155927722" style="text-decoration: none;color:#8c6f4e;">01155927722</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <div class="content-benfit">
+        <div class="d-flex">
+          <div style="margin: 15px;color: #8c6f4e;"><i class="fa fa-repeat" aria-hidden="true"
+              style="font-size: 41px;"></i></div>
+          <div class="media-body">
+            <div class="media-heading h3">14&nbsp;{{'retrieval day'|translate}}&nbsp;</div>
+            <div class="text desc std text-muted">{{'retrieval reason'|translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col d-flex justify-content-center">
+      <div class="content-benfit">
+        <div class="d-flex">
+          <a style="margin: 15px;color: #8c6f4e;"><i class="fa fa-credit-card" aria-hidden="true"
+              style="font-size: 41px;cursor: pointer;"></i></a>
+          <div class="media-body">
+            <div class="media-heading h3">{{"Payment methods"|translate}}</div>
+            <div class="text desc std text-muted">{{'Safe and versatile'|translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="line"></div>
+
+
+<!-- <div class="p-5 mb-4 mt-5 bg-light rounded-3">
   <div class="container-fluid py-5">
     <div class="d-flex flex-column-reverse flex-md-row align-items-md-center">
       <img src="../../../assets/images/Beshai Logo_Final Ceramic Final-01.png" width="300" height="200"
@@ -153,7 +287,7 @@
     </div>
   </div>
 </div>
-
+ -->
 
 <!-- <div class="p-5 mb-4 mt-5 bg-light rounded-3">
   <div class="container-fluid py-5">

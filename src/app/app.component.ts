@@ -5,6 +5,7 @@ import { Product } from './shared/models/product';
 import { Pagination } from './shared/models/pagination';
 import { BasketService } from './basket/basket.service';
 import { AccountService } from './account/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,11 @@ export class AppComponent implements OnInit{
   textDir: string="rtl";
   products:any[]=[]; 
   currentLange !: string;
+  notShopPage : boolean = true;
 
   constructor(private http:HttpClient,private translate: TranslateService,
     private basketService:BasketService,
-    private accountService:AccountService){
+    private accountService:AccountService,private router: Router){
     this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
     {   
       if(translate.currentLang == 'ar')
@@ -33,21 +35,22 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.http.get<Pagination<Product[]>>("https://localhost:7192/api/Product").subscribe({
-      next :response=>{
-        console.log(response)
-        this.products=response.data
-      },
-      error:error=>console.log(error),
-      complete:()=>{
-        console.log("request Complete")
-        console.log("extraStament")
-      }    
-    })
+    // this.http.get<Pagination<Product[]>>("https://localhost:7192/api/Product").subscribe({
+    //   next :response=>{
+    //     this.products=response.data
+    //   },
+    //   error:error=>console.log(error),
+    //   complete:()=>{
+       
+    //   }    
+    // })
     const basketId= localStorage.getItem("basket_Id");
     if(basketId) this.basketService.getBasket(basketId);
     
     this.loadCurrentUser();
+
+    this.hideCartIconOnProductDetailPage();
+
   
   }
 
@@ -66,6 +69,12 @@ export class AppComponent implements OnInit{
     });
   }
   
+  hideCartIconOnProductDetailPage() {
+    this.router.events.subscribe(() => {
+      const currentUrl = this.router.url;
 
+      this.notShopPage = currentUrl.includes('/shop/');
+    });
+  }
   
 }

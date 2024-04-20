@@ -52,8 +52,11 @@ export class ShopComponent implements OnInit {
     selectedProduct: any;
     showDropdown: boolean = false;
     showDropdownEn: boolean = false;
+    ShowNoProductFound : boolean = false ;
+    ShowNoProductFoundEn : boolean = false ;
     filteredProducts: any[] = [];
     filteredProductsEn: any[] = [];
+    selectedProductIndex: number = -1;
   
 
   constructor(private shopService: ShopService, private translate: TranslateService,
@@ -140,6 +143,8 @@ export class ShopComponent implements OnInit {
     }
   }
 
+
+
   onSearchInputChange() {
     const searchTerm = this.selectedProduct?.productName.toLowerCase();
 
@@ -155,19 +160,33 @@ export class ShopComponent implements OnInit {
     // إظهار/إخفاء القائمة حسب وجود نص في حقل البحث
     this.showDropdown = searchTerm.length > 0 && this.filteredProducts.length > 0;
     this.showDropdownEn = searchTerm.length > 0 && this.filteredProductsEn.length > 0;
+
+   if(this.filteredProducts.length == 0){
+    this.ShowNoProductFound = true
+   }
+
+   if(this.filteredProducts.length  > 0){
+    this.ShowNoProductFound = false
+   }
+
+
+    
   }
 
   selectProduct(product: any) {
     this.selectedProduct = product;
     this.showDropdown = false;
     this.showDropdownEn = false;
+    this.ShowNoProductFound = false;
+    this.ShowNoProductFoundEn = false;
+
   }
 
   onKeyUp(event: KeyboardEvent) {
     // Check if the pressed key is not 'Enter'
     if (event.key !== 'Enter') {
 
-      const searchTerm = this.searchTerms?.nativeElement.value;
+      const searchTerm = this.searchTerms?.nativeElement.value.toLowerCase();
 
      
    this.filteredProducts = this.productList.filter(product =>
@@ -179,12 +198,54 @@ export class ShopComponent implements OnInit {
     );
   
     if(this.filteredProducts.length > 0)
+    {
       this.showDropdown = searchTerm && searchTerm.trim() !== '';
+      this.ShowNoProductFound = false
 
-      if(this.filteredProductsEn.length > 0)
-      this.showDropdownEn = searchTerm && searchTerm.trim() !== '';
+    }
+
+    if(this.filteredProducts.length == 0){
+      this.ShowNoProductFound = searchTerm && searchTerm.trim() !== '';
+    }
+
+    if(this.filteredProductsEn.length > 0){
+        this.showDropdownEn = searchTerm && searchTerm.trim() !== '';
+        this.ShowNoProductFoundEn = false
+      }
+
+     
+
+      if(this.filteredProductsEn.length == 0){
+        this.ShowNoProductFoundEn = searchTerm && searchTerm.trim() !== '';
+      }
+    }
+
+    if(event.key == 'Escape'){
+
+      if (this.searchTerms) {
+      this.showDropdown = false;
+      this.showDropdownEn = false;
+      this.ShowNoProductFound = false; 
+      this.ShowNoProductFoundEn = false; 
+      this.searchTerms.nativeElement.value = ''; 
+      this.OnReset()
+
+      }
     }
   }
+
+  onArrowUp(event: KeyboardEvent) {
+    event.preventDefault();
+    if (this.selectedProductIndex > 0) {
+        this.selectedProductIndex--;
+    }
+}
+  
+onArrowDown() {
+      // this.selectedProductIndex = Math.min(this.selectedProductIndex + 1, this.filteredProducts.length - 1);
+      console.log('Arrow Down pressed' , this.selectedProductIndex)
+  
+}
 
   // onKeyUp(event: KeyboardEvent) {
   //   // Check if the pressed key is not 'Enter'
@@ -211,6 +272,9 @@ export class ShopComponent implements OnInit {
     this.shopParams = new shopParams();
     this.selectedProduct = null;
     this.showDropdown = false;
+    this.showDropdownEn = false;
+    this.ShowNoProductFound = false;
+    this.ShowNoProductFoundEn = false;
     this.filteredProducts = [];
     this.getProducts();
   }
@@ -223,6 +287,17 @@ export class ShopComponent implements OnInit {
     if ("cart" in localStorage) {
       this.cardProducts = JSON.parse(localStorage.getItem("cart")!)
     }
+  }
+
+  
+  onBlur(): void {
+    const searchTerm = this.searchTerms?.nativeElement.value;
+
+    this.showDropdown = false;
+    this.showDropdownEn = false;
+    this.ShowNoProductFound = false;
+    this.ShowNoProductFoundEn = false;
+    this.searchTerms!.nativeElement.value = ''; 
   }
 
   slidesProduct = [

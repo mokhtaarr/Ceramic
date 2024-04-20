@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
   Brands!:AllBrands[]
-  itemsPerSlide = 5;
+  itemsPerSlide = 3;
   singleSlideOffset = true
   imagePath = environment.ImageUrl
   brandId!:number
@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
             {
               
               this.currentCulture = this.translate.currentLang;
-              console.log('this.translate.currentLang',this.translate.currentLang)
 
             }
   ngOnInit(): void {
@@ -74,4 +73,14 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['Categories', id])
   }
     
+  slides = [
+    {image: 'assets/images/brand1.jpg'},
+    {image: 'assets/images/brand2.jpg'},
+    {image: 'assets/images/brand3.jpg'},
+    {image: 'assets/images/brand4.jpg'},
+    {image: 'assets/images/brand5.jpg'},
+    {image: 'assets/images/brand6.jpg'},
+   
+   
+  ];
 }

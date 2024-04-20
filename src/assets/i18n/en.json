@@ -16,7 +16,7 @@
     "Reset":"Reset",
     "Cart":"Buy",
     "View":"View",
-    "BestSell":"Products With Offer",
+    "BestSell":"Best Selling Products",
     "random":"Random",
     "PriceAsec":"Price : from low to high",
     "PriceDsec":"Price : from high to low",
@@ -33,7 +33,7 @@
     "AddToCart":"Add To Cart",
     "OurBranches":"Our Branches",
     "Port Said Street Branch":"Port Said Branch",
-    "Second":"Obour branch",
+    "Obour branch":"Obour branch",
     "third Branch":"Third Branch",
     "Address":"Address",
     "phone number":"phone number",
@@ -64,7 +64,7 @@
     "Softgo":"Soft Go",
 
     "Multiple and secure payment methods":"Multiple and secure payment methods",
-    "AboutCompany":"About Company",
+    "AboutCompany":"About Us",
     "Exit processing":"check out",
     "BasketProduct":"Products",
     "BasketPrice":"Price",
@@ -138,7 +138,80 @@
     "About the company":"About The Company",
     "Established in 1988 AD":"Established in 1988 AD",
     "Agents with major ceramic, sanitary ware and supplement companies":"Agents with major ceramic, sanitary ware and supplement companies",
-    "Paiement when recieving":"Paiement when recieving"
+    "Paiement when recieving":"Paiement when recieving",
+    "order number":"Order Number",
+    "Not Paid":"Order Total",
+    "Created At": "order date",
+    "Details":"Order Details",
+    "Quantity":"Quantity",
+    "product Name":"product name",
+    "prd Price":"Price",
+    "Reload Data":"Reload Data",
+    "User Orders from branch":"User Orders from branch",
+    "There are no order yet":"There are no order yet",
+    "branch orders":"Branch Orders",
+    "Add complait":"Add complait",
+    "sumbit Complain":"sumbit Complain",
+    "Phone Number":"Phone Number",
+    "Phone Number is required":"Phone Number is required",
+    "Email Address":"Email Address",
+    "invalidEmail":"invalid Email",
+    "Emailmax":"The maximum email limit is 100 characters",
+    "Emailmin":"The minimum number of characters is 10 characters",
+    "Complaint Text is required":"Add a complaint field is required",
+    "invalid Complaint Text":"invalid Complaint Text",
+    "max Complaint Text":"The maximum score for letters is 300",
+    "min Complaint Text":"The minimum number of characters is 20 characters",
+    "Choose Images":"Choose Images",
+    "ProductNameAr":"Product Name",
+    "Product Name is required":"Product Name is required",
+    "Product Request":"Request a product",
+    "Product Name minmum":"The minimum name is 5 characters",
+    "Product Name maxmum":"The maximum name is 20 characters",
+    "Product Descerption is required":"Product Descerption is required",
+    "Product Descerption minmum":"The minimum product description is 5 characters",
+    "Product Descerption maxmum":"The maximum number of characters is 50 characters",
+    "product price":"product price",
+    "product price is required":"product price is required",
+    "product price maxmum":"The maximum price is 5 numbers",
+    "sumbit Order":"sumbit Order",
+    "ProductDescA":"product description",
+    "product price pattern":"Only numbers are allowed",
+    "address Maximum":"The maximum limit is 20 characters",
+    "no products found":"no products found",
+    "Log-Up":"ٌRegister",
+    "Types of products":"Types of products",
+    "What we offer you":"What we offer you",
+    "Favorite":"Favorite",
+    "noPrdFound":"There are no products for this category",
+    "noBrandFound":"There are no products for this Brand",
+    "Porcelain and ceramic":"Porcelain and Ceramic",
+    "Bathroom units":"Bathroom units",
+    "Mosaic":"Mosaic",
+    "Healthy bathroom":"Healthy bathroom",
+    "Accessories":"Accessories",
+    "Mixers":"Mixers"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

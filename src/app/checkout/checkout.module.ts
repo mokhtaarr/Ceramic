@@ -8,12 +8,14 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CheckOutResponseComponent } from './response/check-out-response.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
   declarations: [
     CheckoutComponent,
-    CheckOutResponseComponent
+    CheckOutResponseComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,7 @@ import { CheckOutResponseComponent } from './response/check-out-response.compone
       }
     }),
   ],
-  exports:[CheckOutResponseComponent]
+  exports:[CheckOutResponseComponent,OrdersComponent]
 
 })
 export class CheckoutModule { }

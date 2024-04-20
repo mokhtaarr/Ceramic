@@ -15,7 +15,8 @@ import { ProductCarouselWithCardComponent } from './product-carousel-with-card/p
 import { GetProductByBrandImagesComponent } from './get-product-by-brand-images/get-product-by-brand-images.component';
 import { GetProductByCategoryImageOfferComponent } from './get-product-by-category-image-offer/get-product-by-category-image-offer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import {SwiperModule} from 'swiper/angular'
+import {SwiperModule} from 'swiper/angular';
+import { FavouriteItemsComponent } from './favourite-items/favourite-items.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {SwiperModule} from 'swiper/angular'
     ProductCarouselWithCardComponent,
     GetProductByBrandImagesComponent,
     GetProductByCategoryImageOfferComponent,
+    FavouriteItemsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import {SwiperModule} from 'swiper/angular'
     SwiperModule
 
     ],
-  exports:[ShopComponent,GetProductByBrandImagesComponent,GetProductByCategoryImageOfferComponent]
+  exports:[ShopComponent,GetProductByBrandImagesComponent,GetProductByCategoryImageOfferComponent,
+    ProductCarouselComponent,ProductCarouselWithCardComponent]
 })
 export class ShopModule { }
 

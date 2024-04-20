@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { BasketService } from 'src/app/basket/basket.service';
 import { Product } from 'src/app/shared/models/product';
 import { environment } from 'src/environments/environment';
@@ -18,9 +19,10 @@ export class ProductItemComponent implements OnInit {
   currentCulture: string='ar';
   textDir:string = 'rtl'
   cardProduct:any[]=[]
+  favouritelist : any[]=[]
   
 
-  constructor(private translate: TranslateService,private basketService:BasketService) {
+  constructor(private translate: TranslateService,private basketService:BasketService,public toastr : ToastrService) {
    this.currentCulture = this.translate.currentLang;
   }
 
@@ -42,4 +44,45 @@ export class ProductItemComponent implements OnInit {
    imageChange(event: any){
        this.url = event.target.src;
    }
+
+   addToFavorite(){
+
+    if("favouriteItems" in localStorage){
+      this.favouritelist = JSON.parse(localStorage.getItem("favouriteItems")!)
+      let exist = this.favouritelist.find(prd=>prd.itemCardId == this.product?.itemCardId)
+
+      if(exist){
+        if(this.currentCulture === "ar"){
+          alert("المنتج موجود بالفعل في المفضلة لديك")
+        }
+
+        if(this.currentCulture === 'en'){
+          alert("The product is already in your favourites")
+        }
+      }else{
+        this.favouritelist.push(this.product)
+        localStorage.setItem("favouriteItems",JSON.stringify(this.favouritelist))
+        if(this.currentCulture === "ar"){
+          alert("تم أضافة المنتج الى المفضلة")
+        }
+
+        if(this.currentCulture === 'en'){
+          alert("The product has been added to your favorites")
+        }
+      }
+
+    }else
+    {
+      this.favouritelist.push(this.product)
+      localStorage.setItem("favouriteItems",JSON.stringify(this.favouritelist))
+      if(this.currentCulture === "ar"){
+        alert("تم أضافة المنتج الى المفضلة")
+      }
+
+      if(this.currentCulture === 'en'){
+        alert("The product has been added to your favorites")
+      }
+    }
+   }
+
 }

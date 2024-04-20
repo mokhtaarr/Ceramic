@@ -11,6 +11,8 @@ import { BranchesComponent } from './branches/branches.component';
 import { CompanyComponent } from './company/company.component';
 import { ContactComponent } from './contact/contact.component';
 import { MethodsComponent } from './methods/methods.component';
+import { ProductCarouselComponent } from '../shop/product-carousel/product-carousel.component';
+import { ShopModule } from '../shop/shop.module';
 
 
 
@@ -35,6 +37,8 @@ import { MethodsComponent } from './methods/methods.component';
         deps:[HttpClient]
       }
     }),
+    ShopModule
+  
   ],
   exports:[HomeComponent,BranchesComponent,ContactComponent,MethodsComponent]
 })

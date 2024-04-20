@@ -113,3 +113,13 @@
     background-color: #f44336;
     margin-top: 10px;
   }
+
+  .btn-close {
+    margin-bottom: calc(var(--fc-offcanvas-padding-y)*-.5);
+    margin-right: calc(var(--fc-offcanvas-padding-x)*-.5);
+    margin-top: calc(var(--fc-offcanvas-padding-y)*-.5);
+    padding: calc(var(--fc-offcanvas-padding-y)*.5) calc(var(--fc-offcanvas-padding-x)*.5);
+    font-size: large;
+    margin: 5px;
+
+}

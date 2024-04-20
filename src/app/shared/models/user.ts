@@ -4,6 +4,7 @@ export interface User {
     phoneNumber: string;
     city: string;
     message:string;
+    messageEn:string;
     street: string;
     token: string;
     statu:boolean;

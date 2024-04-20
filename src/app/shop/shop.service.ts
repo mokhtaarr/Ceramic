@@ -15,9 +15,9 @@ import { AllCategory } from '../shared/models/AllCategory';
 export class ShopService {
 
   constructor(private http: HttpClient) { }
-  baseUrl = "https://localhost:7192/api/"
+    //  baseUrl = "https://localhost:7192/api/"
   
-  // baseUrl = "https://eldolia.softgoegypt.com/api/"
+    baseUrl = "https://apibeshay.beshayceramic.com/api/"
 
   
 

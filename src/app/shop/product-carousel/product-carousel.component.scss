@@ -184,33 +184,83 @@
 @import 'swiper/scss/pagination';
 @import 'swiper/css/effect-coverflow';
 
+
+@media (min-width: 1025px) {
+    
+  .mudiem-screen{
+      display: none;
+  }
+
+  .small-screen{
+    display: none;
+  }
+
+  .large-screen{
+      display: block;
+    }
+}
+  /* للشاشات التابلت */
+@media (max-width: 1024px) {
+  .large-screen {
+    display: none;
+  }
+  .small-screen {
+   display: none;
+  }
+  .mudiem-screen{
+      display: block;
+  }
+}
+/* للشاشات الصغيرة */
+@media (max-width: 767px) {
+  .large-screen{
+    display: none;
+  }
+
+  .mudiem-screen{
+      display: none;
+  }
+
+
+  .small-screen{
+    display: block;
+    margin-right: 4px;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
 /* للشاشات الكبيرة */
-@media (min-width: 768px) {
-    .large-screen {
-      display: block;
-    }
-    .small-screen {
-      display: none;
-    }
-  }
+// @media (min-width: 768px) {
+//     .large-screen {
+//       display: block;
+//     }
+//     .small-screen {
+//       display: none;
+//     }
+//   }
   
   
-  /* للشاشات الصغيرة */
-  @media (max-width: 767px) {
-    .large-screen {
-      display: none;
-    }
-    .small-screen {
-      display: block;
-      margin-right: 4px;
-      justify-content: center;
-      .swiper-button-next, .swiper-rtl .swiper-button-prev {
-        right: 10px;
-        left: auto;
-        display: none;
-    }
-    }
-  }
+//   /* للشاشات الصغيرة */
+//   @media (max-width: 767px) {
+//     .large-screen {
+//       display: none;
+//     }
+//     .small-screen {
+//       display: block;
+//       margin-right: 4px;
+//       justify-content: center;
+//       .swiper-button-next, .swiper-rtl .swiper-button-prev {
+//         right: 10px;
+//         left: auto;
+//         display: none;
+//     }
+//     }
+//   }
  
 // .slider-effectCoverflow{
 //     width: 70%;

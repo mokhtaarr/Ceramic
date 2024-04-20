@@ -115,25 +115,28 @@
     </div>
 </div> -->
 
-<div class="main-wrapper">
+<div class="main-wrapper" >
     <div class="container">
         <div class="product-div">
             <div class="product-div-left">
                 <div class="img-container">
-                    <img [src]="ProductImageUrl + product!.taxItemCode" alt="watch">
+                    <img [src]="ProductImageUrl + product?.taxItemCode" alt="watch">
                 </div>
                 <div class="hover-container">
-                    <div><img [src]="ProductImageUrl + product!.imgPath2"></div>
-                    <div><img [src]="ProductImageUrl + product!.imgPath3"></div>
-                    <div><img [src]="ProductImageUrl + product!.imgPath4"></div>
-                    <div><img [src]="ProductImageUrl + product!.imgPath5"></div>
-                    <div><img [src]="ProductImageUrl + product!.imgPath2"></div>
+                    <div ><img [src]="ProductImageUrl + product?.taxItemCode" style="width: 70px;"></div>
+                    <div *ngIf="product?.imgPath2?.length != 0"><img [src]="ProductImageUrl + product?.imgPath2" style="width: 70px;"></div>
+                    <div *ngIf="product?.imgPath3?.length != 0"><img [src]="ProductImageUrl + product?.imgPath3" style="width: 70px;"></div>
+                    <div *ngIf="product?.imgPath4?.length != 0"><img [src]="ProductImageUrl + product?.imgPath4" style="width: 70px;"></div>
+                    <div *ngIf="product?.imgPath5?.length != 0"><img [src]="ProductImageUrl + product?.imgPath5" style="width: 70px;"></div>
+                    <div *ngIf="product?.imgPath6?.length != 0"><img [src]="ProductImageUrl + product?.imgPath6" style="width: 70px;"></div>
                 </div>
             </div>
             <div class="product-div-right">
-                <span class="product-name">{{product!.itemDescA}}</span>
-                <span class="product-name">{{product!.itemDescE}}</span>
-                <span class="product-price">{{product!.firstPrice}}
+                <span class="product-name" *ngIf="currentCulture == 'ar'">{{product?.itemDescA}}</span>
+                <span class="product-name" *ngIf="currentCulture == 'en'">{{product?.itemDescE}}</span>
+                <span class="product-name" *ngIf="currentCulture == 'ar'">{{product?.productDescA}}</span>
+                <span class="product-name" *ngIf="currentCulture == 'en'">{{product?.productDescE}}</span>
+                <span class="product-price">{{product?.firstPrice}}
                     {{'EGP'|translate}}</span>
 
                 <ng-container *ngIf="currentCulture == 'ar'">
@@ -149,18 +152,24 @@
                 </ng-container>
 
                 <div class = "product-rating">
-                    
-                    <span *ngIf="!minsQuantity"> <i class="fa fa-minus-circle text-warning me-2" (click)="decrementQuantity()"
-                        style="cursor: pointer; font-size: 2em;">
-                    </i></span>
-                    <span class="font-weight-bold" style="font-size: 1.5em;padding-left: 7px;"> {{quantity}}</span>
                     <span><i class="fa fa-plus-circle text-warning ms-2" (click)="incrementQuantity()"
                         style="cursor: pointer; font-size: 2em;"></i></span>
                     <span><i class = "fas fa-star-half-alt"></i></span>
+                    
+                    <span class="font-weight-bold" style="font-size: 1.5em;padding-left: 7px;"> {{quantity}}</span>
+
+                    <span *ngIf="!minsQuantity"> <i class="fa fa-minus-circle text-warning me-2" (click)="decrementQuantity()"
+                        style="cursor: pointer; font-size: 2em;">
+                    </i></span>
+
                 </div>
-                <div class="btn-groups">
-                    <button (click)="updateBasket()" [disabled]="quantity === quantityInBasket"
-                        class="btn btn-primary ms-4">{{buttonText}}</button>
+                <div class="btn-groups" *ngIf="currentCulture == 'ar'">
+                    <button (click)="updateBasket()" [disabled]="quantity === quantityInBasket && !minsQuantity"
+                        class="btn btn-primary ms-4" style="background-color: #8c6f4e; border-color: #8c6f4e;">{{buttonTextAr}}</button>
+                </div>
+                <div class="btn-groups" *ngIf="currentCulture == 'en'">
+                    <button (click)="updateBasket()" [disabled]="quantity === quantityInBasket && !minsQuantity"
+                        class="btn btn-primary ms-4" style="background-color: #8c6f4e; border-color: #8c6f4e;" >{{buttonText}}</button>
                 </div>
             </div>
         </div>

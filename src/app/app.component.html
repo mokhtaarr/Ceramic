@@ -1,10 +1,11 @@
 <body dir="{{textDir}}" id="body">
-    <ngx-spinner type="square-jelly-box">
+    <ngx-spinner type="line-scale">
+        <h3 style="color: white;margin-top: 100px;">Welcome to Beshay Ceramic</h3>
     </ngx-spinner>
 
     <div>
         <app-nav-bar></app-nav-bar>
-        <app-shared-basket></app-shared-basket>
+        <app-shared-basket *ngIf="notShopPage == false"></app-shared-basket>
         <!-- <app-section-header></app-section-header> -->
         <div class="container">
             <!-- <app-shop></app-shop> -->

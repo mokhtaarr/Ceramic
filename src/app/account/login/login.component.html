@@ -3,8 +3,11 @@
     <div class="container">
       <div class="row d-flex align-items-center justify-content-center h-100">
         <div class="col-md-8 col-lg-7 col-xl-6">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image"> -->
+            <img src="../../../assets/images/Beshay Logo.png"
             class="img-fluid" alt="Phone image">
+            
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -19,13 +22,37 @@
                 </div>
     
                 <div class="form-floating mt-3">
-                    <input [class.is-invalid]="loginForm.get('password')?.invalid&&loginForm.get('password')?.touched" type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input [class.is-invalid]="loginForm.get('password')?.invalid&&loginForm.get('password')?.touched"
+                    [type]="showPassword ? 'text' : 'password'"
+                      formControlName="password"
+                       class="form-control" id="floatingPassword" placeholder="Password">
+
                     <label for="floatingPassword">{{'Password'|translate}}</label>
                     <div *ngIf="loginForm.get('password')?.errors?.['required']" class="invalid-feedback">{{'password is required'|translate}}</div>
+                </div>
+                <div class="form-check mt-2">
+                  <input class="form-check-input" 
+                         type="checkbox" 
+                         (change)="togglePasswordVisibility()" 
+                         id="showPasswordCheckbox">
+                  <label class="form-check-label" for="showPasswordCheckbox">
+                      {{'Show Password'|translate}}
+                  </label>
+                </div>
+                  <button style="background-color: #8c6f4e; border-color: #8c6f4e;" [disabled]="loginForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit'|translate}}</button>  
+
+                <div style="display: flex;justify-content: space-between;">
+                  <div>
+                    <a class="d-flex justify-content-center mt-3" style="text-decoration: none; border-bottom: 1px solid #0d6efd;" routerLink="/account/register"> {{'Log-Up'|translate}} </a>
                   </div>
-    
-                  <button [disabled]="loginForm.invalid" class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{'sumbit'|translate}}</button>  
+
+                  <div>
+                    <a class="d-flex justify-content-center mt-3 " style="text-decoration: none; border-bottom: 1px solid #0d6efd;" routerLink="/account/forgetPassword"> {{'Reset Password'|translate}} </a>
+                  </div>
+                </div>
+                  
           </form>
+          
         </div>
       </div>
     </div>

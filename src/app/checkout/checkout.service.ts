@@ -4,13 +4,18 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AddCustomer } from '../shared/models/AddCustomerData';
 import { ActivatedRoute } from '@angular/router';
+import { OrderDataDto } from '../shared/models/orderDataDto';
+import { AccountService } from '../account/account.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
 
-  constructor(private http : HttpClient , private route: ActivatedRoute) { }
+  constructor(private http : HttpClient , private route: ActivatedRoute) { 
+
+     
+    }
 
   public CreateCustomer(customer:any):Observable<any>
   {
@@ -31,5 +36,9 @@ export class CheckoutService {
     return data;
   }
 
+  public GetUserOrders(Useremail : string):Observable<OrderDataDto[]>{
+    return this.http.get<OrderDataDto[]>(`${environment.apiUrl}Order/GetUserOrders?email=${Useremail}`);
+
+  }
 
 }

@@ -33,7 +33,7 @@ export class BasketComponent implements OnInit  {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.currentCulture = event.lang;
     });
-
+       
   }
 
 

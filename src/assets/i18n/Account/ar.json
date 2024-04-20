@@ -9,8 +9,8 @@
     "displayName":"الاسم",
     "displayName is required":"الاسم مطلوب",
     "Only letters are allowed":"اسم غير صالح",
-    "Name Minmum":"الحد الادنى للإسم هو 8 حروف",
-    "Name Maximum":"الحد الاقصى للإسم هو 15 حروف",
+    "Name Minmum":"الحد الادنى للإسم هو 3 حروف",
+    "Name Maximum":"الحد الاقصى للإسم هو 20 حرف",
     "Maximum length is 15 characters":"الحد الأقصى للحروف هو 15 حرفًا",
     "Minmum length is 3 characters":"الحد الإدنى للحروف هو 3 حروف",
     "phone Number Count":"رقم الموبايل يجب ان يحتوي علي 11 رقم",
@@ -29,12 +29,19 @@
     "Emailmax":"الحد الاقصي للإيميل هو 50 حرف فقط",
     "Emailmin":"الحد الإدنى للإيميل هو 5 حرف فقط",
     "Show Password":"اظهار كلمه المرور",
-    "password minimum":"الحد الادني للباسورد هو 5",
+    "password minimum":"الحد الادني للباسورد هو 8",
     "password maxnmum":"الحد الاقصي للباسورد هو 20",
     "password pattern":"يجب ان يحتوى الباسورد على حروف و ارقام",
     "Unable to confirm email":"غير قادر على تأكيد البريد الإلكتروني",
     "register":"تسجيل جديد",
-    "validData":"يرجي ادخال بيانات صحيحه لإكمال عمليه التسجيل"
+    "validData":"يرجي ادخال بيانات صحيحه لإكمال عمليه التسجيل",
+    "Reset Password":"نسيت كلمه السر",
+    "send":"ارسال",
+    "change your password" :"تغيير كلمة السر",
+    "save" :"حفظ",
+    "Log-Up":"تسجيل جديد"
+
+
 
 
 

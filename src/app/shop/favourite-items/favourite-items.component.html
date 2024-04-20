@@ -1,0 +1,11 @@
+<div class="row mb-2" *ngIf="products.length === 0" >
+    <div class="alert alert-info" role="alert" style="font-size: 20px;">
+        لا يوجد منتجات مفضله يرجي أضافة البعض
+      </div>
+</div>
+
+<div class="row mb-2" *ngIf="products.length > 0">
+    <div class="col-lg-3 col-sm-12" *ngFor="let product of products">
+        <app-product-item [product]="product"></app-product-item>
+    </div>
+</div>

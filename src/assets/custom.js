@@ -17,7 +17,6 @@ function openNav() {
     sidebar.style.width = "500px";
     sidebar.classList.add("open-animation"); // إضافة فئة لتشغيل التأثير
 
-    console.log("Opening sidebar");
 
     if (window.matchMedia("(max-width: 700px)").matches) {
         sidebar.style.width = "100%";
@@ -30,17 +29,27 @@ function openNav() {
 
   }
 
-  window.onclick = function (event) {
-    var sidebar = document.getElementById("mySidebarBasket");
-    var openButton = document.getElementById("blog");
+//   window.onclick = function (event) {
+//     var sidebar = document.getElementById("mySidebarBasket");
+//     var openButton = document.getElementById("blog");
     
-    if (event.target != sidebar && !sidebar.contains(event.target) && event.target != openButton) {
-        sidebar.style.width = "0";
-        sidebar.classList.remove("open-animation"); // إزالة الفئة لإيقاف التأثير
+//     if (event.target != sidebar && !sidebar.contains(event.target) && event.target != openButton) {
+//         sidebar.style.width = "0";
+//         sidebar.classList.remove("open-animation"); 
+//     }
+// };
 
-    }
+window.onclick = function (event) {
+  var sidebar = document.getElementById("mySidebarBasket");
+  var openButton = document.getElementById("blog");
+
+  if (sidebar && openButton) {
+      if (event.target !== sidebar && !sidebar.contains(event.target) && event.target !== openButton) {
+          sidebar.style.width = "0";
+          sidebar.classList.remove("open-animation");
+      }
+  }
 };
-
 
 
   function ready(){
@@ -54,10 +63,10 @@ function openNav() {
 allHoverImages.forEach((image) => {
     image.addEventListener('mouseover', () =>{
         imgContainer.querySelector('img').src = image.src;
-        resetActiveImg();
         image.parentElement.classList.add('active');
     });
 });
+
 }
 
 

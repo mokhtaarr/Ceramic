@@ -13,9 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   currentLange!:string;
+  showPassword: boolean = false;
 
 
-  constructor(private translate:TranslateService , 
+  constructor(private translate:TranslateService, 
               private i18nservice:I18nServicesService,
               private accountService:AccountService,
               private router:Router,
@@ -45,4 +46,8 @@ export class LoginComponent implements OnInit {
       // next:user=>this.router.navigateByUrl(this.returnUrl)
     })
    }
+
+   togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+}
 }

@@ -1,5 +1,5 @@
 {
-    "Home":"الصفحه الرئيسيه",
+    "Home":"الصفحة الرئيسية",
     "Shop":"تسوق معانا",
     "ContactUs":"تواصل معانا",
     "CallUs" :"اتصل بنـا",
@@ -15,7 +15,7 @@
     "Reset":"اعاده",
     "Cart":"شـراء",
     "View":"عرض",
-    "BestSell":"عروض",
+    "BestSell":"أفضل المنتجات مبيعا",
     "random":"عشوائى",
     "PriceAsec":"السعر : من الادنى الى الاعلى",
     "PriceDsec":"السعر : من الاعلى الى الادنى",
@@ -32,7 +32,7 @@
     "AddToCart":"اضـف الي العربـه",
     "OurBranches":"فروعنـا",
     "Port Said Street Branch":"فرع  بورسعـيد ",
-    "Second":"فرع العبور ",
+    "Obour branch":"فرع العبور",
     "third Branch":"الفرع الثالث",
     "Address":"العنوان",
     "phone number":"رقم الهاتف",
@@ -63,7 +63,7 @@
     "International Ceramic Company 2023© All Rights Reserved":"المتجر الإلكتروني  كل الحقوق محفوظة",
     "Softgo":" سوفت جو",
     "Multiple and secure payment methods":"طرق دفع متعددة وآمنة",
-    "AboutCompany":"عن الشركه",
+    "AboutCompany":"عن الشركة",
     "Exit processing":"تجهيز الخروج",
     "BasketProduct":"المنتجات",
     "BasketPrice":"السعر",
@@ -136,7 +136,68 @@
     "About the company":"نبذه عن الشركه",
     "Established in 1988 AD":"أنشات عام 1988م",
     "Agents with major ceramic, sanitary ware and supplement companies":"وكلاء مع كبري شركات السيراميك و الادوات الصحيه و المكملات",
-    "Paiement when recieving":"الدفع عند الاستلام"
+    "Paiement when recieving":"الدفع عند الاستلام",
+    "order number":"رقم الطلب",
+    "Not Paid":"اجمالى الطلب",
+    "Created At":"تاريخ الطلب",
+    "Details":"تفاصيل الطلب ",
+    "Quantity":"الكميه",
+    "product Name":"اسم المنتج",
+    "prd Price":"السعر",
+    "Reload Data":"اعاده عرض الطلبات",
+    "User Orders from branch":"طلبات المستخدم من الفرع",
+    "There are no order yet":"لا يوجد طلبات حتي الان",
+    "branch orders":"طلبات الفرع",
+    "Add complait":"اضافة شكوى",
+    "sumbit Complain":"تاكيد الشكوى",
+    "Phone Number":"رقم الموبايل",
+    "Phone Number is required":"لا بد من ادخال رقم تليفون",
+    "Email Address":"البريد الالكترونى",
+    "invalidEmail":"بريد الكترونى غير صالح",
+    "Emailmax":"الحد الاقصي للبريد الالكتروني 100 حرف",
+    "Emailmin":"الحد الإدني لعدد الحروف هوا 10 حروف",
+    "Complaint Text is required":"حقل اضافه شكوى مطلوب",
+    "invalid Complaint Text":"نص شكوى غير صالح",
+    "max Complaint Text":"الحد الاقصي للحروف هوا 300 حرف",
+    "min Complaint Text":"الحد الإدني لعدد الحروف هوا 20 حروف",
+    "Choose Images":"اختر صوره",
+    "ProductNameAr":"اسم المنتج",
+    "Product Name is required":"اسم المنتج مطلوب",
+    "Product Request":"طلب منتج",
+    "Product Name minmum":"الحد الادنى للإسم هو 5 حروف",
+    "Product Name maxmum":"الحد الاقصي للاسم هو 20 حرف",
+    "Product Descerption is required":"وصف المنتج مطلوب",
+    "Product Descerption minmum":"الحد الادنى لوصف المنتج هو 5 حروف",
+    "Product Descerption maxmum":"الحد الاقصى للحروف هو 50 حرف",
+    "product price":"سعر المنتج",
+    "product price is required":"سعر المنتج مطلوب",
+    "product price maxmum":"الحد الاقصى للسعر هو 5 ارقام",
+    "sumbit Order":"تاكيد الطلب",
+    "ProductDescA":"وصف المنتج",
+    "product price pattern":"مسموح بكتابه ارقام فقط",
+    "address Maximum":"الحد الاقصى هو 20 حرف",
+    "no products found":"لم يتم العثور على منتجات",
+    "Log-Up":"تسجيل جديد",
+    "Types of products":"أنواع المنتجات",
+    "What we offer you":"ما نقدمه لك",
+    "Favorite":"مفضلة",
+    "noPrdFound":"لا توجد منتجات لهذه الفئة",
+    "noBrandFound":"لا توجد منتجات لهذا البراند",
+    "Porcelain and ceramic":"البورسلين والسيراميك",
+    "Bathroom units":"وحدات الحمام",
+    "Mosaic":"موزايك",
+    "Healthy bathroom":"حمام صحى",
+    "Accessories":"إكسسوارات",
+    "Mixers":"خلاطات"
+
+
+
+
+
+
+
+
+
 
 
 

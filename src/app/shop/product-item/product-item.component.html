@@ -85,24 +85,40 @@
     <div class="discount">{{product.discount}}%</div>
     <!-- <div class="label label-green">Pre-order</div> -->
     <div class="product-container">
-      <div class="p" (click)="imageChange($event)">
-        <img [src]="ProductImageUrl + product.taxItemCode" alt="{{product.itemDescE}}" />
-      </div>
-      <div class="p" (click)="imageChange($event)">
-        <img [src]="ProductImageUrl + product.imgPath6" alt="Product">
-      </div>
-      <div class="p" (click)="imageChange($event)">
-        <img [src]="ProductImageUrl + product.imgPath2" alt="Product">
-      </div>
-      <div class="p" (click)="imageChange($event)">
-        <img [src]="ProductImageUrl + product.imgPath3" alt="Product">
-      </div>
-      <div class="p" (click)="imageChange($event)">
-        <img [src]="ProductImageUrl + product.imgPath4" alt="Product">
-      </div>
-      <div class="p" (click)="imageChange($event)">
-        <img [src]="ProductImageUrl + product.imgPath5" alt="Product">
-      </div>
+      <ng-container>
+        <div class="p" (click)="imageChange($event)" *ngIf="product.imgPath2.length != 0">
+          <img [src]="ProductImageUrl + product.taxItemCode" alt="{{product.itemDescE}}" />
+        </div>
+      </ng-container>
+      <ng-container *ngIf="product.imgPath6.length != 0">
+        <div class="p" (click)="imageChange($event)">
+          <img [src]="ProductImageUrl + product.imgPath6" alt="Product">
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="product.imgPath2.length != 0">
+        <div class="p" (click)="imageChange($event)">
+          <img [src]="ProductImageUrl + product.imgPath2" alt="Product">
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="product.imgPath3.length != 0">
+        <div class="p" (click)="imageChange($event)">
+          <img [src]="ProductImageUrl + product.imgPath3" alt="Product">
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="product.imgPath4.length != 0">
+        <div class="p" (click)="imageChange($event)">
+          <img [src]="ProductImageUrl + product.imgPath4" alt="Product">
+        </div>
+      </ng-container>
+      <ng-container *ngIf="product.imgPath5.length != 0">
+        <div class="p" (click)="imageChange($event)">
+          <img [src]="ProductImageUrl + product.imgPath5" alt="Product">
+        </div>
+      </ng-container>
+
     </div>
     <div class="image">
       <img style="width: 100%; height: 300px; object-fit: fill;" src="{{url}}" alt="Product">
@@ -114,11 +130,15 @@
           {{'Cart'|translate}}</li>
         <li><a style="text-decoration: none;color:  white;" routerLink="/shop/{{product.itemCardId}}"><i
               class="fa fa-eye"></i> {{'View'|translate}}</a></li>
+
+        <li style="color: white;cursor: pointer;" (click)="addToFavorite()"><i class="fa fa-heart"></i>
+
+          {{'Favorite'|translate}}</li>
       </ul>
     </div>
   </div>
   <div class="content">
-    <div  style="max-height: 137px; max-width: 273px;margin-right: 12px;">
+    <div style="max-height: 137px; max-width: 273px;margin-right: 12px;">
       <a *ngIf="currentCulture == 'ar'" href="javascript:void(0);" style="text-decoration: none;">
         {{product.itemDescA}}
       </a>
@@ -133,13 +153,15 @@
       </a>
     </div> -->
 
-    <div class="rating">
+    <!-- <div class="rating">
       <i class="fa fa-star-o"></i>
       <i class="fa fa-star-o"></i>
       <i class="fa fa-star-o"></i>
       <i class="fa fa-star-o"></i>
       <i class="fa fa-star-o"></i>
-    </div>
+    </div> -->
+
+    
     <p><span class="price-old">{{product.totalCost}} {{'EGP'|translate}}</span> <span class="money"
         style="color: black;">{{product.firstPrice}} {{'EGP'|translate}}</span></p>
   </div>

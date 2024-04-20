@@ -14,6 +14,7 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StepperComponent } from './components/stepper/stepper.component';
 import {CdkStepperModule} from '@angular/cdk/stepper';
+import { ComplaintsComponent } from './complaints/complaints.component';
 
 
 
@@ -24,7 +25,8 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     PagerComponent,
     OrderTotalsComponent,
     ScrollToTopButtonComponent,
-    StepperComponent
+    StepperComponent,
+    ComplaintsComponent
   ],
   imports: [
     CommonModule,

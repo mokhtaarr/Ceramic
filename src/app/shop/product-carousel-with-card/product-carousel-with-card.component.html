@@ -1,6 +1,63 @@
-<div id="mySidenav" class="sidenav">
-    <a href="#" id="about">About</a>
-    <a href="#" id="blog">Blog</a>
-    <a href="#" id="projects">Projects</a>
-    <a href="#" id="contact">Contact</a>
+<div class=" mt-5 text-center">
+  <h4 class="display-5">{{'OurBrands'|translate}}</h4>
 </div>
+
+
+  <div class="large-screen2 mt-5">
+    <swiper
+    [effect]="'slide'"
+    [spaceBetween]="5" 
+    [slidesPerView]="5"
+    [dir]="'RTL'"
+    class="mySwiper"
+    [navigation]="true"
+
+  >
+    <ng-template  swiperSlide *ngFor="let brand of Brands">
+      <div>
+        <img  (click)="goToBrandProducts(brand.brandId)" [src]="imagePath + brand.imagePath"  style="cursor: pointer;height: 200px; width: 200px;" />
+      </div>
+    </ng-template>
+    
+
+   </swiper>
+  </div>
+
+  <div class="mudiem-screen2">
+    <swiper
+    [effect]="'slide'"
+    [spaceBetween]="5" 
+    [slidesPerView]="3"
+    [dir]="'RTL'"
+    class="mySwiper"
+    [navigation]="true"
+
+    >
+    <ng-template  swiperSlide *ngFor="let brand of Brands">
+      <div>
+        <img (click)="goToBrandProducts(brand.brandId)" [src]="imagePath + brand.imagePath"  style="cursor: pointer;height: 200px; width: 200px;" />
+      </div>
+    </ng-template>
+    </swiper>
+  </div>
+  
+
+  <div class="small-screen2">
+    <swiper
+    [effect]="'slide'"
+    [spaceBetween]="5" 
+    [slidesPerView]="2"
+    [dir]="'RTL'"
+    class="mySwiper"
+    [navigation]="true"
+
+    >
+    <ng-template  swiperSlide *ngFor="let brand of Brands">
+      <div>
+        <img (click)="goToBrandProducts(brand.brandId)" [src]="imagePath + brand.imagePath"  style="cursor: pointer;height: 200px; width: 200px;padding: 10%;" />
+      </div>
+    </ng-template>
+    </swiper>
+  </div>
+  
+  

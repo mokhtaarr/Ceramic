@@ -1,16 +1,23 @@
-<ng-container *ngIf="(basketService.basketSource$ | async) != null ">
+<ng-container *ngIf="(basketService.basketSource$ | async) as basket">
   
-  <div id="mySidenav" class="sidenav">
-    <a id="blog" onclick="openNavBasket()" style="cursor: pointer;"><i class="fa fa-shopping-cart text-white"></i>
-      {{'shopping basket'|translate}}
-    </a>
- </div>
-
+    <div id="mySidenav" class="sidenav" *ngIf="getCount(basket.items) > 0">
+        <a id="blog" onclick="openNavBasket()" style="cursor: pointer;">
+          <span>
+            <i class="fa fa-shopping-cart text-white" *ngIf="currentCulture == 'en'" style="float: inline-end;"></i>
+            <i class="fa fa-shopping-cart text-white" *ngIf="currentCulture == 'ar'"></i>
+          </span>
+          {{'shopping basket'|translate}}
+        </a>
+    </div>
 <!-- side bar for basket  -->
 
 <div id="mySidebarBasket" class="sidebar shadow-sm">
-    <a href="javascript:void(0)" style="z-index: 1;position: sticky;color: #f44336;" class="closebtn" onclick="closeNavBasket()" ><i class="fa fa-window-close" aria-hidden="true"></i>
-    </a>
+    <div style="direction: rtl;">
+        <a href="javascript:void(0)"  class="btn-close" style="font-size: large;margin: 2px;" onclick="closeNavBasket()" >
+        </a>
+    </div>
+
+    
     <!-- <button type="button" class="btn-close text-reset" style="padding: 0px; margin: 0px;margin-right: 10px;" onclick="closeNavBasket()"></button> -->
 
     <ng-container *ngIf="(basketService.basketSource$ | async) as basket">
@@ -30,11 +37,14 @@
                         <div class="d-flex justify-content-between">
                             <p class="card-text mt-1"> {{'sbPrice'|translate}}: <strong>{{item.price}}</strong></p>
 
-                            <p class="card-text">{{'sbquantity'|translate}} : <i class="fa fa-minus-circle text-warning"
-                                    (click)="removeItem(item.basketItemId,1)"
-                                    style="cursor: pointer; font-size: 20px;"></i>
+                            <p class="card-text">{{'sbquantity'|translate}} : 
+                                <i class="fa fa-plus-circle text-warning" (click)="incrementQuantity(item)"
+                                style="cursor: pointer; font-size: 20px;"></i>
+
                                 <strong style="font-size: 1.3em;"> {{item.quantity}}</strong>
-                                <i class="fa fa-plus-circle text-warning mx-1" (click)="incrementQuantity(item)"
+
+                               <i class="fa fa-minus-circle text-warning mx-1"
+                                    (click)="removeItem(item.basketItemId,1)"
                                     style="cursor: pointer; font-size: 20px;"></i>
                             </p>
                         </div>
@@ -53,7 +63,7 @@
     </ng-container>
 
     <hr>
-    <div class="d-flex justify-content-evenly mb-4" *ngIf="(basketService.basketTotalSource$ | async) as Totals" >
+    <div class="d-flex justify-content-between m-2" *ngIf="(basketService.basketTotalSource$ | async) as Totals" >
       <p><strong>{{'Your total purchases'|translate}} :  {{Totals.total}} </strong></p>
       <button  class="btn btn-outline-primary" onclick="closeNavBasket()">{{'Continue shopping'|translate}}</button>
     </div>

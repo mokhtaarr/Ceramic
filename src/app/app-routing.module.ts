@@ -13,6 +13,10 @@ import { CompanyComponent } from './home/company/company.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { MethodsComponent } from './home/methods/methods.component';
 import { CheckOutResponseComponent } from './checkout/response/check-out-response.component';
+import { OrdersComponent } from './checkout/orders/orders.component';
+import { USerComplaintsComponent } from './core/user-complaints/user-complaints.component';
+import { RequestProductComponent } from './core/request-product/request-product.component';
+import { PreventGuard } from './core/guards/prevent.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -27,16 +31,28 @@ const routes: Routes = [
   {path:'shop',loadChildren:()=>import('./shop/shop.module').then(m=>m.ShopModule)},
   {path:'basket',loadChildren:()=>import('./basket/basket.module').then(m=>m.BasketModule)},
   // {path:'shop/:id',component:ProductDetailsComponent},
-  {path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
+  {
+    path: 'account',
+    canActivate:[PreventGuard],
+    loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
+
+
+
   {
     path: 'checkout',
     canActivate:[AuthGuard],
     loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)
   },
+
+
   {path:'test',component:TestComponent},
   {path:'logo',component:LoginComponent},
   {path:'Company',component:CompanyComponent},
   {path:'CheckOutResponse',component:CheckOutResponseComponent},
+  {path:'orders',component:OrdersComponent},
+  {path:'complain',component:USerComplaintsComponent},
+  {path:'ProductRequest',component:RequestProductComponent},
+
 
 
 
